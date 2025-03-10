@@ -1,0 +1,23 @@
+{
+  "name": "frontend",
+  "version": "1.0.0",
+  "description": "front-end do projeto desenvolvido na sptech pelo grupo \"simbiosys\"",
+  "homepage": "https://github.com/projeto-simbiosys/FrontEnd#readme",
+  "bugs": {
+    "url": "https://github.com/projeto-simbiosys/FrontEnd/issues"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/projeto-simbiosys/FrontEnd.git"
+  },
+  "license": "ISC",
+  "author": "",
+  "type": "commonjs",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "dependencies": {
+    "json-server": "^1.0.0-beta.3"
+  }
+}
