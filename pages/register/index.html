@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Simbiosys - Login</title>
+    <title>Simbiosys - Cadastro</title>
     <link rel="stylesheet" href="../../main.css">
     <link rel="stylesheet" href="./style.css">
 </head>
@@ -15,25 +15,37 @@
             <div id="modal_body">Text Body</div>
         </div>
 
-        <h1>Faça login com sua conta</h1>
+        <h1>Crie sua conta agora</h1>
 
         <form>
+
+            <label>
+                Nome:
+                <input type="text" name="name" id="ipt_name">
+                <span></span>
+            </label>
+
             <label>
                 E-mail:
                 <input type="text" name="email" id="ipt_email">
+                <span></span>
             </label>
 
             <label>
                 Senha:
                 <input type="password" name="password" id="ipt_password">
+                <span>A senha deve ter no minimo 8 caracteres</span>
             </label>
 
             <button id="buttonSubmit" type="submit">Entrar</button>
         </form>
 
-        <p>Não possui conta? <a href="../register/index.html">cadastre-se aqui</a></p>
+        <p>Já possui conta? <a href="../login/index.html">faça login aqui</a></p>
     </main>
     
+    <script src="../../utils/input.js"></script>
+    <script src="../../utils/email.js"></script>
+    <script src="../../utils/password.js"></script>
     <script src="./index.js"></script>
 </body>
 </html>
