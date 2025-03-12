@@ -2,6 +2,7 @@ const buttonSubmit = document.querySelector('#buttonSubmit');
 const iptName = document.querySelector('#ipt_name');
 const iptEmail = document.querySelector('#ipt_email');
 const iptPassword = document.querySelector('#ipt_password');
+const iptPasswordConfirm = document.querySelector('#ipt_password_confirm');
 
 buttonSubmit.addEventListener('click', event => {
     event.preventDefault();
@@ -19,7 +20,8 @@ const inputErrorMessages = {
     password: {
         isEmpty: 'Senha é obrigatória',
         passwordLengthIsinvalid: 'Deve ter no mínimo 8 caracteres',
-        passwordHasNoSpecialCharacter: 'Deve ter no mínimo 1 caractereespecial'
+        passwordHasNoSpecialCharacter: 'Deve ter no mínimo 1 caractereespecial',
+        passwordIsNotEqual: 'As senhas devem ser iguais'
     }
 }
 
@@ -27,13 +29,14 @@ function handleRegister() {
     const { isNameValid, errorName } = validateName(iptName);
     const { isEmailValid, errorEmail } = validateEmail(iptEmail);
     const { isPasswordValid, errorPassword } = validatePassword(iptPassword);
+    const { isPasswordConfirmValid, errorPasswordConfirm } = validatePasswordConfirm(iptPassword, iptPasswordConfirm);
 
     showErrorMessage(iptName, errorName);
     showErrorMessage(iptEmail, errorEmail);
     showErrorMessage(iptPassword, errorPassword);
+    showErrorMessage(iptPasswordConfirm, errorPasswordConfirm);
 
-    console.log(isNameValid, isEmailValid, isPasswordValid);
-    if(isNameValid && isEmailValid && isPasswordValid){
+    if(isNameValid && isEmailValid && isPasswordValid && isPasswordConfirmValid){
         const newUser = {
             name: iptName.value,
             email: iptEmail.value,
@@ -92,6 +95,13 @@ function validatePassword(iptPassword) {
     }
 
     return { isPasswordValid: !isPasswordEmpty && passwordLengthIsValid && passwordHasSpecialCharacter, errorPassword };
+}
+
+function validatePasswordConfirm(iptPassword, iptPasswordConfirm) {
+    const isSamePassword = iptPassword.value === iptPasswordConfirm.value;
+    const errorPasswordConfirm = isSamePassword ? "" : inputErrorMessages.password.passwordIsNotEqual;
+
+    return { isPasswordConfirmValid: isSamePassword, errorPasswordConfirm };
 }
 
 function showErrorMessage(element, message) {

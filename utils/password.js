@@ -1,7 +1,3 @@
-function validatePassword(password) {
-    return hasValidLength(password) && hasSpecialCharacter(password);
-}
-
 function hasValidLength(password) {
     return password.length >= 8;
 }
