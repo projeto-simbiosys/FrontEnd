@@ -25,7 +25,7 @@ const inputErrorMessages = {
     }
 }
 
-function handleRegister() {
+async function handleRegister() {
     const { isNameValid, errorName } = validateName(iptName);
     const { isEmailValid, errorEmail } = validateEmail(iptEmail);
     const { isPasswordValid, errorPassword } = validatePassword(iptPassword);
@@ -43,7 +43,12 @@ function handleRegister() {
             password: iptPassword.value
         }
 
-        console.log("conta cadastrada: ", newUser);
+        const res = await createUser(newUser);
+        res.ok ? showNotification("success", "Usuário criado com sucesso!") : showNotification("error", "Erro ao criar usuário!");
+        
+        setTimeout(() => {
+            window.location.href = "../login/index.html";
+        }, 2000);
     }
 }
 
