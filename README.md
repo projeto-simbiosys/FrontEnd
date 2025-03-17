@@ -1,4 +1,4 @@
-# STAYIN - FrontEnd
+# SIMBIOSYS - FrontEnd
 
 ### Como Rodar o Projeto:
 1° instale os pacotes necessarios com o NPM
