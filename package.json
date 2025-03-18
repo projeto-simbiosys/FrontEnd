@@ -16,9 +16,11 @@
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "server": "json-server -p 8080 db.json"
+    "server": "json-server -p 8080 db.json",
+    "dev": "http-server -d -o pages/login -p 5173"
   },
   "dependencies": {
+    "http-server": "^14.1.1",
     "json-server": "^1.0.0-beta.3"
   }
 }
