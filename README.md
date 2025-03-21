@@ -1,12 +1,24 @@
-# React + Vite
+# SIMBIOSYS - Front-End
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+### Componentes existentes:
 
-Currently, two official plugins are available:
+**Button:**
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+O componente Button é um botão versátil com diversas variações de estilo.
 
-## Expanding the ESLint configuration
+Para utilizá-lo, basta chamar a tag \<Button> com o fechamento apropriado \<\Button>.
 
-If you are developing a production application, we recommend using TypeScript and enable type-aware lint rules. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+**Props:**
+
+- variant:
+  define a aparência e o estilo do botão. <br>
+  Aceita os seguintes valores:
+
+1. "inst-primary": Para botões primários com destaque visual.
+2. "inst-secondary": Para botões secundários, com bordas.
+3. "inst-light": Para botões com estilo de texto simples, sem bordas.
+4. "inst-link": Para botões que parecem links.
+   <br>
+   <br>
+
+- children: define o conteúdo do botão, que será exibido dentro dele.

@@ -1,7 +1,7 @@
 function App() {
   return (
     <>
-      <p className="text-blue-500">Olá, Simbiosys</p>
+      <p className="text-main">Olá, Simbiosys</p>
     </>
   );
 }
