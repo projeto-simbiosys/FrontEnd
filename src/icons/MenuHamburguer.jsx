@@ -1,4 +1,4 @@
-const ArrowLeftIcon = ({ ...props }) => (
+const MenuHamburguerIcon = props => (
   <svg
     {...props}
     xmlns="http://www.w3.org/2000/svg"
@@ -6,13 +6,13 @@ const ArrowLeftIcon = ({ ...props }) => (
     viewBox="0 0 24 24"
   >
     <path
-      stroke="#005C99"
+      stroke="#9933FF"
       strokeLinecap="round"
       strokeLinejoin="round"
       strokeWidth="2"
-      d="M6 12h12m0 0-5-5m5 5-5 5"
+      d="M4 6h16M4 12h16M4 18h16"
     ></path>
   </svg>
 );
 
-export default ArrowLeftIcon;
+export default MenuHamburguerIcon;

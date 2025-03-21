@@ -2,6 +2,8 @@
 
 ### Componentes existentes:
 
+<br>
+
 **Button:**
 
 O componente Button é um botão versátil com diversas variações de estilo.
@@ -22,3 +24,15 @@ Para utilizá-lo, basta chamar a tag \<Button> com o fechamento apropriado \<\Bu
    <br>
 
 - children: define o conteúdo do botão, que será exibido dentro dele.
+
+<br>
+
+**Menu hamburguer:**
+
+O componente Menu Hamburguer é um botão que ao ser clicar abrirá uma sidebar lateral à direita da tela.
+
+Para utilizá-lo, basta chamar a tag \<MenuHamburguer> com o fechamento apropriado \<\MenuHamburguer>.
+
+**Props:**
+
+- children: define o conteúdo do menu hamburguer, que será exibido dentro da sidebar lateral.
