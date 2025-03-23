@@ -1,9 +1,8 @@
 # SIMBIOSYS - FrontEnd
-
-Seja bem vindo ao SimbioSys, uma plataforma de auxilio no cadastro para as instituições sociais! 💙 Nosso objetivo é conectar organizações que cuidam de pessoas em situação de vulnerabilidade a recursos, voluntários e oportunidades que fazem a diferença. Este README irá guiá-lo através das funcionalidades do nosso projeto frontend.
+Bem vindo ao SimbioSys, uma plataforma de auxilio no cadastro para as instituições sociais! 💙 Nosso objetivo é conectar organizações que cuidam de pessoas em situação de vulnerabilidade a recursos, voluntários e oportunidades que fazem a diferença. Este README irá guiá-lo através das funcionalidades do nosso projeto frontend.
 
 <p align="center">
-  <img src="assets/simbiosys.png" alt="Simbiosys Logo">
+  <img src="https://imgur.com/6s2lH3n" alt="Simbiosys Logo">
 </p>
 
 ### Como Rodar o Projeto:
