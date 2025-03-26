@@ -1,9 +1,8 @@
+import { Routes } from "react-router";
+import UserRoutes from "./routes/User";
+
 function App() {
-  return (
-    <>
-      <p className="text-main">Olá, Simbiosys</p>
-    </>
-  );
+  return <UserRoutes />;
 }
 
 export default App;
