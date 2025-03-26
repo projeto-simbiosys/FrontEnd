@@ -46,3 +46,15 @@ Para utilizá-lo, basta chamar a tag \<Header> com o fechamento apropriado \<\He
 **Props:**
 
 - children: define o conteúdo do cabeçalho, que será exibido à direita.
+
+---
+
+<br>
+
+**Footer:** O componente Footer é um rodapé versátil com o seu conteudo sendo de livre escolha de quem implementa-lo.
+
+Para utilizá-lo, basta chamar a tag \<Footer> com o fechamento apropriado \<\Footer>.
+
+**Props:**
+
+- children: define o conteúdo do rodapé, que será exibido entre a logo e as redes sociais.
