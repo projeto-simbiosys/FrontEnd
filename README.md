@@ -4,9 +4,7 @@
 
 <br>
 
-**Button:**
-
-O componente Button é um botão versátil com diversas variações de estilo.
+**Button:** O componente Button é um botão versátil com diversas variações de estilo.
 
 Para utilizá-lo, basta chamar a tag \<Button> com o fechamento apropriado \<\Button>.
 
@@ -25,14 +23,26 @@ Para utilizá-lo, basta chamar a tag \<Button> com o fechamento apropriado \<\Bu
 
 - children: define o conteúdo do botão, que será exibido dentro dele.
 
+---
+
 <br>
 
-**Menu hamburguer:**
-
-O componente Menu Hamburguer é um botão que ao ser clicar abrirá uma sidebar lateral à direita da tela.
+**Menu hamburguer:** O componente Menu Hamburguer é um botão que ao ser clicar abrirá uma sidebar lateral à direita da tela.
 
 Para utilizá-lo, basta chamar a tag \<MenuHamburguer> com o fechamento apropriado \<\MenuHamburguer>.
 
 **Props:**
 
 - children: define o conteúdo do menu hamburguer, que será exibido dentro da sidebar lateral.
+
+---
+
+<br>
+
+**Header:** O componente Header é um cabeçalho versátil com o seu conteudo sendo de livre escolha de quem implementa-lo.
+
+Para utilizá-lo, basta chamar a tag \<Header> com o fechamento apropriado \<\Header>.
+
+**Props:**
+
+- children: define o conteúdo do cabeçalho, que será exibido à direita.
