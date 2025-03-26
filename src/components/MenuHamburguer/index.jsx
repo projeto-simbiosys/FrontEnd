@@ -3,7 +3,7 @@ import MenuHamburguerIcon from "../../icons/MenuHamburguer";
 import useSidebar from "./useSidebar";
 import logo from "/logo-horizontal.png";
 
-export default function MenuHamburguer({ children }) {
+export default function MenuHamburguer({ children, ...props }) {
   const { visibilityOverlay, visibilityMenu, handleClick } = useSidebar();
 
   return (
@@ -12,7 +12,7 @@ export default function MenuHamburguer({ children }) {
         className={`w-screen h-screen fixed top-0 bg-black ${visibilityOverlay} duration-50 ease-in-out`}
         onClick={handleClick}
       ></div>
-      <button onClick={handleClick}>
+      <button onClick={handleClick} {...props}>
         <MenuHamburguerIcon width={32} height={32} />
       </button>
       <div
