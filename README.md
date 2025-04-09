@@ -1,4 +1,5 @@
 # SIMBIOSYS - FrontEnd
+
 Bem vindo ao SimbioSys, uma plataforma de auxilio no cadastro para as instituições sociais! 💙 Nosso objetivo é conectar organizações que cuidam de pessoas em situação de vulnerabilidade a recursos, voluntários e oportunidades que fazem a diferença. Este README irá guiá-lo através das funcionalidades do nosso projeto frontend.
 
 <p align="center">
@@ -19,10 +20,20 @@ Para utilizá-lo, basta chamar a tag \<Button> com o fechamento apropriado \<\Bu
   define a aparência e o estilo do botão. <br>
   Aceita os seguintes valores:
 
+<br>
+
+_Institucional:_
+
 1. "inst-primary": Para botões primários com destaque visual.
 2. "inst-secondary": Para botões secundários, com bordas.
 3. "inst-light": Para botões com estilo de texto simples, sem bordas.
 4. "inst-link": Para botões que parecem links.
+
+_sistema:_
+
+5. "sys-primary": Para botões primários com destaque visual.
+6. "sys-secondary": Para botões secundários, com bordas.
+7. "sys-light": Para botões com estilo de texto simples, sem bordas.
    <br>
    <br>
 

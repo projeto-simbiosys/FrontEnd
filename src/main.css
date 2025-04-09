@@ -2,6 +2,7 @@
 
 @theme {
   --color-main: oklch(46.26% 0.1229 247.45);
+  --color-sys-main: oklch(0.27 0.181 265.37);
   --color-secondary: oklch(58.17% 0.2729 300.23);
   --color-white: oklch(97.91% 0 0);
   --color-divider: oklch(32.11% 0 0);
