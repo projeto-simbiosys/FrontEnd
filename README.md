@@ -74,3 +74,28 @@ Para utilizá-lo, basta chamar a tag \<Footer> com o fechamento apropriado \<\Fo
 **Props:**
 
 - children: define o conteúdo do rodapé, que será exibido entre a logo e as redes sociais.
+
+---
+
+<br>
+
+**Tabs:**
+O componente Tabs é um conjunto de abas versátil com o seu conteudo sendo de livre escolha de quem implementa-lo.
+
+Para utilizá-lo, basta chamar a tag \<Tabs> com o fechamento apropriado \<\Tabs>.
+
+**Props:**
+
+- orientation:
+  define a orientação dos elementos dentro do componente.<br>
+  Aceita os seguintes valores:
+
+<br>
+
+1. horizontal (padrão): alinha os elementos na horizontal.
+2. vertical: alinha os elementos na vertical.
+
+<br>
+<br>
+
+- children: define o conteúdo do componente, que será exibido dentro dele.
