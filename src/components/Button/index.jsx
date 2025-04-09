@@ -6,6 +6,7 @@ export default function Button({ variant, children, ...props }) {
     "inst-light": "bg-white text-main",
     "inst-link":
       "bg-transparent text-main !px-[0px] !py-[0px] shadow-none underline",
+    "sys-primary": "bg-sys-main text-white",
   };
 
   return (
