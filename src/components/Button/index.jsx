@@ -9,7 +9,7 @@ export default function Button({ variant, children, ...props }) {
       "bg-white text-sys-main border border-solid border-sys-main",
 
     "inst-light": "bg-white text-main",
-    "sys-light": "text-sys-main",
+    "sys-light": "text-sys-main shadow-none",
 
     "inst-link":
       "bg-transparent text-main !px-[0px] !py-[0px] shadow-none underline",
