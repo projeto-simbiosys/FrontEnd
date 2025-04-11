@@ -1,5 +1,6 @@
 import Button from "../../components/Button";
 import Input from "../../components/Input";
+import Select from "../../components/Select";
 import ArrowRight from "../../icons/ArrowRight";
 import Logo from "/logo-sistema.png";
 
@@ -43,6 +44,10 @@ export default function Register() {
               type="text"
             />
           </label>
+
+          <Select>
+            <option value="teste">Teste 01</option>
+          </Select>
         </div>
       </div>
     </div>
