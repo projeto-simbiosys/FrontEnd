@@ -3,10 +3,18 @@
 @theme {
   --color-main: oklch(46.26% 0.1229 247.45);
   --color-sys-main: oklch(0.27 0.181 265.37);
+
   --color-secondary: oklch(58.17% 0.2729 300.23);
+  --color-sys-secondary: oklch(0.59 0.0993 245.74);
+
+  --color-sys-tertiary: oklch(0.86 0.0489 219.65);
+
   --color-white: oklch(97.91% 0 0);
   --color-divider: oklch(32.11% 0 0);
   --shadow-button: 0 3px 8px rgba(0, 0, 0, 0.24);
+
+  --color-gray-disabled: oklch(0.79 0 0);
+  --color-gray-detail-disabled: oklch(0.36 0 0);
 
   --breakpoint-lg: 72rem;
 }
