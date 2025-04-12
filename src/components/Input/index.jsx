@@ -14,7 +14,7 @@ export default function Input({ hasError = false, ...props }) {
       <input
         {...props}
         type={input.type}
-        className={`${
+        className={`w-full  ${
           hasError ? "text-red-700" : "text-sys-main"
         } disabled:text-gray-detail-disabled disabled:cursor-not-allowed flex bg-transparent text-base placeholder-sys-main/40`}
       />
