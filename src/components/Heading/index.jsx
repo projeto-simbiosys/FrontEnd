@@ -1,17 +1,19 @@
-export default function Typography({
-  size,
+export default function Heading({
+  level,
   weight,
   children,
   className,
   ...props
 }) {
-  const sizeMapping = {
-    xs: "text-xs",
-    sm: "text-sm",
-    base: "text-base",
-    lg: "text-lg",
-    xl: "text-xl",
-    "2xl": "text-2xl",
+  const Tag = `h${level}`;
+
+  const headingSizes = {
+    1: "text-4xl",
+    2: "text-3xl",
+    3: "text-2xl",
+    4: "text-xl",
+    5: "text-lg",
+    6: "text-base",
   };
 
   const weightMapping = {
@@ -24,11 +26,11 @@ export default function Typography({
   };
 
   return (
-    <span
-      className={`${sizeMapping[size]} ${weightMapping[weight]} ${className}`}
+    <Tag
+      className={`${weightMapping[weight]} ${headingSizes[level]} ${className}`}
       {...props}
     >
       {children}
-    </span>
+    </Tag>
   );
 }
