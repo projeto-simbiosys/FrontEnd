@@ -1,10 +1,15 @@
 import Button from "../../components/Button";
 import Input from "../../components/Input";
 import Select from "../../components/Select";
+import Heading from "../../components/Heading";
+import Typography from "../../components/Typography";
+import useTitlePage from "../../hooks/useTitlePage";
 import ArrowRight from "../../icons/ArrowRight";
 import Logo from "/logo-sistema.png";
 
 export default function Register() {
+  useTitlePage("simbiosys | cadastro");
+
   return (
     <div className="flex flex-col gap-6 px-4 py-12 bg-gradient-to-tl from-sys-tertiary to-sys-secondary">
       <Button variant="inst-link">
@@ -16,17 +21,23 @@ export default function Register() {
         <img src={Logo} alt="logo da empresa" className="h-7" />
 
         <div>
-          <h1 className="text-2xl font-semibold text-center text-sys-main">
+          <Heading
+            level={3}
+            weight="bold"
+            className="text-sys-main text-center"
+          >
             Cadastre-se
-          </h1>
-          <p className="text-base text-center text-black">
+          </Heading>
+          <Typography size="base" weight="normal">
             Crie uma conta para continuar
-          </p>
+          </Typography>
         </div>
 
         <div className="w-full flex flex-col gap-2.5">
           <label>
-            <span className="text-sm font-semibold">Nome:</span>
+            <Typography size="sm" weight="semibold">
+              Nome:
+            </Typography>
             <Input
               disabled={false}
               hasError={false}
@@ -36,7 +47,9 @@ export default function Register() {
           </label>
 
           <label>
-            <span className="text-sm font-semibold">Sobrenome:</span>
+            <Typography size="sm" weight="semibold">
+              Sobrenome:
+            </Typography>
             <Input
               disabled={false}
               hasError={false}
@@ -45,10 +58,58 @@ export default function Register() {
             />
           </label>
 
-          <Select>
-            <option value="teste">Teste 01</option>
-          </Select>
+          <label>
+            <Typography size="sm" weight="semibold">
+              Cargo:
+            </Typography>
+            <Select>
+              <option value="#">Escolha um cargo</option>
+              <option value="assistente">Assistente Social</option>
+            </Select>
+          </label>
+
+          <label>
+            <Typography size="sm" weight="semibold">
+              E-Mail:
+            </Typography>
+            <Input
+              disabled={false}
+              hasError={false}
+              placeholder="Digite seu email..."
+              type="text"
+            />
+          </label>
+
+          <label>
+            <Typography size="sm" weight="semibold">
+              Senha:
+            </Typography>
+            <Input
+              disabled={false}
+              hasError={false}
+              placeholder="Digite uma senha..."
+              type="password"
+            />
+          </label>
+
+          <label>
+            <Typography size="sm" weight="semibold">
+              Confirmação da Senha:
+            </Typography>
+            <Input
+              disabled={false}
+              hasError={false}
+              placeholder="Confirme sua senha..."
+              type="password"
+            />
+          </label>
         </div>
+
+        <Button variant="sys-primary">Cadastrar</Button>
+
+        <p className="flex gap-1.5">
+          Já tem uma conta? <Button variant="inst-link">Entre aqui</Button>
+        </p>
       </div>
     </div>
   );
