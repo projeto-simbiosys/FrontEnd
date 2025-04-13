@@ -7,9 +7,13 @@ import useTitlePage from "../../hooks/useTitlePage";
 import ArrowRight from "../../icons/ArrowRight";
 import Logo from "/logo-sistema-horizontal.png";
 import { Link } from "react-router-dom";
+import useRegister from "./hook";
+import Warning from "../../icons/Warning";
+import InputError from "../../components/InputError";
 
 export default function Register() {
   useTitlePage("simbiosys | cadastro");
+  const { form } = useRegister();
 
   return (
     <div className="flex flex-col items-center gap-6 px-4 py-12 md:py-16 lg:p-0 bg-gradient-to-tl from-sys-tertiary to-sys-secondary">
@@ -67,17 +71,24 @@ export default function Register() {
           </p>
         </div>
 
-        <form className="w-full lg:max-w-3xl flex flex-col gap-2.5 lg:gap-5 lg:px-20 lg:h-screen lg:justify-center lg:mx-auto">
+        <form
+          onSubmit={form.handleSubmit(form.onSubmit)}
+          className="w-full lg:max-w-3xl flex flex-col gap-2.5 lg:gap-3 lg:px-20 lg:h-screen lg:justify-center lg:mx-auto"
+        >
           <label>
             <Typography size="sm" weight="semibold" className="lg:text-white">
               Nome:
             </Typography>
             <Input
               disabled={false}
-              hasError={false}
+              hasError={form.inputs.firstName.hasError}
               placeholder="Digite seu nome..."
               type="text"
+              {...form.register("firstName")}
             />
+            {form.inputs.firstName.hasError && (
+              <InputError message={form.inputs.firstName.errorMessage} />
+            )}
           </label>
 
           <label>
@@ -86,20 +97,31 @@ export default function Register() {
             </Typography>
             <Input
               disabled={false}
-              hasError={false}
+              hasError={form.inputs.lastName.hasError}
               placeholder="Digite seu sobrenome..."
               type="text"
+              {...form.register("lastName")}
             />
+            {form.inputs.lastName.hasError && (
+              <InputError message={form.inputs.lastName.errorMessage} />
+            )}
           </label>
 
           <label>
             <Typography size="sm" weight="semibold" className="lg:text-white">
               Cargo:
             </Typography>
-            <Select>
-              <option value="#">Escolha um cargo</option>
+            <Select
+              defaultValue=""
+              hasError={form.inputs.role.hasError}
+              {...form.register("role")}
+            >
+              <option value="">Escolha um cargo</option>
               <option value="assistente">Assistente Social</option>
             </Select>
+            {form.inputs.role.hasError && (
+              <InputError message={form.inputs.role.errorMessage} />
+            )}
           </label>
 
           <label>
@@ -108,10 +130,14 @@ export default function Register() {
             </Typography>
             <Input
               disabled={false}
-              hasError={false}
+              hasError={form.inputs.email.hasError}
               placeholder="Digite seu email..."
               type="text"
+              {...form.register("email")}
             />
+            {form.inputs.email.hasError && (
+              <InputError message={form.inputs.email.errorMessage} />
+            )}
           </label>
 
           <label>
@@ -120,10 +146,14 @@ export default function Register() {
             </Typography>
             <Input
               disabled={false}
-              hasError={false}
+              hasError={form.inputs.password.hasError}
               placeholder="Digite uma senha..."
               type="password"
+              {...form.register("password")}
             />
+            {form.inputs.password.hasError && (
+              <InputError message={form.inputs.password.errorMessage} />
+            )}
           </label>
 
           <label>
@@ -132,14 +162,20 @@ export default function Register() {
             </Typography>
             <Input
               disabled={false}
-              hasError={false}
+              hasError={form.inputs.confirmPassword.hasError}
               placeholder="Confirme sua senha..."
               type="password"
+              {...form.register("confirmPassword")}
             />
+            {form.inputs.confirmPassword.hasError && (
+              <InputError message={form.inputs.confirmPassword.errorMessage} />
+            )}
           </label>
 
           <div className="flex justify-center mt-4">
-            <Button variant="sys-primary">Cadastrar</Button>
+            <Button variant="sys-primary" type="submit">
+              Cadastrar
+            </Button>
           </div>
         </form>
 
