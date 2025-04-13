@@ -1,4 +1,4 @@
-export default function Button({ variant, children, ...props }) {
+export default function Button({ variant, children, className, ...props }) {
   const variantMapping = {
     "inst-primary": "bg-main text-white",
     "sys-primary": "bg-sys-main text-white",
@@ -17,7 +17,7 @@ export default function Button({ variant, children, ...props }) {
 
   return (
     <button
-      className={`${variantMapping[variant]} flex gap-[10px] items-center px-[20px] py-[10px] text-base font-semibold rounded-[5px] shadow-button cursor-pointer hover:brightness-95`}
+      className={`${variantMapping[variant]} ${className} flex gap-[10px] items-center px-[20px] py-[10px] text-base font-semibold rounded-[5px] shadow-button cursor-pointer hover:brightness-95`}
       {...props}
     >
       {children}

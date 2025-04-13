@@ -6,16 +6,23 @@ import Typography from "../../components/Typography";
 import useTitlePage from "../../hooks/useTitlePage";
 import ArrowRight from "../../icons/ArrowRight";
 import Logo from "/logo-sistema.png";
+import { Link } from "react-router-dom";
 
 export default function Register() {
   useTitlePage("simbiosys | cadastro");
 
   return (
     <div className="flex flex-col gap-6 px-4 py-12 bg-gradient-to-tl from-sys-tertiary to-sys-secondary">
-      <Button variant="inst-link">
+      <Link className="flex items-center gap-2" to="/home">
         <ArrowRight className="stroke-white rotate-180 h-[25px] w-[25px]" />
-        <span className="text-white underline">Voltar</span>
-      </Button>
+        <Typography
+          size="base"
+          weight="semibold"
+          className="text-white underline"
+        >
+          Voltar ao início
+        </Typography>
+      </Link>
 
       <div className="flex flex-col items-center gap-6 bg-white rounded-lg px-4 py-6">
         <img src={Logo} alt="logo da empresa" className="h-7" />
@@ -33,7 +40,7 @@ export default function Register() {
           </Typography>
         </div>
 
-        <div className="w-full flex flex-col gap-2.5">
+        <form className="w-full flex flex-col gap-2.5">
           <label>
             <Typography size="sm" weight="semibold">
               Nome:
@@ -103,12 +110,17 @@ export default function Register() {
               type="password"
             />
           </label>
-        </div>
 
-        <Button variant="sys-primary">Cadastrar</Button>
+          <div className="flex justify-center mt-4">
+            <Button variant="sys-primary">Cadastrar</Button>
+          </div>
+        </form>
 
         <p className="flex gap-1.5">
-          Já tem uma conta? <Button variant="inst-link">Entre aqui</Button>
+          Já tem uma conta?{" "}
+          <Link to="/login" className="text-sys-main underline">
+            Entre aqui
+          </Link>
         </p>
       </div>
     </div>
