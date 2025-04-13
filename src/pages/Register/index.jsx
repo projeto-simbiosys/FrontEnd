@@ -8,8 +8,8 @@ import ArrowRight from "../../icons/ArrowRight";
 import Logo from "/logo-sistema-horizontal.png";
 import { Link } from "react-router-dom";
 import useRegister from "./hook";
-import Warning from "../../icons/Warning";
 import InputError from "../../components/InputError";
+import Loading from "../../icons/Loading";
 
 export default function Register() {
   useTitlePage("simbiosys | cadastro");
@@ -80,7 +80,7 @@ export default function Register() {
               Nome:
             </Typography>
             <Input
-              disabled={false}
+              disabled={form.request.isLoading}
               hasError={form.inputs.firstName.hasError}
               placeholder="Digite seu nome..."
               type="text"
@@ -96,7 +96,7 @@ export default function Register() {
               Sobrenome:
             </Typography>
             <Input
-              disabled={false}
+              disabled={form.request.isLoading}
               hasError={form.inputs.lastName.hasError}
               placeholder="Digite seu sobrenome..."
               type="text"
@@ -113,6 +113,7 @@ export default function Register() {
             </Typography>
             <Select
               defaultValue=""
+              disabled={form.request.isLoading}
               hasError={form.inputs.role.hasError}
               {...form.register("role")}
             >
@@ -129,7 +130,7 @@ export default function Register() {
               E-Mail:
             </Typography>
             <Input
-              disabled={false}
+              disabled={form.request.isLoading}
               hasError={form.inputs.email.hasError}
               placeholder="Digite seu email..."
               type="text"
@@ -145,7 +146,7 @@ export default function Register() {
               Senha:
             </Typography>
             <Input
-              disabled={false}
+              disabled={form.request.isLoading}
               hasError={form.inputs.password.hasError}
               placeholder="Digite uma senha..."
               type="password"
@@ -161,7 +162,7 @@ export default function Register() {
               Confirmação da Senha:
             </Typography>
             <Input
-              disabled={false}
+              disabled={form.request.isLoading}
               hasError={form.inputs.confirmPassword.hasError}
               placeholder="Confirme sua senha..."
               type="password"
@@ -173,14 +174,25 @@ export default function Register() {
           </label>
 
           <div className="flex justify-center mt-4">
-            <Button variant="sys-primary" type="submit">
-              Cadastrar
+            <Button
+              variant="sys-primary"
+              type="submit"
+              disabled={form.request.isLoading || form.request.isSuccess}
+            >
+              {form.request.isLoading ? (
+                <>
+                  <Loading width={20} height={20} className="stroke-white" />
+                  Cadastrando...
+                </>
+              ) : (
+                "Cadastrar"
+              )}
             </Button>
           </div>
         </form>
 
         <p className="flex gap-1.5 lg:hidden">
-          Já tem uma conta?{" "}
+          Já tem uma conta?
           <Link to="/login" className="text-sys-main underline">
             Entre aqui
           </Link>

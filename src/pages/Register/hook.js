@@ -1,8 +1,15 @@
 import { useForm } from "react-hook-form";
 import { yupResolver } from "@hookform/resolvers/yup";
 import { schemaValidation } from "../../validators/loginSchema";
+import { useMutation } from "@tanstack/react-query";
+import { createUser } from "../../services/api";
 
 export default function useRegister() {
+  const mutation = useMutation({
+    mutationKey: ["register"],
+    mutationFn: createUser,
+  });
+
   const {
     register,
     handleSubmit,
@@ -10,7 +17,10 @@ export default function useRegister() {
   } = useForm({
     resolver: yupResolver(schemaValidation),
   });
-  const onSubmit = data => console.log(data);
+
+  const onSubmit = data => {
+    mutation.mutate(data);
+  };
 
   function getInputProps(fieldName) {
     const fieldError = errors[fieldName];
@@ -32,6 +42,11 @@ export default function useRegister() {
         email: getInputProps("email"),
         password: getInputProps("password"),
         confirmPassword: getInputProps("confirmPassword"),
+      },
+      request: {
+        isLoading: mutation.isLoading,
+        isError: mutation.isError,
+        isSuccess: mutation.isSuccess,
       },
     },
   };
