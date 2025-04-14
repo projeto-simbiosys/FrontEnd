@@ -176,3 +176,34 @@ Para utilizá-lo, basta chamar a tag \<InputError> com o fechamento \</InputErro
 ---
 
 <br>
+
+**Notification:**
+O componente Notification é uma pequena notificação de sucesso ou falha que aparece a direita da tela.
+
+Para utilizá-lo, basta chamar a tag com o auto fechamento \<Notification />.
+
+**Props:**
+
+- type:
+  define o tipo da notificação.<br>
+  Aceita os seguintes valores:
+
+1. success.
+2. error.
+
+- title:
+  define o texto do titulo da notificação.
+
+- body:
+  define o texto do corpo da notificação.
+
+- show:
+  define se a notificação aparece.<br>
+  Aceita os seguintes valores:
+
+1. true.
+2. false.
+
+---
+
+<br>
