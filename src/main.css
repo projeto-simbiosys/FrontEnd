@@ -13,5 +13,8 @@
   --color-divider: oklch(32.11% 0 0);
   --shadow-button: 0 3px 8px rgba(0, 0, 0, 0.24);
 
+  --color-gray-disabled: oklch(0.79 0 0);
+  --color-gray-detail-disabled: oklch(0.36 0 0);
+
   --breakpoint-lg: 72rem;
 }
