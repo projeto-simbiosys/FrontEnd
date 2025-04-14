@@ -7,6 +7,7 @@ import DashboardIcon from "../../icons/DashboardIcon";
 import Reports from "../../icons/Reports";
 import useSidebar from "./hook";
 import { AnimatePresence, motion } from "framer-motion";
+import { SidebarProvider } from "../../context/SidebarContext";
 
 export default function Sidebar() {
   const { sidebar } = useSidebar();

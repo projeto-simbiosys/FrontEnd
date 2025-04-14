@@ -1,8 +1,9 @@
-import { useState } from "react";
 import { useLocation, useNavigate } from "react-router";
+import { useSidebarContext } from "../../context/SidebarContext";
 
 export default function useSidebar() {
-  const [isOpen, setIsOpen] = useState(false);
+  const { isOpen, setIsOpen } = useSidebarContext();
+
   const location = useLocation();
   const navigate = useNavigate();
 
