@@ -115,8 +115,6 @@ Para utilizá-lo, basta chamar a tag \<Heading> com o fechamento apropriado \<\H
   define o nivel do cabeçalho.<br>
   Aceita os seguintes valores:
 
-<br>
-
 1: cabeçalho de nivel H1. <br>
 2: cabeçalho de nivel H2. <br>
 3: cabeçalho de nivel H3. <br>
@@ -129,8 +127,6 @@ Para utilizá-lo, basta chamar a tag \<Heading> com o fechamento apropriado \<\H
 - weight:
   Define o peso da fonte.<br>
   Aceita os seguintes valores:
-
-<br>
 
 1. extralight.
 2. light.
@@ -229,3 +225,39 @@ Para utilizá-lo, basta chamar a tag \<Select> com o fechamento \</Select>.
 ---
 
 <br>
+
+**Typography:**
+O componente Typography é um conjunto de textos genericos versátil com o seu conteudo sendo de livre escolha de quem implementa-lo.
+
+Para utilizá-lo, basta chamar a tag \<Typography> com o fechamento apropriado \<\Typography>.
+
+**Props:**
+
+- size:
+  define o tamanho da fonte.<br>
+  Aceita os seguintes valores:
+
+1. xs.
+2. sm.
+3. base.
+4. lg.
+5. xl.
+6. 2xl.
+
+<br>
+
+- weight:
+  Define o peso da fonte.<br>
+  Aceita os seguintes valores:
+
+1. extralight.
+2. light.
+3. normal.
+4. medium.
+5. semibold.
+6. bold.
+
+<br>
+
+- children:
+  define o conteúdo do componente, que será exibido dentro dele.
