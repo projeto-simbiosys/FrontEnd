@@ -99,3 +99,165 @@ Para utilizá-lo, basta chamar a tag \<Tabs> com o fechamento apropriado \<\Tabs
 <br>
 
 - children: define o conteúdo do componente, que será exibido dentro dele.
+
+---
+
+<br>
+
+**Heading:**
+O componente Heading é um conjunto de cabeçalhos versátil com o seu conteudo sendo de livre escolha de quem implementa-lo.
+
+Para utilizá-lo, basta chamar a tag \<Heading> com o fechamento apropriado \<\Heading>.
+
+**Props:**
+
+- level:
+  define o nivel do cabeçalho.<br>
+  Aceita os seguintes valores:
+
+1: cabeçalho de nivel H1. <br>
+2: cabeçalho de nivel H2. <br>
+3: cabeçalho de nivel H3. <br>
+4: cabeçalho de nivel H4. <br>
+5: cabeçalho de nivel H5. <br>
+6: cabeçalho de nivel H6. <br>
+
+<br>
+
+- weight:
+  Define o peso da fonte.<br>
+  Aceita os seguintes valores:
+
+1. extralight.
+2. light.
+3. normal.
+4. medium.
+5. semibold.
+6. bold.
+
+- children:
+  define o conteúdo do componente, que será exibido dentro dele.
+
+---
+
+<br>
+
+**Input:**
+O componente Input é um componente personalizado com estilizações se estiver desativado ou com erro.
+
+Para utilizá-lo, basta chamar a tag com o auto fechamento \<Input />.
+
+**Props:**
+
+- hasError (opcional): define se o input possui um erro.<br>
+  Aceita os seguintes valores:
+
+1. true
+2. false
+
+---
+
+<br>
+
+**InputError:**
+O componente InputError é um pequeno texto de erro com icone para ser usado junto ao componente Input.
+
+Para utilizá-lo, basta chamar a tag \<InputError> com o fechamento \</InputError>.
+
+**Props:**
+
+- message:
+  define o texto que o componente deve renderizar.
+
+---
+
+<br>
+
+**Notification:**
+O componente Notification é uma pequena notificação de sucesso ou falha que aparece a direita da tela.
+
+Para utilizá-lo, basta chamar a tag com o auto fechamento \<Notification />.
+
+**Props:**
+
+- type:
+  define o tipo da notificação.<br>
+  Aceita os seguintes valores:
+
+1. success.
+2. error.
+
+- title:
+  define o texto do titulo da notificação.
+
+- body:
+  define o texto do corpo da notificação.
+
+- show:
+  define se a notificação aparece.<br>
+  Aceita os seguintes valores:
+
+1. true.
+2. false.
+
+---
+
+<br>
+
+**Select:**
+O componente Select é um componente personalizado com estilizações se estiver desativado ou com erro.
+
+Para utilizá-lo, basta chamar a tag \<Select> com o fechamento \</Select>.
+
+**Props:**
+
+- hasError (opcional): define se o select possui um erro.<br>
+  Aceita os seguintes valores:
+
+1. true
+2. false
+
+<br>
+
+- children:
+  define o que deve aparecer dentro do select.
+
+---
+
+<br>
+
+**Typography:**
+O componente Typography é um conjunto de textos genericos versátil com o seu conteudo sendo de livre escolha de quem implementa-lo.
+
+Para utilizá-lo, basta chamar a tag \<Typography> com o fechamento apropriado \<\Typography>.
+
+**Props:**
+
+- size:
+  define o tamanho da fonte.<br>
+  Aceita os seguintes valores:
+
+1. xs.
+2. sm.
+3. base.
+4. lg.
+5. xl.
+6. 2xl.
+
+<br>
+
+- weight:
+  Define o peso da fonte.<br>
+  Aceita os seguintes valores:
+
+1. extralight.
+2. light.
+3. normal.
+4. medium.
+5. semibold.
+6. bold.
+
+<br>
+
+- children:
+  define o conteúdo do componente, que será exibido dentro dele.

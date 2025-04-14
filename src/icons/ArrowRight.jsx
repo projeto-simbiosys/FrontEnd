@@ -6,7 +6,6 @@ const ArrowLeftIcon = ({ ...props }) => (
     viewBox="0 0 24 24"
   >
     <path
-      stroke="#005C99"
       strokeLinecap="round"
       strokeLinejoin="round"
       strokeWidth="2"
