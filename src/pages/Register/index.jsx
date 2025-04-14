@@ -10,6 +10,7 @@ import { Link } from "react-router-dom";
 import useRegister from "./hook";
 import InputError from "../../components/InputError";
 import Loading from "../../icons/Loading";
+import Notification from "../../components/Notification";
 
 export default function Register() {
   useTitlePage("simbiosys | cadastro");
@@ -18,6 +19,12 @@ export default function Register() {
   return (
     <div className="flex flex-col items-center gap-6 px-4 py-12 md:py-16 lg:p-0 bg-gradient-to-tl from-sys-tertiary to-sys-secondary">
       <div className="bg-white lg:bg-transparent flex flex-col lg:flex-row items-center lg:justify-between gap-6 lg:gap-0 w-full max-w-md md:max-w-lg lg:max-w-full lg:h-screen rounded-lg lg:rounded-none px-4 md:px-8 py-6 md:py-8 lg:p-0">
+        <Notification
+          type={form.request.status.type}
+          title={form.request.status.type === "success" ? "Sucesso" : "Falha"}
+          body={form.request.status.message}
+          show={form.showNotification}
+        />
         <div className="flex flex-col items-center gap-6 w-full lg:px-12 lg:pt-14 lg:pb-52 lg:max-w-xl lg:h-screen lg:justify-between lg:bg-[url(/bg-detail.png)] lg:bg-center lg:bg-cover lg:bg-white">
           <div className="w-full">
             <Link className="flex items-center gap-2" to="/home">
@@ -177,9 +184,11 @@ export default function Register() {
             <Button
               variant="sys-primary"
               type="submit"
-              disabled={form.request.isLoading || form.request.isSuccess}
+              disabled={
+                form.request.status.isLoading || form.request.status.isSuccess
+              }
             >
-              {form.request.isLoading ? (
+              {form.request.status.isLoading ? (
                 <>
                   <Loading width={20} height={20} className="stroke-white" />
                   Cadastrando...

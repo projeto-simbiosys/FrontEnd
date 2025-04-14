@@ -13,8 +13,12 @@ export const schemaValidation = yup
       .required(commonMessage),
     password: yup
       .string()
-      .min(6, "No minmo 6 caracteres")
-      .required(commonMessage),
+      .required(commonMessage)
+      .matches(/[0-9]/, "No minimo um número")
+      .matches(/[A-Z]/, "No minimo uma letra maiúscula")
+      .matches(/[a-z]/, "No minimo uma letra minúscula")
+      .matches(/[!@#$%&]/, "No minimo um caractere especial: !@#$%&")
+      .min(6, "No minimo 6 caracteres"),
     confirmPassword: yup
       .string()
       .oneOf([yup.ref("password"), null], "As senhas não conferem"),
