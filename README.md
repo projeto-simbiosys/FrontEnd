@@ -99,3 +99,47 @@ Para utilizá-lo, basta chamar a tag \<Tabs> com o fechamento apropriado \<\Tabs
 <br>
 
 - children: define o conteúdo do componente, que será exibido dentro dele.
+
+---
+
+<br>
+
+**Heading:**
+O componente Heading é um conjunto de cabeçalhos versátil com o seu conteudo sendo de livre escolha de quem implementa-lo.
+
+Para utilizá-lo, basta chamar a tag \<Heading> com o fechamento apropriado \<\Heading>.
+
+**Props:**
+
+- level:
+  define o nivel do cabeçalho.<br>
+  Aceita os seguintes valores:
+
+<br>
+
+1: cabeçalho de nivel H1. <br>
+2: cabeçalho de nivel H2. <br>
+3: cabeçalho de nivel H3. <br>
+4: cabeçalho de nivel H4. <br>
+5: cabeçalho de nivel H5. <br>
+6: cabeçalho de nivel H6. <br>
+
+<br>
+
+- weight:
+  Define o peso da fonte.<br>
+  Aceita os seguintes valores:
+
+<br>
+
+1. extralight.
+2. light.
+3. normal.
+4. medium.
+5. semibold.
+6. bold.
+
+- children:
+  define o conteúdo do componente, que será exibido dentro dele.
+
+---
