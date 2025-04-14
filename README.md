@@ -149,7 +149,7 @@ Para utilizá-lo, basta chamar a tag \<Heading> com o fechamento apropriado \<\H
 **Input:**
 O componente Input é um componente personalizado com estilizações se estiver desativado ou com erro.
 
-Para utilizá-lo, basta chamar a tag com o auto fechamento \<Input />
+Para utilizá-lo, basta chamar a tag com o auto fechamento \<Input />.
 
 **Props:**
 
@@ -158,6 +158,20 @@ Para utilizá-lo, basta chamar a tag com o auto fechamento \<Input />
 
 1. true
 2. false
+
+---
+
+<br>
+
+**InputError:**
+O componente InputError é um pequeno texto de erro com icone para ser usado junto ao componente Input.
+
+Para utilizá-lo, basta chamar a tag \<InputError> com o fechamento \</InputError>.
+
+**Props:**
+
+- message:
+  define o texto que o componente deve renderizar.
 
 ---
 
