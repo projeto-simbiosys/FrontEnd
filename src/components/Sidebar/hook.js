@@ -1,16 +1,37 @@
 import { useState } from "react";
+import { useLocation, useNavigate } from "react-router";
 
 export default function useSidebar() {
   const [isOpen, setIsOpen] = useState(false);
+  const location = useLocation();
+  const navigate = useNavigate();
+
+  const parts = location.pathname.split("/");
+  const pageUrl = parts[parts.length - 1];
+
+  const styleButtonPage = {
+    dashboard: pageUrl === "dashboard" ? "sys-primary" : "sys-light",
+    reports: pageUrl === "reports" ? "sys-primary" : "sys-light",
+  };
 
   return {
     sidebar: {
       toogleButton: {
-        style: isOpen ? "rotate-180" : "rotate-0",
         open: isOpen,
+        style: isOpen ? "rotate-0" : "rotate-180",
         handleToogle: () => setIsOpen(!isOpen),
       },
-      ShowTexts: isOpen ? "opacity-100 w-auto" : "opacity-0 w-0 fixed",
+      page: {
+        styleButton: styleButtonPage,
+        styleIcon: {
+          dashboard:
+            pageUrl === "dashboard"
+              ? "fill-white stroke-white"
+              : "fill-sys-main stroke-sys-main",
+          reports: pageUrl === "reports" ? "stroke-white" : "stroke-sys-main",
+        },
+        handleClick: page => navigate(`/admin/${page}`),
+      },
     },
   };
 }

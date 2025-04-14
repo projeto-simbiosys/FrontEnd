@@ -7,8 +7,8 @@ export default function UserRoutes() {
   return (
     <Routes>
       <Route path="/" element={<Home />} />
-      <Route path="/about" element={<About />} />
-      <Route path="/solution" element={<Solution />} />
+      <Route path="/admin/dashboard" element={<About />} />
+      <Route path="/admin/reports" element={<Solution />} />
     </Routes>
   );
 }

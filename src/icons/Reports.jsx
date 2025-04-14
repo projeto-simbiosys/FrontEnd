@@ -8,7 +8,6 @@ const Reports = ({ width, height, ...props }) => (
     viewBox="0 0 29 29"
   >
     <path
-      stroke="#04047D"
       strokeLinecap="round"
       strokeLinejoin="round"
       strokeWidth="2"
