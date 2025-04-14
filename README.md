@@ -207,3 +207,25 @@ Para utilizá-lo, basta chamar a tag com o auto fechamento \<Notification />.
 ---
 
 <br>
+
+**Select:**
+O componente Select é um componente personalizado com estilizações se estiver desativado ou com erro.
+
+Para utilizá-lo, basta chamar a tag \<Select> com o fechamento \</Select>.
+
+**Props:**
+
+- hasError (opcional): define se o select possui um erro.<br>
+  Aceita os seguintes valores:
+
+1. true
+2. false
+
+<br>
+
+- children:
+  define o que deve aparecer dentro do select.
+
+---
+
+<br>
