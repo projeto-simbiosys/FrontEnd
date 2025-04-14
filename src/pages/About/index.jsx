@@ -1,5 +1,3 @@
-import Sidebar from "../../components/Sidebar";
-
 export default function About() {
-  return <Sidebar />;
+  return <p>pagina sobre nós</p>;
 }

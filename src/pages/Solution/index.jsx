@@ -1,5 +1,3 @@
-import Sidebar from "../../components/Sidebar";
-
 export default function Solution() {
-  return <Sidebar />;
+  return <p>Pagina sobre a solução</p>;
 }

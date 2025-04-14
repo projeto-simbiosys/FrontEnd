@@ -6,14 +6,13 @@ import UserRoutes from "./routes/User";
 
 function App() {
   return (
-    <UserRoutes />
-    // <Router>
-    //   <Header />
-    //   <Routes>
-    //     <Route path="/institucional-empresa" element={<InstituicaoEmpresa />} />
-    //   </Routes>
-    //   <Footer />
-    // </Router>
+    <Router>
+      <Header />
+      <Routes>
+        <Route path="/institucional-empresa" element={<InstituicaoEmpresa />} />
+      </Routes>
+      <Footer />
+    </Router>
   );
 }
 
