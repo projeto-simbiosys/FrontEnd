@@ -99,6 +99,7 @@ export default function Sidebar() {
           )}
         </Button>
       </div>
+      <div className="w-[61px] sm:w-[81px] shrink-0 h-screen"></div>
     </AnimatePresence>
   );
 }
