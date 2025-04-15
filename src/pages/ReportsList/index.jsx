@@ -56,8 +56,8 @@ export default function ReportsList() {
             </Button>
           </div>
 
-          <div className="border border-sys-main/30 w-full p-2">
-            <Tabs>
+          <div className="flex flex-col gap-2 md:flex-row border border-sys-main/30 w-full p-2">
+            <Tabs orientation="horizontal" className="md:flex-col">
               <Button variant="sys-primary" className="!py-1 !px-2.5">
                 2025
               </Button>
@@ -69,9 +69,11 @@ export default function ReportsList() {
               </Button>
             </Tabs>
 
-            <div className="flex flex-col">
+            <div className="border border-solid border-divider/30"></div>
+
+            <div className="flex flex-col flex-1">
               <div className="overflow-x-auto sm:-mx-6 lg:-mx-8">
-                <div className="py-2 inline-block min-w-full sm:px-6 lg:px-8">
+                <div className="inline-block min-w-full sm:px-6 lg:px-8">
                   <div className="overflow-hidden">
                     <table className="w-full">
                       <thead className="border-b">
