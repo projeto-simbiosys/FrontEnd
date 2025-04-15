@@ -3,16 +3,20 @@ import Header from "./components/Header";
 import Footer from "./components/Footer";
 import InstituicaoEmpresa from "./pages/institucional-empresa/institucional-empresa";
 import UserRoutes from "./routes/User";
+import AdminRoutes from "./routes/Admin";
 
 function App() {
   return (
-    <Router>
-      <Header />
-      <Routes>
-        <Route path="/institucional-empresa" element={<InstituicaoEmpresa />} />
-      </Routes>
-      <Footer />
-    </Router>
+    <>
+      <AdminRoutes />
+    </>
+    // <Router>
+    //   <Header />
+    //   <Routes>
+    //     <Route path="/institucional-empresa" element={<InstituicaoEmpresa />} />
+    //   </Routes>
+    //   <Footer />
+    // </Router>
   );
 }
 
