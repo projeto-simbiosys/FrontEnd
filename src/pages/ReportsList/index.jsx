@@ -24,37 +24,6 @@ export default function ReportsList() {
         </div>
 
         <div className="flex flex-col items-end gap-2">
-          <div className="w-full flex flex-col sm:flex-row sm:items-center">
-            <Typography size="base" weight="medium">
-              Filtrar status:
-            </Typography>
-
-            <label className="flex items-center gap-2 ml-2">
-              <input
-                type="checkbox"
-                className="accent-sys-main"
-                defaultChecked
-              />
-              <Typography size="normal" weight="regular">
-                Aberto
-              </Typography>
-            </label>
-
-            <label className="flex items-center gap-2 ml-2">
-              <input
-                type="checkbox"
-                className="accent-sys-main"
-                defaultChecked
-              />
-              <Typography size="normal" weight="regular">
-                Fechado
-              </Typography>
-            </label>
-            <Button variant="sys-primary" className="self-end sm:ml-auto">
-              Novo relatório
-            </Button>
-          </div>
-
           <ReportsTable />
         </div>
       </div>
