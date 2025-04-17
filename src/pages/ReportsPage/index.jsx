@@ -1,10 +1,10 @@
 import Button from "../../components/Button";
 import Heading from "../../components/Heading";
-import ReportsTable from "../../components/ReportsTable";
+import ReportsPanel from "../../components/ReportsPanel";
 import Sidebar from "../../components/Sidebar";
 import Typography from "../../components/Typography";
 
-export default function ReportsList() {
+export default function ReportsPage() {
   return (
     <div className="flex">
       <Sidebar />
@@ -23,7 +23,7 @@ export default function ReportsList() {
           </Typography>
         </div>
 
-        <ReportsTable />
+        <ReportsPanel />
       </div>
     </div>
   );

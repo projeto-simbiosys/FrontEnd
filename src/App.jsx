@@ -9,6 +9,7 @@ function App() {
   return (
     <>
       <AdminRoutes />
+      <UserRoutes />
     </>
     // <Router>
     //   <Header />

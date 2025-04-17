@@ -7,12 +7,30 @@ import {
 import reportsListAdapter from "../../adapters/reportsListAdapter";
 import availableYearsListAdapter from "../../adapters/availableYearsListAdapter";
 
-export default function useReportsTable() {
+export default function useReportsPanel() {
   const [selectedYearTab, setSelectedYearTab] = useState();
+
+  const [filters, setFilters] = useState({
+    open: true,
+    closed: true,
+  });
+
+  const handleCheckboxChange = event => {
+    const { name, checked } = event.target;
+
+    setFilters(prevFilters => ({
+      ...prevFilters,
+      [name]: checked,
+    }));
+  };
 
   const queryClient = useQueryClient();
 
-  const { data: reportsYears, isSuccess: reportsYearsSuccess } = useQuery({
+  const {
+    data: reportsYears,
+    isLoading: reportsYearsLoading,
+    isSuccess: reportsYearsSuccess,
+  } = useQuery({
     queryKey: ["availableYears"],
     queryFn: getAvailableYears,
   });
@@ -45,17 +63,22 @@ export default function useReportsTable() {
 
   return {
     tabs: {
-      values: availableYearsAdapted,
+      values: availableYearsAdapted ? availableYearsAdapted : [],
       active: selectedYearTab,
+      isLoading: reportsYearsLoading,
       handleTabChange: setSelectedYearTab,
     },
     reports: {
-      data: reportsAdapted,
+      data: reportsAdapted ? reportsAdapted : [],
       error: reportsDataError,
       isLoading: reportsDataLoading,
       isSuccess: reportsDataSuccess,
       isEmpty: reportsAdapted?.length === 0,
       countClosed: reportsAdapted?.filter(report => report.isClosed)?.length,
+    },
+    filter: {
+      values: filters,
+      handleCheckboxChange,
     },
   };
 }
