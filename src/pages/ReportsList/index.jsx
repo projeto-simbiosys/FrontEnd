@@ -23,9 +23,7 @@ export default function ReportsList() {
           </Typography>
         </div>
 
-        <div className="flex flex-col items-end gap-2">
-          <ReportsTable />
-        </div>
+        <ReportsTable />
       </div>
     </div>
   );

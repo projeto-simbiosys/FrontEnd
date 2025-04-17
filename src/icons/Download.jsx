@@ -6,7 +6,6 @@ const Download = props => (
     viewBox="0 0 60 60"
   >
     <path
-      stroke="#04047D"
       strokeLinecap="round"
       strokeLinejoin="round"
       strokeWidth="5"

@@ -17,7 +17,7 @@ export default function Button({ variant, children, className, ...props }) {
 
   return (
     <button
-      className={`${variantMapping[variant]} ${className} flex gap-[10px] items-center px-[20px] py-[10px] text-base font-semibold rounded-[5px] shadow-button cursor-pointer hover:brightness-95 disabled:bg-gray-disabled disabled:text-gray-detail-disabled`}
+      className={`${variantMapping[variant]} ${className} flex gap-[10px] items-center px-[20px] py-[10px] text-base font-semibold rounded-[5px] shadow-button cursor-pointer hover:brightness-95 disabled:bg-gray-disabled disabled:text-gray-detail-disabled disabled:border-gray-detail-disabled`}
       {...props}
     >
       {children}

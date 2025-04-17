@@ -6,14 +6,13 @@ import Logout from "../../icons/Logout";
 import DashboardIcon from "../../icons/DashboardIcon";
 import Reports from "../../icons/Reports";
 import useSidebar from "./hook";
-import { AnimatePresence, motion } from "framer-motion";
-import { SidebarProvider } from "../../context/SidebarContext";
+import { motion } from "framer-motion";
 
 export default function Sidebar() {
   const { sidebar } = useSidebar();
 
   return (
-    <AnimatePresence mode="wait">
+    <>
       <div className="h-screen fixed flex flex-col py-12 px-2 left-0 bg-gradient-to-b from-sys-tertiary to-sys-secondary">
         <div className="w-full flex justify-center items-center gap-5">
           {sidebar.toogleButton.open && (
@@ -100,6 +99,6 @@ export default function Sidebar() {
         </Button>
       </div>
       <div className="w-[61px] sm:w-[81px] shrink-0 h-screen"></div>
-    </AnimatePresence>
+    </>
   );
 }
