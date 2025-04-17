@@ -8,7 +8,7 @@ import ReportsTablePlaceholder from "../ReportsTablePlaceholder";
 import { AnimatePresence, motion } from "framer-motion";
 
 export default function ReportsPanel() {
-  const { tabs, reports, filter } = useReportsPanel();
+  const { tabs, reports, filter, navigate } = useReportsPanel();
 
   return (
     <div className="flex flex-col items-end gap-2">
@@ -42,7 +42,11 @@ export default function ReportsPanel() {
             Fechado
           </Typography>
         </label>
-        <Button variant="sys-primary" className="self-end sm:ml-auto">
+        <Button
+          variant="sys-primary"
+          className="self-end sm:ml-auto"
+          onClick={() => navigate("/admin/reports/new")}
+        >
           Novo relatório
         </Button>
       </div>

@@ -6,14 +6,16 @@ import {
 } from "../../services/reportsService";
 import reportsListAdapter from "../../adapters/reportsListAdapter";
 import availableYearsListAdapter from "../../adapters/availableYearsListAdapter";
+import { useNavigate } from "react-router";
 
 export default function useReportsPanel() {
   const [selectedYearTab, setSelectedYearTab] = useState();
-
   const [filters, setFilters] = useState({
     open: true,
     closed: true,
   });
+
+  const navigate = useNavigate();
 
   const handleCheckboxChange = event => {
     const { name, checked } = event.target;
@@ -80,5 +82,6 @@ export default function useReportsPanel() {
       values: filters,
       handleCheckboxChange,
     },
+    navigate,
   };
 }

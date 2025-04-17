@@ -4,15 +4,10 @@ import Download from "../../icons/Download";
 import Delete from "../../icons/Delete";
 import { AnimatePresence, motion } from "framer-motion";
 import ReportsEmpty from "../ReportsEmpty";
+import useReportsTable from "./hook";
 
 export default function ReportsTable({ reports, filters }) {
-  const filteredReports = reports.filter(report => {
-    if (filters.open && filters.closed) return true;
-
-    if (filters.open && report.status === "Aberto") return true;
-
-    if (filters.closed && report.status === "Fechado") return true;
-  });
+  const { filteredReports, navigate } = useReportsTable({ reports, filters });
 
   return (
     <AnimatePresence mode="wait">
@@ -82,6 +77,9 @@ export default function ReportsTable({ reports, filters }) {
                         variant="sys-secondary"
                         className="!px-1.5 !py-0.5 shadow-none"
                         disabled={report.isClosed}
+                        onClick={() =>
+                          navigate(`/admin/reports/edit/${report.id}`)
+                        }
                       >
                         Revisar
                       </Button>
