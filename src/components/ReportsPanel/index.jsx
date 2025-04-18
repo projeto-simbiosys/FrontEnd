@@ -76,18 +76,19 @@ export default function ReportsPanel() {
               </Button>
             </>
           )}
-          {tabs.values.map(year => (
-            <Button
-              key={year}
-              variant={tabs.active === year ? "sys-primary" : "sys-light"}
-              className={`!py-1 !px-2.5 ${
-                tabs.active !== year ? "!text-sys-secondary" : ""
-              }`}
-              onClick={() => tabs.handleTabChange(year)}
-            >
-              {year}
-            </Button>
-          ))}
+          {isOnline &&
+            tabs.values.map(year => (
+              <Button
+                key={year}
+                variant={tabs.active === year ? "sys-primary" : "sys-light"}
+                className={`!py-1 !px-2.5 ${
+                  tabs.active !== year ? "!text-sys-secondary" : ""
+                }`}
+                onClick={() => tabs.handleTabChange(year)}
+              >
+                {year}
+              </Button>
+            ))}
         </Tabs>
 
         <div className="border border-solid border-divider/30"></div>
