@@ -11,8 +11,8 @@ export default function UserRoutes() {
     <SidebarProvider>
       <Routes>
         <Route path="/" element={<Home />} />
-        <Route path="/admin/dashboard" element={<About />} />
-        <Route path="/admin/reports" element={<Solution />} />
+        <Route path="/about" element={<About />} />
+        <Route path="/solution" element={<Solution />} />
         <Route path="/register" element={<Register />} />
         <Route path="/login" element={<Login />} />
       </Routes>
