@@ -6,9 +6,11 @@ import ReportsTable from "../ReportsTable";
 import ReportsEmpty from "../ReportsEmpty";
 import ReportsTablePlaceholder from "../ReportsTablePlaceholder";
 import { AnimatePresence, motion } from "framer-motion";
+import ReportsError from "../ReportsError";
+import Warning from "../../icons/Warning";
 
 export default function ReportsPanel() {
-  const { tabs, reports, filter, navigate } = useReportsPanel();
+  const { tabs, reports, filter, isOnline, navigate } = useReportsPanel();
 
   return (
     <div className="flex flex-col items-end gap-2">
@@ -53,6 +55,9 @@ export default function ReportsPanel() {
 
       <div className="flex flex-col gap-2 md:flex-row border border-sys-main/30 w-full p-2">
         <Tabs orientation="horizontal" className="md:flex-col">
+          {!isOnline && (
+            <Warning className="w-[40px] h-[30px] !py-1 !px-2.5 fill-red-700" />
+          )}
           {tabs.isLoading && (
             <>
               <Button
@@ -92,40 +97,24 @@ export default function ReportsPanel() {
             <div className="inline-block min-w-full">
               <div className="overflow-hidden min-h-[300px]">
                 <AnimatePresence mode="wait">
-                  {reports.isLoading || tabs.isLoading ? (
-                    <motion.div
-                      key="loading"
-                      initial={{ opacity: 0 }}
-                      animate={{ opacity: 1 }}
-                      exit={{ opacity: 0 }}
-                      transition={{ duration: 0.2 }}
-                    >
-                      <ReportsTablePlaceholder />
-                    </motion.div>
-                  ) : reports.isEmpty ? (
-                    <motion.div
-                      key="empty"
-                      initial={{ opacity: 0 }}
-                      animate={{ opacity: 1 }}
-                      exit={{ opacity: 0 }}
-                      transition={{ duration: 0.2 }}
-                    >
-                      <ReportsEmpty text="Ainda não há relatórios cadastrados para este ano." />
-                    </motion.div>
-                  ) : (
-                    <motion.div
-                      key="table"
-                      initial={{ opacity: 0 }}
-                      animate={{ opacity: 1 }}
-                      exit={{ opacity: 0 }}
-                      transition={{ duration: 0.2 }}
-                    >
+                  {!isOnline && (
+                    <ReportsError text="Verifique sua conexão e tente novamente." />
+                  )}
+                  {(reports.isLoading || tabs.isLoading) && (
+                    <ReportsTablePlaceholder />
+                  )}
+                  {reports.isEmpty && (
+                    <ReportsEmpty text="Ainda não há relatórios cadastrados para este ano." />
+                  )}
+                  {!reports.isLoading &&
+                    !tabs.isLoading &&
+                    !reports.isEmpty &&
+                    isOnline && (
                       <ReportsTable
                         reports={reports.data}
                         filters={filter.values}
                       />
-                    </motion.div>
-                  )}
+                    )}
                 </AnimatePresence>
               </div>
             </div>
@@ -142,7 +131,7 @@ export default function ReportsPanel() {
             </span>
           ) : (
             <>
-              <AnimatePresence mode="wait">
+              <AnimatePresence>
                 <motion.span
                   key={reports.data.length}
                   initial={{ opacity: 0, y: -4 }}
@@ -167,7 +156,7 @@ export default function ReportsPanel() {
             </span>
           ) : (
             <>
-              <AnimatePresence mode="wait">
+              <AnimatePresence>
                 <motion.span
                   key={reports.countClosed}
                   initial={{ opacity: 0, y: -4 }}

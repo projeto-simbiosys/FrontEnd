@@ -35,6 +35,7 @@ export default function useReportsPanel() {
   } = useQuery({
     queryKey: ["availableYears"],
     queryFn: getAvailableYears,
+    enabled: navigator.onLine,
   });
   const availableYearsAdapted = availableYearsListAdapter(reportsYears?.data);
 
@@ -55,7 +56,7 @@ export default function useReportsPanel() {
     enabled: selectedYearTab !== undefined,
   });
 
-  const reportsAdapted = reportsListAdapter(reportsData?.data);
+  const reportsListAdapted = reportsListAdapter(reportsData?.data);
 
   useEffect(() => {
     queryClient.refetchQueries({
@@ -71,17 +72,19 @@ export default function useReportsPanel() {
       handleTabChange: setSelectedYearTab,
     },
     reports: {
-      data: reportsAdapted ? reportsAdapted : [],
+      data: reportsListAdapted ? reportsListAdapted : [],
       error: reportsDataError,
       isLoading: reportsDataLoading,
       isSuccess: reportsDataSuccess,
-      isEmpty: reportsAdapted?.length === 0,
-      countClosed: reportsAdapted?.filter(report => report.isClosed)?.length,
+      isEmpty: reportsListAdapted?.length === 0,
+      countClosed: reportsListAdapted?.filter(report => report.isClosed)
+        ?.length,
     },
     filter: {
       values: filters,
       handleCheckboxChange,
     },
+    isOnline: navigator.onLine,
     navigate,
   };
 }

@@ -19,7 +19,7 @@ export default function ReportsTable({ reports, filters }) {
           exit={{ opacity: 0, y: -10 }}
           transition={{ duration: 0.2 }}
         >
-          <ReportsEmpty text="Tente ajustar os filtros para ver outros resultados" />
+          <ReportsEmpty text="Tente ajustar os filtros para ver outros resultados." />
         </motion.div>
       ) : (
         <motion.div

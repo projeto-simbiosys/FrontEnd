@@ -2,6 +2,7 @@ import capitalizeWords from "../utils/capitalizeWords";
 import { formatDate } from "../utils/formatDate";
 
 export default function reportsListAdapter(reports) {
+  if (!reports) return null;
   const monthsOrdened = [
     "Jan",
     "Fev",
