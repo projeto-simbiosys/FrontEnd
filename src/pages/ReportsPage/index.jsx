@@ -1,8 +1,8 @@
-import Button from "../../components/Button";
 import Heading from "../../components/Heading";
 import ReportsPanel from "../../components/ReportsPanel";
 import Sidebar from "../../components/Sidebar";
 import Typography from "../../components/Typography";
+import { DeleteModalProvider } from "../../context/DeleteModalContext";
 
 export default function ReportsPage() {
   return (
@@ -23,7 +23,9 @@ export default function ReportsPage() {
           </Typography>
         </div>
 
-        <ReportsPanel />
+        <DeleteModalProvider>
+          <ReportsPanel />
+        </DeleteModalProvider>
       </div>
     </div>
   );

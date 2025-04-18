@@ -4,22 +4,22 @@ import { formatDate } from "../utils/formatDate";
 export default function reportsListAdapter(reports) {
   if (!reports) return null;
   const monthsOrdened = [
-    "Jan",
-    "Fev",
-    "Mar",
-    "Abr",
-    "Mai",
-    "Jun",
-    "Jul",
-    "Ago",
-    "Set",
-    "Out",
-    "Nov",
-    "Dez",
+    "janeiro",
+    "fevereiro",
+    "março",
+    "abril",
+    "maio",
+    "junho",
+    "julho",
+    "agosto",
+    "setembro",
+    "outubro",
+    "novembro",
+    "dezembro",
   ];
 
   const reportsList = reports?.map(report => {
-    const monthFormatted = report.month.toLowerCase().substring(0, 3);
+    const monthFormatted = report.month.toLowerCase();
     const statusFormatted = capitalizeWords(report.status);
 
     return {

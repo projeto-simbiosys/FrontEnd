@@ -1,6 +1,11 @@
+import { useState } from "react";
 import { useNavigate } from "react-router";
+import { useDeleteModalContext } from "../../context/DeleteModalContext";
 
 export default function useReportsTable({ reports, filters }) {
+  const [showModal, setShowModal] = useState(false);
+  const { updateModal, resetModal } = useDeleteModalContext();
+
   const filteredReports = reports.filter(report => {
     if (filters.open && filters.closed) return true;
 
@@ -9,9 +14,22 @@ export default function useReportsTable({ reports, filters }) {
     if (filters.closed && report.status === "Fechado") return true;
   });
 
+  function handleClickDelete(report) {
+    setShowModal(true);
+    updateModal(report.id, report.month);
+  }
+
   const navigate = useNavigate();
   return {
     filteredReports,
     navigate,
+    handleClickDelete,
+    modal: {
+      show: showModal,
+      handleClose: () => {
+        setShowModal(false);
+        resetModal();
+      },
+    },
   };
 }

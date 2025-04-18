@@ -5,12 +5,20 @@ import Delete from "../../icons/Delete";
 import { AnimatePresence, motion } from "framer-motion";
 import ReportsEmpty from "../ReportsEmpty";
 import useReportsTable from "./hook";
+import DeleteModal from "../DeleteModal";
+import formatAbbr from "../../utils/formatAbbr";
 
 export default function ReportsTable({ reports, filters }) {
-  const { filteredReports, navigate } = useReportsTable({ reports, filters });
+  const { filteredReports, navigate, modal, handleClickDelete } =
+    useReportsTable({
+      reports,
+      filters,
+    });
 
   return (
-    <AnimatePresence mode="wait">
+    <>
+      <DeleteModal show={modal.show} onClose={modal.handleClose} />
+
       {filteredReports.length === 0 ? (
         <motion.div
           key="empty"
@@ -61,7 +69,7 @@ export default function ReportsTable({ reports, filters }) {
                     className="bg-white border-b border-b-gray-disabled/50"
                   >
                     <td className="py-2 whitespace-nowrap pl-1 pr-6 text-sm font-bold text-gray-900">
-                      {report.month}
+                      {formatAbbr(report.month)}
                     </td>
                     <td className="text-sm text-gray-900 font-base py-2 whitespace-nowrap pl-1 pr-6">
                       {report.lastUpdate}
@@ -92,6 +100,7 @@ export default function ReportsTable({ reports, filters }) {
                       <Button
                         variant="sys-secondary"
                         className="!px-1.5 !py-0.5 shadow-none !border-red-700"
+                        onClick={() => handleClickDelete(report)}
                       >
                         <Delete className="h-[24px] w-[25px]" />
                       </Button>
@@ -103,6 +112,6 @@ export default function ReportsTable({ reports, filters }) {
           </table>
         </motion.div>
       )}
-    </AnimatePresence>
+    </>
   );
 }

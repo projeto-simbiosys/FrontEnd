@@ -2,19 +2,23 @@ import CloseIcon from "../../icons/Close";
 import Button from "../Button";
 import Heading from "../Heading";
 import Typography from "../Typography";
+import useDeleteModal from "./hook";
 
-export default function ModalDelete({ show = true, onClose }) {
+export default function DeleteModal({ show, onClose }) {
+  const { handleConfirmDelete, modalData } = useDeleteModal();
+
   return !show ? null : (
     <div className="fixed inset-0 z-40 min-h-full overflow-y-auto overflow-x-hidden transition flex items-center">
       <div
         aria-hidden="true"
         className="fixed inset-0 w-full h-full bg-black/50 cursor-pointer"
+        onClick={onClose}
       ></div>
 
       <div className="relative w-full cursor-pointer pointer-events-none transition my-auto p-4">
         <div className="w-full py-2 bg-white cursor-default pointer-events-auto relative rounded-xl mx-auto max-w-sm">
           <button
-            tabindex="-1"
+            tabIndex="-1"
             type="button"
             className="absolute top-2 right-2 rtl:right-auto rtl:left-2"
             onClick={onClose}
@@ -31,7 +35,7 @@ export default function ModalDelete({ show = true, onClose }) {
                 className="text-red-700"
                 id="page-action.heading"
               >
-                Excluir relatório de março
+                Excluir relatório de {modalData.month}
               </Heading>
 
               <Typography size="normal" weight="regular">
@@ -53,7 +57,7 @@ export default function ModalDelete({ show = true, onClose }) {
                   Cancelar
                 </Button>
 
-                <Button variant="sys-primary" onClick={onClose}>
+                <Button variant="sys-primary" onClick={handleConfirmDelete}>
                   Sim, excluir
                 </Button>
               </div>
