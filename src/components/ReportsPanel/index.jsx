@@ -8,12 +8,15 @@ import ReportsTablePlaceholder from "../ReportsTablePlaceholder";
 import { AnimatePresence, motion } from "framer-motion";
 import ReportsError from "../ReportsError";
 import Warning from "../../icons/Warning";
+import ModalDelete from "../ModalDelete";
 
 export default function ReportsPanel() {
   const { tabs, reports, filter, isOnline, navigate } = useReportsPanel();
 
   return (
     <div className="flex flex-col items-end gap-2">
+      <ModalDelete />
+
       <div className="w-full flex flex-col sm:flex-row sm:items-center">
         <Typography size="base" weight="medium">
           Filtrar status:
