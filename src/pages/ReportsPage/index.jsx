@@ -3,6 +3,7 @@ import ReportsPanel from "../../components/ReportsPanel";
 import Sidebar from "../../components/Sidebar";
 import Typography from "../../components/Typography";
 import { DeleteModalProvider } from "../../context/DeleteModalContext";
+import { ReportPeriodModalProvider } from "../../context/ReportPeriodModalContext";
 
 export default function ReportsPage() {
   return (
@@ -24,7 +25,9 @@ export default function ReportsPage() {
         </div>
 
         <DeleteModalProvider>
-          <ReportsPanel />
+          <ReportPeriodModalProvider>
+            <ReportsPanel />
+          </ReportPeriodModalProvider>
         </DeleteModalProvider>
       </div>
     </div>

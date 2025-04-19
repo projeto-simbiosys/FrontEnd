@@ -8,13 +8,11 @@ import ReportsTablePlaceholder from "../ReportsTablePlaceholder";
 import { AnimatePresence, motion } from "framer-motion";
 import ReportsError from "../ReportsError";
 import Warning from "../../icons/Warning";
-import useAvailablePeriods from "../../hooks/useAvailablePeriods";
+import ReportPeriodModal from "../ReportPeriodModal";
 
 export default function ReportsPanel() {
-  const { tabs, reports, filter, isOnline, navigate } = useReportsPanel();
-
-  // usado pra testar o botão de gerar relatório por período buscando os períodos disponíveis do ano selecionado
-  const availablePeriods = useAvailablePeriods();
+  const { tabs, reports, filter, reportPeriodModal, isOnline, navigate } =
+    useReportsPanel();
 
   return (
     <div className="flex flex-col items-end gap-2">
@@ -178,13 +176,18 @@ export default function ReportsPanel() {
             )}
           </Typography>
         </div>
-        {/* botao pra testar o uso do hook de peiodos disponiveis */}
-        {/* pode funcionar se o modal de gerar relatorio de um periodo receber por props o ano selecionado usando o {tabs.active} */}
+
+        <ReportPeriodModal
+          show={reportPeriodModal.show}
+          year={tabs.active}
+          onClose={reportPeriodModal.handleClose}
+        />
+
         <Button
           variant="sys-primary"
           className="sm:!w-min-content ml-auto sm:ml-0 mt-2 sm:mt-0"
           disabled={reports.isLoading || reports.isEmpty}
-          onClick={() => console.log(availablePeriods)}
+          onClick={reportPeriodModal.handleOpen}
         >
           Gerar relatório por período
         </Button>

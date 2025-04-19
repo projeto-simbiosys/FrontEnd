@@ -9,6 +9,7 @@ import availableYearsListAdapter from "../../adapters/availableYearsListAdapter"
 import { useNavigate } from "react-router";
 
 export default function useReportsPanel() {
+  const [showPeriodModal, setShowPeriodModal] = useState(false);
   const [selectedYearTab, setSelectedYearTab] = useState();
   const [filters, setFilters] = useState({
     open: true,
@@ -84,6 +85,11 @@ export default function useReportsPanel() {
     filter: {
       values: filters,
       handleCheckboxChange,
+    },
+    reportPeriodModal: {
+      show: showPeriodModal,
+      handleClose: () => setShowPeriodModal(false),
+      handleOpen: () => setShowPeriodModal(true),
     },
     isOnline: navigator.onLine,
     navigate,
