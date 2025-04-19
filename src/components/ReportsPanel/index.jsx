@@ -8,9 +8,13 @@ import ReportsTablePlaceholder from "../ReportsTablePlaceholder";
 import { AnimatePresence, motion } from "framer-motion";
 import ReportsError from "../ReportsError";
 import Warning from "../../icons/Warning";
+import useAvailablePeriods from "../../hooks/useAvailablePeriods";
 
 export default function ReportsPanel() {
   const { tabs, reports, filter, isOnline, navigate } = useReportsPanel();
+
+  // usado pra testar o botão de gerar relatório por período buscando os períodos disponíveis do ano selecionado
+  const availablePeriods = useAvailablePeriods();
 
   return (
     <div className="flex flex-col items-end gap-2">
@@ -123,55 +127,67 @@ export default function ReportsPanel() {
         </div>
       </div>
 
-      <div className="w-full flex gap-4 sm:gap-8">
-        <Typography size="normal" weight="regular">
-          Meses:{" "}
-          {reports.isLoading || tabs.isLoading ? (
-            <span className="text-transparent inline-block bg-gray-disabled rounded animate-pulse">
-              000
-            </span>
-          ) : (
-            <>
-              <AnimatePresence mode="wait">
-                <motion.span
-                  key={reports.data.length}
-                  initial={{ opacity: 0, y: -4 }}
-                  animate={{ opacity: 1, y: 0 }}
-                  exit={{ opacity: 0, y: 4 }}
-                  transition={{ duration: 0.2 }}
-                  className="inline-block"
-                >
-                  {reports.data.length}
-                </motion.span>
-              </AnimatePresence>
-              /12
-            </>
-          )}
-        </Typography>
+      <div className="w-full flex flex-col justify-between sm:flex-row">
+        <div className="flex gap-4 sm:gap-8">
+          <Typography size="normal" weight="regular">
+            Meses:{" "}
+            {reports.isLoading || tabs.isLoading ? (
+              <span className="text-transparent inline-block bg-gray-disabled rounded animate-pulse">
+                000
+              </span>
+            ) : (
+              <>
+                <AnimatePresence mode="wait">
+                  <motion.span
+                    key={reports.data.length}
+                    initial={{ opacity: 0, y: -4 }}
+                    animate={{ opacity: 1, y: 0 }}
+                    exit={{ opacity: 0, y: 4 }}
+                    transition={{ duration: 0.2 }}
+                    className="inline-block"
+                  >
+                    {reports.data.length}
+                  </motion.span>
+                </AnimatePresence>
+                /12
+              </>
+            )}
+          </Typography>
 
-        <Typography size="normal" weight="regular">
-          Fechados:{" "}
-          {reports.isLoading || tabs.isLoading ? (
-            <span className="text-transparent inline-block bg-gray-disabled rounded animate-pulse">
-              000
-            </span>
-          ) : (
-            <>
-              <AnimatePresence mode="wait">
-                <motion.span
-                  key={`${reports.countClosed}/${reports.data.length}`}
-                  initial={{ opacity: 0, y: -4 }}
-                  animate={{ opacity: 1, y: 0 }}
-                  exit={{ opacity: 0, y: 4 }}
-                  transition={{ duration: 0.2 }}
-                  className="inline-block"
-                >
-                  {reports.countClosed}/{reports.data.length}
-                </motion.span>
-              </AnimatePresence>
-            </>
-          )}
-        </Typography>
+          <Typography size="normal" weight="regular">
+            Fechados:{" "}
+            {reports.isLoading || tabs.isLoading ? (
+              <span className="text-transparent inline-block bg-gray-disabled rounded animate-pulse">
+                000
+              </span>
+            ) : (
+              <>
+                <AnimatePresence mode="wait">
+                  <motion.span
+                    key={`${reports.countClosed}/${reports.data.length}`}
+                    initial={{ opacity: 0, y: -4 }}
+                    animate={{ opacity: 1, y: 0 }}
+                    exit={{ opacity: 0, y: 4 }}
+                    transition={{ duration: 0.2 }}
+                    className="inline-block"
+                  >
+                    {reports.countClosed}/{reports.data.length}
+                  </motion.span>
+                </AnimatePresence>
+              </>
+            )}
+          </Typography>
+        </div>
+        {/* botao pra testar o uso do hook de peiodos disponiveis */}
+        {/* pode funcionar se o modal de gerar relatorio de um periodo receber por props o ano selecionado usando o {tabs.active} */}
+        <Button
+          variant="sys-primary"
+          className="sm:!w-min-content ml-auto sm:ml-0 mt-2 sm:mt-0"
+          disabled={reports.isLoading || reports.isEmpty}
+          onClick={() => console.log(availablePeriods)}
+        >
+          Gerar relatório por período
+        </Button>
       </div>
     </div>
   );
