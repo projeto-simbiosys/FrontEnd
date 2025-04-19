@@ -4,16 +4,17 @@ const DeleteModalContext = createContext(null);
 
 export function DeleteModalProvider({ children }) {
   const [modalData, setModalData] = useState({
+    showModal: false,
     id: null,
     month: null,
   });
 
   function updateModal(id, month) {
-    setModalData({ id, month });
+    setModalData({ showModal: true, id, month });
   }
 
   function resetModal() {
-    setModalData({ id: null, month: null });
+    setModalData({ showModal: false, id: null, month: null });
   }
 
   return (

@@ -104,7 +104,7 @@ export default function ReportsPanel() {
                   {(reports.isLoading || tabs.isLoading) && (
                     <ReportsTablePlaceholder />
                   )}
-                  {reports.isEmpty && (
+                  {!reports.isLoading && reports.isEmpty && (
                     <ReportsEmpty text="Ainda não há relatórios cadastrados para este ano." />
                   )}
                   {!reports.isLoading &&
@@ -132,7 +132,7 @@ export default function ReportsPanel() {
             </span>
           ) : (
             <>
-              <AnimatePresence>
+              <AnimatePresence mode="wait">
                 <motion.span
                   key={reports.data.length}
                   initial={{ opacity: 0, y: -4 }}
@@ -157,26 +157,16 @@ export default function ReportsPanel() {
             </span>
           ) : (
             <>
-              <AnimatePresence>
+              <AnimatePresence mode="wait">
                 <motion.span
-                  key={reports.countClosed}
+                  key={`${reports.countClosed}/${reports.data.length}`}
                   initial={{ opacity: 0, y: -4 }}
                   animate={{ opacity: 1, y: 0 }}
                   exit={{ opacity: 0, y: 4 }}
                   transition={{ duration: 0.2 }}
                   className="inline-block"
                 >
-                  {reports.countClosed}
-                </motion.span>
-                <motion.span
-                  key={reports.data.length}
-                  initial={{ opacity: 0, y: -4 }}
-                  animate={{ opacity: 1, y: 0 }}
-                  exit={{ opacity: 0, y: 4 }}
-                  transition={{ duration: 0.2 }}
-                  className="inline-block"
-                >
-                  /{reports.data.length}
+                  {reports.countClosed}/{reports.data.length}
                 </motion.span>
               </AnimatePresence>
             </>

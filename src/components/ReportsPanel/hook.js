@@ -49,6 +49,7 @@ export default function useReportsPanel() {
     data: reportsData,
     error: reportsDataError,
     isLoading: reportsDataLoading,
+    isFetching: reportsDataFetching,
     isSuccess: reportsDataSuccess,
   } = useQuery({
     queryKey: ["reportsByYear", selectedYearTab],
@@ -74,7 +75,7 @@ export default function useReportsPanel() {
     reports: {
       data: reportsListAdapted ? reportsListAdapted : [],
       error: reportsDataError,
-      isLoading: reportsDataLoading,
+      isLoading: reportsDataLoading || reportsDataFetching,
       isSuccess: reportsDataSuccess,
       isEmpty: reportsListAdapted?.length === 0,
       countClosed: reportsListAdapted?.filter(report => report.isClosed)

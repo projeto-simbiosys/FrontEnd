@@ -58,7 +58,7 @@ export default function ReportsTable({ reports, filters }) {
               </tr>
             </thead>
             <tbody>
-              <AnimatePresence>
+              <AnimatePresence mode="wait">
                 {filteredReports.map(report => (
                   <motion.tr
                     key={report.id}
