@@ -6,15 +6,16 @@ export function DeleteModalProvider({ children }) {
   const [modalData, setModalData] = useState({
     showModal: false,
     id: null,
+    year: null,
     month: null,
   });
 
-  function updateModal(id, month) {
-    setModalData({ showModal: true, id, month });
+  function updateModal(id, year, month) {
+    setModalData({ showModal: true, id, year, month });
   }
 
   function resetModal() {
-    setModalData({ showModal: false, id: null, month: null });
+    setModalData({ showModal: false, id: null, year: null, month: null });
   }
 
   return (

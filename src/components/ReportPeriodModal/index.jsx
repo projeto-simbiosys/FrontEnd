@@ -68,7 +68,8 @@ export default function ReportPeriodModal({ show, onClose, year }) {
                   </Heading>
 
                   <Typography size="normal" weight="regular">
-                    Este relatório será gerado com base nos meses do ano de 2025
+                    Este relatório será gerado com base nos meses do ano de{" "}
+                    {year}
                   </Typography>
 
                   <div className="mt-4 flex flex-col sm:flex-row gap-3">

@@ -22,8 +22,9 @@ export default function useDeleteModal() {
     triggerNotification(2000);
 
     setTimeout(() => {
-      console.log("Redirecting to reports page...");
-      queryClient.invalidateQueries(["reportsByYear"]);
+      queryClient.invalidateQueries(["reportsByYear", modalData.year], {
+        exact: true,
+      });
       resetModal();
     }, 2000);
   };
@@ -42,7 +43,6 @@ export default function useDeleteModal() {
 
   function handleConfirmDelete() {
     setDisableButton(true);
-    console.log(`Deleting report with ID: ${modalData.id}`);
     mutation.mutate(modalData.id);
   }
 

@@ -25,6 +25,7 @@ export default function reportsListAdapter(reports) {
     return {
       id: report.id,
       month: capitalizeWords(monthFormatted),
+      year: report.year,
       lastUpdate: formatDate(report.lastUpdate),
       lastPersonToUpdate: capitalizeWords(report.lastPersonToUpdate),
       status: statusFormatted,

@@ -49,6 +49,7 @@ export default function ReportsPanel() {
         <Button
           variant="sys-primary"
           className="self-end sm:ml-auto"
+          disabled={!isOnline}
           onClick={() => navigate("/admin/reports/new")}
         >
           Novo relatório
@@ -186,7 +187,9 @@ export default function ReportsPanel() {
         <Button
           variant="sys-primary"
           className="sm:!w-min-content ml-auto sm:ml-0 mt-2 sm:mt-0"
-          disabled={reports.isLoading || reports.isEmpty}
+          disabled={
+            reports.isLoading || reports.isEmpty || reports.data.length <= 1
+          }
           onClick={reportPeriodModal.handleOpen}
         >
           Gerar relatório por período

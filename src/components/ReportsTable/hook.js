@@ -13,7 +13,7 @@ export default function useReportsTable({ reports, filters }) {
   });
 
   function handleClickDelete(report) {
-    updateModal(report.id, report.month);
+    updateModal(report.id, report.year, report.month);
   }
 
   const navigate = useNavigate();
