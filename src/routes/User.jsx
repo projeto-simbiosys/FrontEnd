@@ -4,15 +4,18 @@ import About from "../pages/About";
 import Solution from "../pages/Solution";
 import Register from "../pages/Register";
 import Login from "../pages/Login";
+import { SidebarProvider } from "../context/SidebarContext";
 
 export default function UserRoutes() {
   return (
-    <Routes>
-      <Route path="/" element={<Home />} />
-      <Route path="/about" element={<About />} />
-      <Route path="/solution" element={<Solution />} />
-      <Route path="/register" element={<Register />} />
-      <Route path="/login" element={<Login />} />
-    </Routes>
+    <SidebarProvider>
+      <Routes>
+        <Route path="/" element={<Home />} />
+        <Route path="/about" element={<About />} />
+        <Route path="/solution" element={<Solution />} />
+        <Route path="/register" element={<Register />} />
+        <Route path="/login" element={<Login />} />
+      </Routes>
+    </SidebarProvider>
   );
 }

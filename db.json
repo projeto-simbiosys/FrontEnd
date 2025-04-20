@@ -1,0 +1,32 @@
+{
+  "reportsYears": [{ "year": "2025" }, { "year": "2024" }],
+  "reports": [
+    {
+      "id": "1",
+      "year": "2025",
+      "month": "Março",
+      "lastUpdate": "2025-04-10T14:30:00Z",
+      "lastPersonToUpdate": "João Silva",
+      "status": "aberto",
+      "url": "https://example.com/report/1"
+    },
+    {
+      "id": "2",
+      "year": "2025",
+      "month": "Abril",
+      "lastUpdate": "2025-05-25T14:30:00Z",
+      "lastPersonToUpdate": "Rodrigo Camargo",
+      "status": "fechado",
+      "url": "https://example.com/report/2"
+    },
+    {
+      "id": "3",
+      "year": "2024",
+      "month": "Dezembro",
+      "lastUpdate": "2024-12-31T14:30:00Z",
+      "lastPersonToUpdate": "Maria Oliveira",
+      "status": "fechado",
+      "url": "https://example.com/report/3"
+    }
+  ]
+}

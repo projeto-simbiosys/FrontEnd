@@ -2,7 +2,7 @@ import { useForm } from "react-hook-form";
 import { useMutation } from "@tanstack/react-query";
 import { useState } from "react";
 import { useNavigate } from "react-router";
-import { login } from "../../services/auth";
+import { login } from "../../services/authService";
 import { yupResolver } from "@hookform/resolvers/yup";
 import { schemaValidation } from "../../validators/loginSchema";
 
