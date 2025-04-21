@@ -5,7 +5,7 @@ export default function Tabs({
 }) {
   return (
     <div
-      className={`flex gap-2.5 w-fit ${className} ${
+      className={`flex gap-2.5 ${className} ${
         orientation === "horizontal" ? "flex-row" : "flex-col"
       }`}
     >

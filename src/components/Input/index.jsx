@@ -26,13 +26,13 @@ export default function Input({ hasError = false, ...props }) {
         >
           {input.showPassword ? (
             <EyeOpen
-              className={`w-[25px] h-[25px] ${
+              className={`w-[20px] h-[20px] ${
                 hasError ? "fill-red-700" : "fill-sys-main"
               } group-has-[:disabled]:fill-gray-detail-disabled`}
             />
           ) : (
             <EyeClosed
-              className={`w-[25px] h-[25px] ${
+              className={`w-[20px] h-[20px] ${
                 hasError ? "fill-red-700" : "fill-sys-main"
               } group-has-[:disabled]:fill-gray-detail-disabled`}
             />

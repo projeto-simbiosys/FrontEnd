@@ -16,9 +16,9 @@ export default function Select({ hasError = false, children, ...props }) {
         {children}
       </select>
       <Dropdown
-        className={`peer-focus:rotate-180 peer-focus-within:rotate-0 peer-disabled:fill-gray-detail-disabled w-[25px] h-[25px] ${
+        className={`peer-focus:rotate-180 peer-focus-within:rotate-0 peer-disabled:fill-gray-detail-disabled w-[20px] h-[20px] ${
           hasError ? "fill-red-700" : "fill-sys-main"
-        } pointer-events-none col-start-1 row-start-1 ml-auto`}
+        } pointer-events-none col-start-1 row-start-1 my-auto ml-auto`}
       />
     </div>
   );
