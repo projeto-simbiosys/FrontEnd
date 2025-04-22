@@ -20,12 +20,20 @@ export default function useReportEditor(mode) {
     "Dezembro",
   ];
 
+  const titlePage = {
+    new: "Painel de Criação de Relatório",
+    edit: "Painel de Revisão de Relatório",
+  };
+
+  const subtitlePage = {
+    new: "Escolha o mês de referência e preencha os dados para o novo relatório",
+    edit: "Visualize, edite e confirme os dados estatísticos de um período mensal",
+  };
+
   const location = useLocation();
   const report = location.state?.report;
-  console.log(report);
 
   const currentMonth = isEdit ? report.month : null;
-  console.log(currentMonth);
 
   const existingMonthsByYear = useExistingMonthsByYear(report.year);
   if (existingMonthsByYear) {
@@ -47,16 +55,6 @@ export default function useReportEditor(mode) {
   const navigate = useNavigate();
   const { id } = useParams();
 
-  const titlePage = {
-    new: "Painel de Criação de Relatório",
-    edit: "Painel de Revisão de Relatório",
-  };
-
-  const subtitlePage = {
-    new: "Escolha o mês de referência e preencha os dados para o novo relatório",
-    edit: "Visualize, edite e confirme os dados estatísticos de um período mensal",
-  };
-
   useEffect(() => {
     if (mode == "edit" && !location.state.reportsTable) {
       navigate("/admin/reports", { replace: true });
@@ -67,6 +65,10 @@ export default function useReportEditor(mode) {
     page: {
       title: titlePage[mode],
       subtitle: subtitlePage[mode],
+    },
+    select: {
+      disabled: isEdit,
+      options: monthOptions,
     },
     report: {
       year: report?.year,
