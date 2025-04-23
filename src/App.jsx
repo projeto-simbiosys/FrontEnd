@@ -1,17 +1,14 @@
-import { Routes, Route } from "react-router-dom";
 import Header from "./components/Header";
 import Footer from "./components/Footer";
-import InstituicaoEmpresa from "./pages/institucional-empresa/institucional-empresa";
+import Button from "./components/Button"
+import React from "react";
+import { User } from "./routes/User";
+import { RouterProvider } from "react-router";
 
 function App() {
   return (
-    <>
-      <Header />
-      <Routes>
-        <Route path="/institucional-empresa" element={<InstituicaoEmpresa />} />
-      </Routes>
-      <Footer />
-    </>
+    
+    <RouterProvider router={User}/>
   );
 }
 
