@@ -65,5 +65,6 @@ export default function useReportForm() {
       direction,
       variants,
     },
+    reportInfosLoading,
   };
 }

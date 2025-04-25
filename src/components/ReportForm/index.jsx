@@ -5,9 +5,10 @@ import ActionsForm from "../ActionsForm";
 import OthersForm from "../OthersForm";
 import useReportForm from "./hook";
 import { AnimatePresence, motion } from "framer-motion";
+import ReportFormPlaceholder from "../ReportFormPlaceholder";
 
 export default function ReportForm() {
-  const { tabs, formAnimation } = useReportForm();
+  const { tabs, formAnimation, reportInfosLoading } = useReportForm();
 
   return (
     <div className="flex flex-col items-start gap-2">
@@ -50,9 +51,16 @@ export default function ReportForm() {
             exit="exit"
             transition={{ duration: 0.25 }}
           >
-            {tabs.activeTab === "referrals" && <ReferralsForm />}
-            {tabs.activeTab === "actions" && <ActionsForm />}
-            {tabs.activeTab === "others" && <OthersForm />}
+            {reportInfosLoading && <ReportFormPlaceholder />}
+            {tabs.activeTab === "referrals" && !reportInfosLoading && (
+              <ReferralsForm />
+            )}
+            {tabs.activeTab === "actions" && !reportInfosLoading && (
+              <ActionsForm />
+            )}
+            {tabs.activeTab === "others" && !reportInfosLoading && (
+              <OthersForm />
+            )}
           </motion.div>
         </AnimatePresence>
       </div>
