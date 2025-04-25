@@ -6,13 +6,26 @@ import OthersForm from "../OthersForm";
 import useReportForm from "./hook";
 import { AnimatePresence, motion } from "framer-motion";
 import ReportFormPlaceholder from "../ReportFormPlaceholder";
+import Notification from "../Notification";
 
 export default function ReportForm() {
-  const { tabs, formAnimation, reportInfosLoading, updateAndSaveReport } =
-    useReportForm();
+  const {
+    tabs,
+    formAnimation,
+    reportInfosLoading,
+    updateAndSaveReport,
+    saveButton,
+    notification,
+  } = useReportForm();
 
   return (
     <div className="flex flex-col items-start gap-2">
+      <Notification
+        show={notification.show}
+        type={notification.type}
+        title={notification.title}
+        body={notification.message}
+      />
       <div className="flex flex-col gap-3 lg:flex-row border border-sys-main/30 w-full p-2 md:p-6">
         <Tabs
           orientation="horizontal"
@@ -67,10 +80,19 @@ export default function ReportForm() {
       </div>
 
       <div className="w-full flex flex-col items-end sm:items-center sm:flex-row sm:justify-end gap-2 mt-2">
-        <Button variant="sys-secondary" onClick={updateAndSaveReport}>
-          Salvar alterações
+        <Button
+          variant="sys-secondary"
+          onClick={updateAndSaveReport}
+          disabled={saveButton.isLoading || saveButton.isSuccess}
+        >
+          {saveButton.isLoading ? "Salvando alterações" : "Salvar alterações"}
         </Button>
-        <Button variant="sys-primary">Salvar e Fechar</Button>
+        <Button
+          variant="sys-primary"
+          disabled={saveButton.isLoading || saveButton.isSuccess}
+        >
+          Salvar e Fechar
+        </Button>
       </div>
     </div>
   );

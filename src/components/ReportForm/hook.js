@@ -2,22 +2,46 @@ import { useMutation, useQuery } from "@tanstack/react-query";
 import { useEffect, useState } from "react";
 import { useFormContext } from "react-hook-form";
 import { useParams } from "react-router";
+import { useNavigate } from "react-router-dom";
 import {
   getReportDataById,
   updateAndSaveReport,
 } from "../../services/reportsService";
 import reportInfosAdapter from "../../adapters/reportInfosAdapter";
 import reportInfosToUpdateAdapter from "../../adapters/reportInfosToUpdateAdapter";
+import { handleApiError } from "../../utils/handleApiError";
 
 export default function useReportForm() {
   const [activeTab, setActiveTab] = useState("referrals");
   const [prevTab, setPrevTab] = useState("referrals");
+  const [showNotification, setShowNotification] = useState(false);
   const { id } = useParams();
   const { reset, handleSubmit } = useFormContext();
+
+  const navigate = useNavigate();
 
   const onSubmit = data => {
     const reportInfosToUpdateAdapted = reportInfosToUpdateAdapter(data);
     mutation.mutate({ id, reportInfosToUpdateAdapted });
+  };
+
+  const triggerNotification = time => {
+    setShowNotification(true);
+    setTimeout(() => {
+      setShowNotification(false);
+    }, time);
+  };
+
+  const handleSuccess = () => {
+    triggerNotification(2000);
+
+    setTimeout(() => {
+      navigate("/admin/reports");
+    }, 2000);
+  };
+
+  const handleError = () => {
+    triggerNotification(3000);
   };
 
   const {
@@ -33,6 +57,8 @@ export default function useReportForm() {
   const mutation = useMutation({
     mutationKey: ["updateAndSaveReport"],
     mutationFn: updateAndSaveReport,
+    onSuccess: handleSuccess,
+    onError: handleError,
   });
 
   useEffect(() => {
@@ -80,6 +106,18 @@ export default function useReportForm() {
       variants,
     },
     reportInfosLoading,
+    notification: {
+      show: showNotification,
+      type: mutation.status,
+      title: mutation.status === "success" ? "Sucesso!" : "Erro!",
+      message: mutation.error
+        ? handleApiError(mutation.error)
+        : "Dados editados com sucesso!",
+    },
+    saveButton: {
+      isLoading: mutation.isPending,
+      isSuccess: mutation.isSuccess,
+    },
     updateAndSaveReport: handleSubmit(onSubmit),
   };
 }
