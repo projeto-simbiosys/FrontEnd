@@ -69,7 +69,9 @@ export default function useReportEditor(mode) {
     report: {
       year: report?.year,
       month: report?.month,
-      lastUpdate: report ? `Última atualização: ${report?.lastUpdate}` : "",
+      lastUpdate: report?.lastUpdate
+        ? `Última atualização: ${report?.lastUpdate}`
+        : "",
     },
   };
 }
