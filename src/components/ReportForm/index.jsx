@@ -15,16 +15,16 @@ export default function ReportForm() {
     reportInfosLoading,
     updateAndSaveReport,
     saveButton,
-    notification,
+    notificationUpdate,
   } = useReportForm();
 
   return (
     <div className="flex flex-col items-start gap-2">
       <Notification
-        show={notification.show}
-        type={notification.type}
-        title={notification.title}
-        body={notification.message}
+        show={notificationUpdate.show}
+        type={notificationUpdate.type}
+        title={notificationUpdate.title}
+        body={notificationUpdate.message}
       />
       <div className="flex flex-col gap-3 lg:flex-row border border-sys-main/30 w-full p-2 md:p-6">
         <Tabs
