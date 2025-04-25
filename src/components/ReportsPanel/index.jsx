@@ -50,7 +50,16 @@ export default function ReportsPanel() {
           variant="sys-primary"
           className="self-end sm:ml-auto"
           disabled={!isOnline}
-          onClick={() => navigate("/admin/reports/new")}
+          onClick={() =>
+            navigate("/admin/reports/new", {
+              state: {
+                reportsPanel: true,
+                report: {
+                  year: tabs.active,
+                },
+              },
+            })
+          }
         >
           Novo relatório
         </Button>

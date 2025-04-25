@@ -1,8 +1,11 @@
 import Heading from "../Heading";
 import Typography from "../Typography";
 import Input from "../Input";
+import { useFormContext } from "react-hook-form";
 
 export default function ReferralsForm() {
+  const { register } = useFormContext();
+
   return (
     <div className="w-full flex items-center flex-col gap-4">
       <Heading
@@ -17,49 +20,42 @@ export default function ReferralsForm() {
           <Typography size="base" weight="light" className="mb-1 text-sys-main">
             CRAS/CREAS/CENTRO POP/SAS
           </Typography>
-          <Input />
+          <Input {...register("socialAssistance")} />
         </label>
 
         <label>
           <Typography size="base" weight="light" className="mb-1 text-sys-main">
             Cursos profissionalizantes (dentro da organização)
           </Typography>
-          <Input />
+          <Input {...register("professionalCoursesInsideOrg")} />
         </label>
 
         <label>
           <Typography size="base" weight="light" className="mb-1 text-sys-main">
-            Trabalho
+            Documentos
           </Typography>
-          <Input />
-        </label>
-
-        <label>
-          <Typography size="base" weight="light" className="mb-1 text-sys-main">
-            Saúde
-          </Typography>
-          <Input />
+          <Input {...register("documents")} />
         </label>
 
         <label>
           <Typography size="base" weight="light" className="mb-1 text-sys-main">
             Tratamento álcool e/ou outras drogas
           </Typography>
-          <Input />
+          <Input {...register("treatment")} />
         </label>
 
         <label>
           <Typography size="base" weight="light" className="mb-1 text-sys-main">
             Programas de Transferência de Renda (PTR)
           </Typography>
-          <Input />
+          <Input {...register("PTR")} />
         </label>
 
         <label>
           <Typography size="base" weight="light" className="mb-1 text-sys-main">
             Defensoria Pública/Outras políticas públicas
           </Typography>
-          <Input />
+          <Input {...register("publicPolicies")} />
         </label>
       </div>
     </div>

@@ -4,9 +4,32 @@ import Heading from "../../components/Heading";
 import Typography from "../../components/Typography";
 import Select from "../../components/Select";
 import ReportForm from "../../components/ReportForm";
+import { FormProvider, useForm } from "react-hook-form";
 
 export default function ReportEditor({ mode }) {
   const { page, report, select } = useReportEditor(mode);
+  const methods = useForm({
+    defaultValues: {
+      socialAssistance: 0,
+      professionalCoursesInsideOrg: 0,
+      documents: 0,
+      treatment: 0,
+      PTR: 0,
+      publicPolicies: 0,
+      service: 0,
+      socioEducationalActivities: 0,
+      groupActivities: 0,
+      outsideActivities: 0,
+      lectures: 0,
+      monitoredVisit: 0,
+      courses: 0,
+      trainingCourses: 0,
+      professionalCourses: 0,
+      feeding: 0,
+      basicFood: 0,
+      kitsHygiene: 0,
+    },
+  });
 
   return (
     <div className="flex">
@@ -46,7 +69,9 @@ export default function ReportEditor({ mode }) {
             </Select>
           </label>
 
-          <ReportForm year={report.year} month={report.month} />
+          <FormProvider {...methods}>
+            <ReportForm />
+          </FormProvider>
         </div>
       </div>
     </div>

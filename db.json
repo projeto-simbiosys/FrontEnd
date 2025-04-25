@@ -28,5 +28,56 @@
       "status": "fechado",
       "url": "https://example.com/report/3"
     }
+  ],
+  "relatorios": [
+    {
+      "id": 1,
+      "mesAno": "04/2025",
+      "dataAtualizacao": "2025-04-25T14:09:08.600Z",
+      "encaminhamento": {
+        "id": 1,
+        "encBeneficioPrestacaoContinuada": 5,
+        "encAposentadoria": 2,
+        "encAssistenciaSocial": 7,
+        "encCursosProfissionalizantesForaOrganizacao": 4,
+        "encCursosProfissionalizantesDentroOrganizacao": 3,
+        "encEducacaoNaoFormal": 6,
+        "encEducacaoFormal": 8,
+        "encDocumentos": 10,
+        "encTrabalho": 9,
+        "encGeracaoRenda": 5,
+        "encSaude": 11,
+        "encTratamentoDrogas": 1,
+        "encProgramasTransferenciaRenda": 4,
+        "encPoliticasPublicas": 2
+      },
+      "outrosNumeros": {
+        "id": 1,
+        "alimentacao": 35,
+        "numeroDePessoasPresencial": 120,
+        "cestasBasicasDoadas": 45,
+        "kitsHigieneDoados": 20,
+        "totalParticipantesAtividadeDistancia": 60,
+        "totalParticipantesAtividadePresencial": 90
+      },
+      "acoesRealizadas": {
+        "id": 1,
+        "totalAtividadesGrupoVirtual": 3,
+        "totalAtividadesCulturaisExternas": 2,
+        "totalAtividadesCulturaisVirtuais": 1,
+        "totalPalestrasPresenciais": 4,
+        "totalPalestrasVirtuais": 2,
+        "totalVisitasFamiliaresPresenciais": 6,
+        "totalVisitasFamiliaresVirtuais": 2,
+        "totalVisitasMonitoradasPresenciais": 3,
+        "totalVisitasMonitoradasVirtuais": 1,
+        "totalCursosMinistradosPresenciais": 4,
+        "totalCursosMinistradosVirtuais": 2,
+        "totalPessoasCursosCapacitacaoPresenciais": 30,
+        "totalPessoasCursosCapacitacaoVirtuais": 15,
+        "totalPessoasCursosProfissionalizantesPresenciais": 12,
+        "totalPessoasCursosProfissionalizantesVirtuais": 8
+      }
+    }
   ]
 }

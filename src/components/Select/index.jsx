@@ -5,7 +5,7 @@ export default function Select({ hasError = false, children, ...props }) {
     <div
       className={`grid border ${
         hasError ? "border-red-700" : "border-sys-main"
-      } has-[:disabled]:border-gray-detail-disabled has-[:disabled]:bg-gray-disabled rounded-md px-1.5 py-1.5 gap-2 bg-white shadow-sm`}
+      } has-[select:disabled]:border-gray-detail-disabled has-[select:disabled]:bg-gray-disabled rounded-md px-1.5 py-1.5 gap-2 bg-white shadow-sm`}
     >
       <select
         className={`peer col-start-1 row-start-1 appearance-none ${

@@ -1,8 +1,11 @@
 import Heading from "../Heading";
 import Typography from "../Typography";
 import Input from "../Input";
+import { useFormContext } from "react-hook-form";
 
 export default function OthersForm() {
+  const { register } = useFormContext();
+
   return (
     <div className="w-full flex items-center flex-col gap-4">
       <Heading
@@ -17,21 +20,21 @@ export default function OthersForm() {
           <Typography size="base" weight="light" className="mb-1 text-sys-main">
             Alimentação
           </Typography>
-          <Input />
+          <Input {...register("feeding")} />
         </label>
 
         <label>
           <Typography size="base" weight="light" className="mb-1 text-sys-main">
             Cestas Básicas doadas
           </Typography>
-          <Input />
+          <Input {...register("basicFood")} />
         </label>
 
         <label>
           <Typography size="base" weight="light" className="mb-1 text-sys-main">
             Kits de Higiene doados
           </Typography>
-          <Input />
+          <Input {...register("kitsHygiene")} />
         </label>
       </div>
     </div>

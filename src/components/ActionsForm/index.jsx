@@ -1,8 +1,11 @@
 import Heading from "../Heading";
 import Typography from "../Typography";
 import Input from "../Input";
+import { useFormContext } from "react-hook-form";
 
 export default function ActionsForm() {
+  const { register } = useFormContext();
+
   return (
     <div className="w-full flex items-center flex-col gap-4">
       <Heading
@@ -17,14 +20,14 @@ export default function ActionsForm() {
           <Typography size="base" weight="light" className="mb-1 text-sys-main">
             Atendimentos da equipe multiprofissional
           </Typography>
-          <Input />
+          <Input {...register("service")} />
         </label>
 
         <label>
           <Typography size="base" weight="light" className="mb-1 text-sys-main">
             Atividades socioeducativas
           </Typography>
-          <Input />
+          <Input {...register("socioEducationalActivities")} />
         </label>
 
         <label>
@@ -32,7 +35,7 @@ export default function ActionsForm() {
             Atividades em grupo (número total, somando todos os grupos
             realizados pelos profissionais)
           </Typography>
-          <Input />
+          <Input {...register("groupActivities")} />
         </label>
 
         <label>
@@ -40,21 +43,21 @@ export default function ActionsForm() {
             Atividades culturais externas realizadas (passeios, parques, museus,
             cinema, teatro, etc)
           </Typography>
-          <Input />
+          <Input {...register("outsideActivities")} />
         </label>
 
         <label>
           <Typography size="base" weight="light" className="mb-1 text-sys-main">
             Palestras Realizadas
           </Typography>
-          <Input />
+          <Input {...register("lectures")} />
         </label>
 
         <label>
           <Typography size="base" weight="light" className="mb-1 text-sys-main">
             Visitas Monitoradas (Recebidas na unidade presencialmente)
           </Typography>
-          <Input />
+          <Input {...register("monitoredVisit")} />
         </label>
 
         <label>
@@ -62,7 +65,7 @@ export default function ActionsForm() {
             Cursos ministrados presencialmente (Quantidade de cursos e não de
             pessoas)
           </Typography>
-          <Input />
+          <Input {...register("courses")} />
         </label>
 
         <label>
@@ -70,7 +73,7 @@ export default function ActionsForm() {
             Pessoas que realizaram Cursos Presenciais de Capacitação na unidade
             ou programa
           </Typography>
-          <Input />
+          <Input {...register("trainingCourses")} />
         </label>
 
         <label>
@@ -78,7 +81,7 @@ export default function ActionsForm() {
             Pessoas que realizaram Cursos Presencias Profissionalizantes na
             unidade ou programa
           </Typography>
-          <Input />
+          <Input {...register("professionalCourses")} />
         </label>
       </div>
     </div>
