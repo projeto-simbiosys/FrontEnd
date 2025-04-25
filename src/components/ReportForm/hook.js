@@ -1,15 +1,24 @@
-import { useQuery } from "@tanstack/react-query";
+import { useMutation, useQuery } from "@tanstack/react-query";
 import { useEffect, useState } from "react";
 import { useFormContext } from "react-hook-form";
 import { useParams } from "react-router";
-import { getReportDataById } from "../../services/reportsService";
+import {
+  getReportDataById,
+  updateAndSaveReport,
+} from "../../services/reportsService";
 import reportInfosAdapter from "../../adapters/reportInfosAdapter";
+import reportInfosToUpdateAdapter from "../../adapters/reportInfosToUpdateAdapter";
 
 export default function useReportForm() {
   const [activeTab, setActiveTab] = useState("referrals");
   const [prevTab, setPrevTab] = useState("referrals");
   const { id } = useParams();
-  const { reset } = useFormContext();
+  const { reset, handleSubmit } = useFormContext();
+
+  const onSubmit = data => {
+    const reportInfosToUpdateAdapted = reportInfosToUpdateAdapter(data);
+    mutation.mutate({ id, reportInfosToUpdateAdapted });
+  };
 
   const {
     data: reportInfosData,
@@ -19,6 +28,11 @@ export default function useReportForm() {
     queryKey: ["reportInfos", id],
     queryFn: () => getReportDataById(id),
     enabled: !!id,
+  });
+
+  const mutation = useMutation({
+    mutationKey: ["updateAndSaveReport"],
+    mutationFn: updateAndSaveReport,
   });
 
   useEffect(() => {
@@ -66,5 +80,6 @@ export default function useReportForm() {
       variants,
     },
     reportInfosLoading,
+    updateAndSaveReport: handleSubmit(onSubmit),
   };
 }

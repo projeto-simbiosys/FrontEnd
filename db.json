@@ -1,5 +1,14 @@
 {
-  "reportsYears": [{ "year": "2025" }, { "year": "2024" }],
+  "reportsYears": [
+    {
+      "year": "2025",
+      "id": "4081"
+    },
+    {
+      "year": "2024",
+      "id": "02c0"
+    }
+  ],
   "reports": [
     {
       "id": "1",
@@ -31,53 +40,52 @@
   ],
   "relatorios": [
     {
-      "id": 1,
       "mesAno": "04/2025",
       "dataAtualizacao": "2025-04-25T14:09:08.600Z",
       "encaminhamento": {
         "id": 1,
-        "encBeneficioPrestacaoContinuada": 5,
-        "encAposentadoria": 2,
-        "encAssistenciaSocial": 7,
-        "encCursosProfissionalizantesForaOrganizacao": 4,
-        "encCursosProfissionalizantesDentroOrganizacao": 3,
-        "encEducacaoNaoFormal": 6,
-        "encEducacaoFormal": 8,
-        "encDocumentos": 10,
-        "encTrabalho": 9,
-        "encGeracaoRenda": 5,
-        "encSaude": 11,
-        "encTratamentoDrogas": 1,
-        "encProgramasTransferenciaRenda": 4,
-        "encPoliticasPublicas": 2
+        "encBeneficioPrestacaoContinuada": 0,
+        "encAposentadoria": 0,
+        "encAssistenciaSocial": "999",
+        "encCursosProfissionalizantesForaOrganizacao": 0,
+        "encCursosProfissionalizantesDentroOrganizacao": "999",
+        "encEducacaoNaoFormal": 0,
+        "encEducacaoFormal": 0,
+        "encDocumentos": "999",
+        "encTrabalho": 0,
+        "encGeracaoRenda": 0,
+        "encSaude": 0,
+        "encTratamentoDrogas": "999",
+        "encProgramasTransferenciaRenda": "999",
+        "encPoliticasPublicas": "999"
       },
       "outrosNumeros": {
         "id": 1,
         "alimentacao": 35,
-        "numeroDePessoasPresencial": 120,
+        "numeroDePessoasPresencial": 0,
         "cestasBasicasDoadas": 45,
         "kitsHigieneDoados": 20,
-        "totalParticipantesAtividadeDistancia": 60,
-        "totalParticipantesAtividadePresencial": 90
+        "totalParticipantesAtividadeDistancia": 0,
+        "totalParticipantesAtividadePresencial": 0
       },
       "acoesRealizadas": {
         "id": 1,
-        "totalAtividadesGrupoVirtual": 3,
+        "totalAtividadesGrupoVirtual": 0,
         "totalAtividadesCulturaisExternas": 2,
-        "totalAtividadesCulturaisVirtuais": 1,
+        "totalAtividadesCulturaisVirtuais": 0,
         "totalPalestrasPresenciais": 4,
-        "totalPalestrasVirtuais": 2,
-        "totalVisitasFamiliaresPresenciais": 6,
-        "totalVisitasFamiliaresVirtuais": 2,
+        "totalPalestrasVirtuais": 0,
+        "totalVisitasFamiliaresPresenciais": 0,
+        "totalVisitasFamiliaresVirtuais": 0,
         "totalVisitasMonitoradasPresenciais": 3,
-        "totalVisitasMonitoradasVirtuais": 1,
+        "totalVisitasMonitoradasVirtuais": 0,
         "totalCursosMinistradosPresenciais": 4,
-        "totalCursosMinistradosVirtuais": 2,
+        "totalCursosMinistradosVirtuais": 0,
         "totalPessoasCursosCapacitacaoPresenciais": 30,
-        "totalPessoasCursosCapacitacaoVirtuais": 15,
-        "totalPessoasCursosProfissionalizantesPresenciais": 12,
-        "totalPessoasCursosProfissionalizantesVirtuais": 8
-      }
+        "totalPessoasCursosCapacitacaoVirtuais": 0,
+        "totalPessoasCursosProfissionalizantesVirtuais": 0
+      },
+      "id": "1"
     }
   ]
 }

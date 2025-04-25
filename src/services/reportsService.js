@@ -15,3 +15,10 @@ export function getReportDataById(id) {
 export function deleteReport(id) {
   return axiosInstance.delete(`/reports/${id}`);
 }
+
+export function updateAndSaveReport(data) {
+  return axiosInstance.put(
+    `/relatorios/${data.id}`,
+    data.reportInfosToUpdateAdapted
+  );
+}

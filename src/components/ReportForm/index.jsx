@@ -8,7 +8,8 @@ import { AnimatePresence, motion } from "framer-motion";
 import ReportFormPlaceholder from "../ReportFormPlaceholder";
 
 export default function ReportForm() {
-  const { tabs, formAnimation, reportInfosLoading } = useReportForm();
+  const { tabs, formAnimation, reportInfosLoading, updateAndSaveReport } =
+    useReportForm();
 
   return (
     <div className="flex flex-col items-start gap-2">
@@ -66,7 +67,9 @@ export default function ReportForm() {
       </div>
 
       <div className="w-full flex flex-col items-end sm:items-center sm:flex-row sm:justify-end gap-2 mt-2">
-        <Button variant="sys-secondary">Salvar alterações</Button>
+        <Button variant="sys-secondary" onClick={updateAndSaveReport}>
+          Salvar alterações
+        </Button>
         <Button variant="sys-primary">Salvar e Fechar</Button>
       </div>
     </div>
