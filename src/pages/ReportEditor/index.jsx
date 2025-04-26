@@ -56,8 +56,8 @@ export default function ReportEditor({ mode }) {
         <div>
           <label className="flex items-center gap-2 mb-1">
             Mês:
-            <Select disabled={select.disabled}>
-              {select.options.map(option => (
+            <Select disabled={select.disabled} onChange={select.onChange}>
+              {select?.options?.map(option => (
                 <option
                   key={option.value}
                   value={option.value}
@@ -70,7 +70,7 @@ export default function ReportEditor({ mode }) {
           </label>
 
           <FormProvider {...methods}>
-            <ReportForm />
+            <ReportForm year={report.year} month={select.value} />
           </FormProvider>
         </div>
       </div>

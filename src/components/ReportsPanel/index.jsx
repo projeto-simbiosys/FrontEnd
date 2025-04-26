@@ -49,7 +49,7 @@ export default function ReportsPanel() {
         <Button
           variant="sys-primary"
           className="self-end sm:ml-auto"
-          disabled={!isOnline}
+          disabled={!isOnline || reports.data.length === 12}
           onClick={() =>
             navigate("/admin/reports/new", {
               state: {

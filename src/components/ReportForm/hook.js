@@ -11,8 +11,9 @@ import {
 import reportInfosAdapter from "../../adapters/reportInfosAdapter";
 import reportInfosToUpdateAdapter from "../../adapters/reportInfosToUpdateAdapter";
 import { handleApiError } from "../../utils/handleApiError";
+import reportInfosToCreate from "../../adapters/reportInfosToCreate";
 
-export default function useReportForm() {
+export default function useReportForm(year, month) {
   const [activeTab, setActiveTab] = useState("referrals");
   const [prevTab, setPrevTab] = useState("referrals");
   const [showNotification, setShowNotification] = useState(false);
@@ -22,11 +23,12 @@ export default function useReportForm() {
   const navigate = useNavigate();
 
   const onSubmit = data => {
-    const reportInfosToUpdateAdapted = reportInfosToUpdateAdapter(data);
     if (id) {
-      mutationUpdate.mutate({ id, reportInfosToUpdateAdapted });
+      const reportInfosToUpdateAdapted = reportInfosToUpdateAdapter(data);
+      mutationUpdate.mutate({ id, details: reportInfosToUpdateAdapted });
     } else {
-      mutationCreate.mutate({ relatorios: reportInfosToUpdateAdapted });
+      const reportInfosToCreateAdapted = reportInfosToCreate(year, month, data);
+      mutationCreate.mutate(reportInfosToCreateAdapted);
     }
   };
 
@@ -100,6 +102,21 @@ export default function useReportForm() {
     }),
   };
 
+  const getNotification = type => {
+    const mutation = type === "update" ? mutationUpdate : mutationCreate;
+
+    return {
+      show: showNotification,
+      type: mutation.status,
+      title: mutation.status === "success" ? "Sucesso!" : "Erro!",
+      message: mutation.error
+        ? handleApiError(mutation.error)
+        : type === "update"
+        ? "Dados editados com sucesso!"
+        : "Relatório criado com sucesso!",
+    };
+  };
+
   return {
     tabs: {
       activeTab,
@@ -118,22 +135,7 @@ export default function useReportForm() {
       variants,
     },
     reportInfosLoading,
-    notificationUpdate: {
-      show: showNotification,
-      type: mutationUpdate.status,
-      title: mutationUpdate.status === "success" ? "Sucesso!" : "Erro!",
-      message: mutationUpdate.error
-        ? handleApiError(mutationUpdate.error)
-        : "Dados editados com sucesso!",
-    },
-    notificationCreate: {
-      show: showNotification,
-      type: mutationCreate.status,
-      title: mutationCreate.status === "success" ? "Sucesso!" : "Erro!",
-      message: mutationCreate.error
-        ? handleApiError(mutationCreate.error)
-        : "Relatorio criado com sucesso!",
-    },
+    notification: getNotification(id ? "update" : "create"),
     saveButton: {
       isLoading: mutationUpdate.isPending || mutationCreate.isPending,
       isSuccess: mutationUpdate.isSuccess || mutationCreate.isSuccess,

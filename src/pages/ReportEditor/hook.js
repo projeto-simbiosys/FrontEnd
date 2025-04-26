@@ -1,12 +1,14 @@
-import { useEffect } from "react";
+import { use, useEffect, useState } from "react";
 import { useLocation, useNavigate } from "react-router-dom";
 import useExistingMonthsByYear from "../../hooks/useExistingMonthsByYear";
 
 export default function useReportEditor(mode) {
   const location = useLocation();
-  const navigate = useNavigate();
+  const report = location.state?.report;
 
+  const navigate = useNavigate();
   const isEdit = mode === "edit";
+
   const allMonths = [
     "Janeiro",
     "Fevereiro",
@@ -21,6 +23,18 @@ export default function useReportEditor(mode) {
     "Novembro",
     "Dezembro",
   ];
+
+  const storedMonths = localStorage.getItem("existingMonths");
+
+  const [selectedMonth, setSelectedMonth] = useState(() => {
+    if (isEdit) return report?.month;
+
+    const availableMonth = allMonths.find(
+      month => !storedMonths.includes(month)
+    );
+    return availableMonth;
+  });
+
   const titlePage = {
     new: "Painel de Criação de Relatório",
     edit: "Painel de Revisão de Relatório",
@@ -30,9 +44,6 @@ export default function useReportEditor(mode) {
     edit: "Visualize, edite e confirme os dados estatísticos de um período mensal",
   };
 
-  const report = location.state?.report;
-  console.log(report);
-
   const currentMonth = isEdit ? report.month : null;
 
   const existingMonthsByYear = useExistingMonthsByYear(report?.year);
@@ -41,15 +52,19 @@ export default function useReportEditor(mode) {
     localStorage.setItem("existingMonths", months);
   }
 
-  const storedMonths = localStorage.getItem("existingMonths");
-
-  const monthOptions = allMonths.map(month => ({
-    value: month,
-    label: month,
-    disabled: isEdit
-      ? month !== currentMonth // desabilita todos, menos o atual
-      : storedMonths.includes(month), // desabilita os já usados no modo 'novo'
-  }));
+  const [monthOptions, setMonthOptions] = useState();
+  useEffect(() => {
+    const months = allMonths.map(month => {
+      return {
+        value: month,
+        label: month,
+        disabled: isEdit
+          ? month !== currentMonth // desabilita todos, menos o atual
+          : storedMonths.includes(month), // desabilita os já usados no modo 'novo'
+      };
+    });
+    setMonthOptions(months);
+  }, [storedMonths]);
 
   useEffect(() => {
     if (mode == "edit" && !location.state.reportsTable) {
@@ -65,6 +80,8 @@ export default function useReportEditor(mode) {
     select: {
       disabled: isEdit,
       options: monthOptions,
+      onChange: e => setSelectedMonth(e.target.value),
+      value: selectedMonth,
     },
     report: {
       year: report?.year,

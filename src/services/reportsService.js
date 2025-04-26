@@ -9,7 +9,7 @@ export function getAvailableYears() {
 }
 
 export function getReportDataById(id) {
-  return axiosInstance.get(`/relatorios/${id}`);
+  return axiosInstance.get(`/reports/${id}`);
 }
 
 export function deleteReport(id) {
@@ -17,12 +17,9 @@ export function deleteReport(id) {
 }
 
 export function createReport(data) {
-  return axiosInstance.post("/relatorios", data);
+  return axiosInstance.post("/reports", data);
 }
 
 export function updateReport(data) {
-  return axiosInstance.put(
-    `/relatorios/${data.id}`,
-    data.reportInfosToUpdateAdapted
-  );
+  return axiosInstance.patch(`/reports/${data.id}`, { details: data.details });
 }

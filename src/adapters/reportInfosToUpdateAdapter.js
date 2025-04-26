@@ -1,7 +1,5 @@
 export default function reportInfosToUpdateAdapter(reportInfos) {
   return {
-    mesAno: "04/2025",
-    dataAtualizacao: "2025-04-25T14:09:08.600Z",
     encaminhamento: {
       id: 1,
       encBeneficioPrestacaoContinuada: 0,

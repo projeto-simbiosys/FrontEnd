@@ -8,23 +8,23 @@ import { AnimatePresence, motion } from "framer-motion";
 import ReportFormPlaceholder from "../ReportFormPlaceholder";
 import Notification from "../Notification";
 
-export default function ReportForm() {
+export default function ReportForm({ year, month }) {
   const {
     tabs,
     formAnimation,
     reportInfosLoading,
     updateAndSaveReport,
     saveButton,
-    notificationUpdate,
-  } = useReportForm();
+    notification,
+  } = useReportForm(year, month);
 
   return (
     <div className="flex flex-col items-start gap-2">
       <Notification
-        show={notificationUpdate.show}
-        type={notificationUpdate.type}
-        title={notificationUpdate.title}
-        body={notificationUpdate.message}
+        show={notification.show}
+        type={notification.type}
+        title={notification.title}
+        body={notification.message}
       />
       <div className="flex flex-col gap-3 lg:flex-row border border-sys-main/30 w-full p-2 md:p-6">
         <Tabs
