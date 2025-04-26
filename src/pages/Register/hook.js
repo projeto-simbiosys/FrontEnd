@@ -24,7 +24,9 @@ export default function useRegister() {
     onSettled: triggerNotification,
     onError: error => {
       error.message =
-        error.code == "ERR_NETWORK" ? "Erro de conexão" : error.message;
+        error.code == "ERR_NETWORK"
+          ? "Erro de conexão"
+          : error.response.data.message;
     },
     onSuccess: () => {
       setTimeout(() => {

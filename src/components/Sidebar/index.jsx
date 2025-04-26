@@ -84,7 +84,11 @@ export default function Sidebar() {
 
         <div className="border border-solid border-divider/30 mt-auto mb-8"></div>
 
-        <Button variant="sys-light" className="!px-2.5 sm:!px-5">
+        <Button
+          variant="sys-light"
+          className="!px-2.5 sm:!px-5"
+          onClick={sidebar.logout}
+        >
           <Logout width={25} height={25} />
           {sidebar.toogleButton.open && (
             <motion.p

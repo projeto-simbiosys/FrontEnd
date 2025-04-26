@@ -21,7 +21,7 @@ export default function Register() {
       <div className="bg-white lg:bg-transparent flex flex-col lg:flex-row items-center lg:justify-between gap-6 lg:gap-0 w-full max-w-md md:max-w-lg lg:max-w-full lg:h-screen rounded-lg lg:rounded-none px-4 md:px-8 py-6 md:py-8 lg:p-0">
         <Notification
           type={form.request.status.type}
-          title={form.request.status.type === "success" ? "Sucesso" : "Falha"}
+          title={form.request.status.type === "success" ? "Sucesso!" : "Erro!"}
           body={form.request.status.message}
           show={form.showNotification}
         />

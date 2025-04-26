@@ -15,6 +15,12 @@ export default function useSidebar() {
     reports: pageUrl === "reports" ? "sys-primary" : "sys-light",
   };
 
+  function logout() {
+    localStorage.removeItem("token");
+    localStorage.removeItem("user");
+    navigate("/login");
+  }
+
   return {
     sidebar: {
       toogleButton: {
@@ -22,6 +28,7 @@ export default function useSidebar() {
         style: isOpen ? "rotate-0" : "rotate-180",
         handleToogle: () => setIsOpen(!isOpen),
       },
+      logout,
       page: {
         styleButton: styleButtonPage,
         styleIcon: {

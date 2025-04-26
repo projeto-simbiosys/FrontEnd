@@ -124,7 +124,11 @@ export default function Login() {
             >
               {form.request.status.isLoading ? (
                 <>
-                  <Loading width={20} height={20} className="stroke-white" />
+                  <Loading
+                    width={20}
+                    height={20}
+                    className="stroke-gray-detail-disabled"
+                  />
                   Entrando...
                 </>
               ) : (
