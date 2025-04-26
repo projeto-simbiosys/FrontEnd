@@ -5,6 +5,7 @@ import { useMutation } from "@tanstack/react-query";
 import { createUser } from "../../services/api";
 import { useState } from "react";
 import { useNavigate } from "react-router";
+import registerUserAdapter from "../../adapters/registerUserAdapter";
 
 export default function useRegister() {
   const navigate = useNavigate();
@@ -28,7 +29,7 @@ export default function useRegister() {
     onSuccess: () => {
       setTimeout(() => {
         navigate("/login");
-      }, 3000);
+      }, 2000);
     },
   });
 
@@ -41,7 +42,8 @@ export default function useRegister() {
   });
 
   const onSubmit = data => {
-    mutation.mutate(data);
+    const registerUserAdapted = registerUserAdapter(data);
+    mutation.mutate(registerUserAdapted);
   };
 
   function getInputProps(fieldName) {

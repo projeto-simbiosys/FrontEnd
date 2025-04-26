@@ -5,6 +5,7 @@ import { useNavigate } from "react-router";
 import { login } from "../../services/authService";
 import { yupResolver } from "@hookform/resolvers/yup";
 import { schemaValidation } from "../../validators/loginSchema";
+import userLoginAdapter from "../../adapters/userLoginAdapter";
 
 export default function useRegister() {
   const navigate = useNavigate();
@@ -25,10 +26,16 @@ export default function useRegister() {
         error.code == "ERR_NETWORK" ? "Erro de conexão" : error.message;
       triggerNotification(3000);
     },
-    onSuccess: () => {
+    onSuccess: data => {
+      localStorage.setItem("token", data.data.token);
+      localStorage.setItem(
+        "user",
+        JSON.stringify([data.data.email, data.data.nome])
+      );
+
       triggerNotification(1500);
       setTimeout(() => {
-        navigate("/dashboard");
+        navigate("/admin/reports");
       }, 1500);
     },
   });
@@ -42,7 +49,8 @@ export default function useRegister() {
   });
 
   const onSubmit = data => {
-    mutation.mutate(data);
+    const userLoginAdapted = userLoginAdapter(data);
+    mutation.mutate(userLoginAdapted);
   };
 
   function getInputProps(fieldName) {
