@@ -1,5 +1,14 @@
 {
-  "reportsYears": [{ "year": "2025" }, { "year": "2024" }],
+  "reportsYears": [
+    {
+      "year": "2025",
+      "id": "4081"
+    },
+    {
+      "year": "2024",
+      "id": "02c0"
+    }
+  ],
   "reports": [
     {
       "id": "1",
@@ -7,8 +16,53 @@
       "month": "Março",
       "lastUpdate": "2025-04-10T14:30:00Z",
       "lastPersonToUpdate": "João Silva",
-      "status": "aberto",
-      "url": "https://example.com/report/1"
+      "status": "fechado",
+      "url": "https://example.com/report/1",
+      "details": {
+        "encaminhamento": {
+          "id": 1,
+          "encBeneficioPrestacaoContinuada": 0,
+          "encAposentadoria": 0,
+          "encAssistenciaSocial": "1",
+          "encCursosProfissionalizantesForaOrganizacao": 0,
+          "encCursosProfissionalizantesDentroOrganizacao": "1",
+          "encEducacaoNaoFormal": 0,
+          "encEducacaoFormal": 0,
+          "encDocumentos": "1",
+          "encTrabalho": 0,
+          "encGeracaoRenda": 0,
+          "encSaude": 0,
+          "encTratamentoDrogas": "1",
+          "encProgramasTransferenciaRenda": "1",
+          "encPoliticasPublicas": "1"
+        },
+        "outrosNumeros": {
+          "id": 1,
+          "alimentacao": 35,
+          "numeroDePessoasPresencial": 0,
+          "cestasBasicasDoadas": 45,
+          "kitsHigieneDoados": 20,
+          "totalParticipantesAtividadeDistancia": 0,
+          "totalParticipantesAtividadePresencial": 0
+        },
+        "acoesRealizadas": {
+          "id": 1,
+          "totalAtividadesGrupoVirtual": 0,
+          "totalAtividadesCulturaisExternas": 2,
+          "totalAtividadesCulturaisVirtuais": 0,
+          "totalPalestrasPresenciais": 4,
+          "totalPalestrasVirtuais": 0,
+          "totalVisitasFamiliaresPresenciais": 0,
+          "totalVisitasFamiliaresVirtuais": 0,
+          "totalVisitasMonitoradasPresenciais": 3,
+          "totalVisitasMonitoradasVirtuais": 0,
+          "totalCursosMinistradosPresenciais": 4,
+          "totalCursosMinistradosVirtuais": 0,
+          "totalPessoasCursosCapacitacaoPresenciais": 30,
+          "totalPessoasCursosCapacitacaoVirtuais": 0,
+          "totalPessoasCursosProfissionalizantesVirtuais": 0
+        }
+      }
     },
     {
       "id": "2",
@@ -20,13 +74,422 @@
       "url": "https://example.com/report/2"
     },
     {
-      "id": "3",
-      "year": "2024",
-      "month": "Dezembro",
-      "lastUpdate": "2024-12-31T14:30:00Z",
-      "lastPersonToUpdate": "Maria Oliveira",
+      "id": "fe42",
+      "year": "2025",
+      "month": "Janeiro",
+      "lastUpdate": "2025-04-10T14:30:00Z",
+      "lastPersonToUpdate": "Matheus Castrinho :)",
       "status": "fechado",
-      "url": "https://example.com/report/3"
+      "url": "https://example.com/report/1",
+      "details": {
+        "encaminhamento": {
+          "id": 1,
+          "encBeneficioPrestacaoContinuada": 0,
+          "encAposentadoria": 0,
+          "encCursosProfissionalizantesForaOrganizacao": 0,
+          "encEducacaoNaoFormal": 0,
+          "encEducacaoFormal": 0,
+          "encTrabalho": 0,
+          "encGeracaoRenda": 0,
+          "encSaude": 0
+        },
+        "outrosNumeros": {
+          "id": 1,
+          "numeroDePessoasPresencial": 0,
+          "totalParticipantesAtividadeDistancia": 0,
+          "totalParticipantesAtividadePresencial": 0
+        },
+        "acoesRealizadas": {
+          "id": 1,
+          "totalAtividadesGrupoVirtual": 0,
+          "totalAtividadesCulturaisVirtuais": 0,
+          "totalPalestrasVirtuais": 0,
+          "totalVisitasFamiliaresPresenciais": 0,
+          "totalVisitasFamiliaresVirtuais": 0,
+          "totalVisitasMonitoradasVirtuais": 0,
+          "totalCursosMinistradosVirtuais": 0,
+          "totalPessoasCursosCapacitacaoVirtuais": 0,
+          "totalPessoasCursosProfissionalizantesVirtuais": 0
+        }
+      }
+    },
+    {
+      "id": "9433",
+      "year": "2024",
+      "month": "Novembro",
+      "lastUpdate": "2025-04-26",
+      "lastPersonToUpdate": "Matheus Castrinho :)",
+      "status": "fechado",
+      "url": "https://example.com/report/1",
+      "details": {
+        "encaminhamento": {
+          "id": 1,
+          "encBeneficioPrestacaoContinuada": 0,
+          "encAposentadoria": 0,
+          "encAssistenciaSocial": "1",
+          "encCursosProfissionalizantesForaOrganizacao": 0,
+          "encCursosProfissionalizantesDentroOrganizacao": "1",
+          "encEducacaoNaoFormal": 0,
+          "encEducacaoFormal": 0,
+          "encDocumentos": "1",
+          "encTrabalho": 0,
+          "encGeracaoRenda": 0,
+          "encSaude": 0,
+          "encTratamentoDrogas": "1",
+          "encProgramasTransferenciaRenda": "1",
+          "encPoliticasPublicas": "1"
+        },
+        "outrosNumeros": {
+          "id": 1,
+          "alimentacao": "1",
+          "numeroDePessoasPresencial": 0,
+          "cestasBasicasDoadas": "1",
+          "kitsHigieneDoados": "1",
+          "totalParticipantesAtividadeDistancia": 0,
+          "totalParticipantesAtividadePresencial": 0
+        },
+        "acoesRealizadas": {
+          "id": 1,
+          "totalAtividadesGrupoVirtual": 0,
+          "totalAtividadesCulturaisExternas": "1",
+          "totalAtividadesCulturaisVirtuais": 0,
+          "totalPalestrasPresenciais": "1",
+          "totalPalestrasVirtuais": 0,
+          "totalVisitasFamiliaresPresenciais": 0,
+          "totalVisitasFamiliaresVirtuais": 0,
+          "totalVisitasMonitoradasPresenciais": "1",
+          "totalVisitasMonitoradasVirtuais": 0,
+          "totalCursosMinistradosPresenciais": "1",
+          "totalCursosMinistradosVirtuais": 0,
+          "totalPessoasCursosCapacitacaoPresenciais": "1",
+          "totalPessoasCursosCapacitacaoVirtuais": 0,
+          "totalPessoasCursosProfissionalizantesVirtuais": 0
+        }
+      }
+    },
+    {
+      "id": "a388",
+      "year": "2024",
+      "month": "Janeiro",
+      "lastUpdate": "2025-04-26",
+      "lastPersonToUpdate": "Matheus Castrinho :)",
+      "status": "fechado",
+      "url": "https://example.com/report/1",
+      "details": {
+        "encaminhamento": {
+          "id": 1,
+          "encBeneficioPrestacaoContinuada": 0,
+          "encAposentadoria": 0,
+          "encAssistenciaSocial": 0,
+          "encCursosProfissionalizantesForaOrganizacao": 0,
+          "encCursosProfissionalizantesDentroOrganizacao": 0,
+          "encEducacaoNaoFormal": 0,
+          "encEducacaoFormal": 0,
+          "encDocumentos": 0,
+          "encTrabalho": 0,
+          "encGeracaoRenda": 0,
+          "encSaude": 0,
+          "encTratamentoDrogas": 0,
+          "encProgramasTransferenciaRenda": 0,
+          "encPoliticasPublicas": 0
+        },
+        "outrosNumeros": {
+          "id": 1,
+          "alimentacao": 0,
+          "numeroDePessoasPresencial": 0,
+          "cestasBasicasDoadas": 0,
+          "kitsHigieneDoados": 0,
+          "totalParticipantesAtividadeDistancia": 0,
+          "totalParticipantesAtividadePresencial": 0
+        },
+        "acoesRealizadas": {
+          "id": 1,
+          "totalAtividadesGrupoVirtual": 0,
+          "totalAtividadesCulturaisExternas": 0,
+          "totalAtividadesCulturaisVirtuais": 0,
+          "totalPalestrasPresenciais": 0,
+          "totalPalestrasVirtuais": 0,
+          "totalVisitasFamiliaresPresenciais": 0,
+          "totalVisitasFamiliaresVirtuais": 0,
+          "totalVisitasMonitoradasPresenciais": 0,
+          "totalVisitasMonitoradasVirtuais": 0,
+          "totalCursosMinistradosPresenciais": 0,
+          "totalCursosMinistradosVirtuais": 0,
+          "totalPessoasCursosCapacitacaoPresenciais": 0,
+          "totalPessoasCursosCapacitacaoVirtuais": 0,
+          "totalPessoasCursosProfissionalizantesVirtuais": 0
+        }
+      }
+    },
+    {
+      "id": "3047",
+      "year": "2024",
+      "month": "Fevereiro",
+      "lastUpdate": "2025-04-26",
+      "lastPersonToUpdate": "Matheus Castrinho :)",
+      "status": "fechado",
+      "url": "https://example.com/report/1",
+      "details": {
+        "encaminhamento": {
+          "id": 1,
+          "encBeneficioPrestacaoContinuada": 0,
+          "encAposentadoria": 0,
+          "encAssistenciaSocial": 0,
+          "encCursosProfissionalizantesForaOrganizacao": 0,
+          "encCursosProfissionalizantesDentroOrganizacao": 0,
+          "encEducacaoNaoFormal": 0,
+          "encEducacaoFormal": 0,
+          "encDocumentos": 0,
+          "encTrabalho": 0,
+          "encGeracaoRenda": 0,
+          "encSaude": 0,
+          "encTratamentoDrogas": 0,
+          "encProgramasTransferenciaRenda": 0,
+          "encPoliticasPublicas": 0
+        },
+        "outrosNumeros": {
+          "id": 1,
+          "alimentacao": 0,
+          "numeroDePessoasPresencial": 0,
+          "cestasBasicasDoadas": 0,
+          "kitsHigieneDoados": 0,
+          "totalParticipantesAtividadeDistancia": 0,
+          "totalParticipantesAtividadePresencial": 0
+        },
+        "acoesRealizadas": {
+          "id": 1,
+          "totalAtividadesGrupoVirtual": 0,
+          "totalAtividadesCulturaisExternas": 0,
+          "totalAtividadesCulturaisVirtuais": 0,
+          "totalPalestrasPresenciais": 0,
+          "totalPalestrasVirtuais": 0,
+          "totalVisitasFamiliaresPresenciais": 0,
+          "totalVisitasFamiliaresVirtuais": 0,
+          "totalVisitasMonitoradasPresenciais": 0,
+          "totalVisitasMonitoradasVirtuais": 0,
+          "totalCursosMinistradosPresenciais": 0,
+          "totalCursosMinistradosVirtuais": 0,
+          "totalPessoasCursosCapacitacaoPresenciais": 0,
+          "totalPessoasCursosCapacitacaoVirtuais": 0,
+          "totalPessoasCursosProfissionalizantesVirtuais": 0
+        }
+      }
+    },
+    {
+      "id": "0cd6",
+      "year": "2025",
+      "month": "Fevereiro",
+      "lastUpdate": "2025-04-26",
+      "lastPersonToUpdate": "Matheus Castrinho :)",
+      "status": "fechado",
+      "url": "https://example.com/report/1",
+      "details": {
+        "encaminhamento": {
+          "id": 1,
+          "encBeneficioPrestacaoContinuada": 0,
+          "encAposentadoria": 0,
+          "encAssistenciaSocial": 0,
+          "encCursosProfissionalizantesForaOrganizacao": 0,
+          "encCursosProfissionalizantesDentroOrganizacao": 0,
+          "encEducacaoNaoFormal": 0,
+          "encEducacaoFormal": 0,
+          "encDocumentos": 0,
+          "encTrabalho": 0,
+          "encGeracaoRenda": 0,
+          "encSaude": 0,
+          "encTratamentoDrogas": 0,
+          "encProgramasTransferenciaRenda": 0,
+          "encPoliticasPublicas": 0
+        },
+        "outrosNumeros": {
+          "id": 1,
+          "alimentacao": 0,
+          "numeroDePessoasPresencial": 0,
+          "cestasBasicasDoadas": 0,
+          "kitsHigieneDoados": 0,
+          "totalParticipantesAtividadeDistancia": 0,
+          "totalParticipantesAtividadePresencial": 0
+        },
+        "acoesRealizadas": {
+          "id": 1,
+          "totalAtividadesGrupoVirtual": 0,
+          "totalAtividadesCulturaisExternas": 0,
+          "totalAtividadesCulturaisVirtuais": 0,
+          "totalPalestrasPresenciais": 0,
+          "totalPalestrasVirtuais": 0,
+          "totalVisitasFamiliaresPresenciais": 0,
+          "totalVisitasFamiliaresVirtuais": 0,
+          "totalVisitasMonitoradasPresenciais": 0,
+          "totalVisitasMonitoradasVirtuais": 0,
+          "totalCursosMinistradosPresenciais": 0,
+          "totalCursosMinistradosVirtuais": 0,
+          "totalPessoasCursosCapacitacaoPresenciais": 0,
+          "totalPessoasCursosCapacitacaoVirtuais": 0,
+          "totalPessoasCursosProfissionalizantesVirtuais": 0
+        }
+      }
+    },
+    {
+      "id": "e4e5",
+      "year": "2024",
+      "month": "Março",
+      "lastUpdate": "2025-04-26",
+      "lastPersonToUpdate": "Matheus Castrinho :)",
+      "status": "fechado",
+      "url": "https://example.com/report/1",
+      "details": {
+        "encaminhamento": {
+          "id": 1,
+          "encBeneficioPrestacaoContinuada": 0,
+          "encAposentadoria": 0,
+          "encAssistenciaSocial": 0,
+          "encCursosProfissionalizantesForaOrganizacao": 0,
+          "encCursosProfissionalizantesDentroOrganizacao": 0,
+          "encEducacaoNaoFormal": 0,
+          "encEducacaoFormal": 0,
+          "encDocumentos": 0,
+          "encTrabalho": 0,
+          "encGeracaoRenda": 0,
+          "encSaude": 0,
+          "encTratamentoDrogas": 0,
+          "encProgramasTransferenciaRenda": 0,
+          "encPoliticasPublicas": 0
+        },
+        "outrosNumeros": {
+          "id": 1,
+          "alimentacao": 0,
+          "numeroDePessoasPresencial": 0,
+          "cestasBasicasDoadas": 0,
+          "kitsHigieneDoados": 0,
+          "totalParticipantesAtividadeDistancia": 0,
+          "totalParticipantesAtividadePresencial": 0
+        },
+        "acoesRealizadas": {
+          "id": 1,
+          "totalAtividadesGrupoVirtual": 0,
+          "totalAtividadesCulturaisExternas": 0,
+          "totalAtividadesCulturaisVirtuais": 0,
+          "totalPalestrasPresenciais": 0,
+          "totalPalestrasVirtuais": 0,
+          "totalVisitasFamiliaresPresenciais": 0,
+          "totalVisitasFamiliaresVirtuais": 0,
+          "totalVisitasMonitoradasPresenciais": 0,
+          "totalVisitasMonitoradasVirtuais": 0,
+          "totalCursosMinistradosPresenciais": 0,
+          "totalCursosMinistradosVirtuais": 0,
+          "totalPessoasCursosCapacitacaoPresenciais": 0,
+          "totalPessoasCursosCapacitacaoVirtuais": 0,
+          "totalPessoasCursosProfissionalizantesVirtuais": 0
+        }
+      }
+    },
+    {
+      "id": "d108",
+      "year": "2025",
+      "month": "Maio",
+      "lastUpdate": "2025-04-26",
+      "lastPersonToUpdate": "Matheus Castrinho :)",
+      "status": "fechado",
+      "url": "https://example.com/report/1",
+      "details": {
+        "encaminhamento": {
+          "id": 1,
+          "encBeneficioPrestacaoContinuada": 0,
+          "encAposentadoria": 0,
+          "encAssistenciaSocial": 0,
+          "encCursosProfissionalizantesForaOrganizacao": 0,
+          "encCursosProfissionalizantesDentroOrganizacao": 0,
+          "encEducacaoNaoFormal": 0,
+          "encEducacaoFormal": 0,
+          "encDocumentos": 0,
+          "encTrabalho": 0,
+          "encGeracaoRenda": 0,
+          "encSaude": 0,
+          "encTratamentoDrogas": 0,
+          "encProgramasTransferenciaRenda": 0,
+          "encPoliticasPublicas": 0
+        },
+        "outrosNumeros": {
+          "id": 1,
+          "alimentacao": 0,
+          "numeroDePessoasPresencial": 0,
+          "cestasBasicasDoadas": 0,
+          "kitsHigieneDoados": 0,
+          "totalParticipantesAtividadeDistancia": 0,
+          "totalParticipantesAtividadePresencial": 0
+        },
+        "acoesRealizadas": {
+          "id": 1,
+          "totalAtividadesGrupoVirtual": 0,
+          "totalAtividadesCulturaisExternas": 0,
+          "totalAtividadesCulturaisVirtuais": 0,
+          "totalPalestrasPresenciais": 0,
+          "totalPalestrasVirtuais": 0,
+          "totalVisitasFamiliaresPresenciais": 0,
+          "totalVisitasFamiliaresVirtuais": 0,
+          "totalVisitasMonitoradasPresenciais": 0,
+          "totalVisitasMonitoradasVirtuais": 0,
+          "totalCursosMinistradosPresenciais": 0,
+          "totalCursosMinistradosVirtuais": 0,
+          "totalPessoasCursosCapacitacaoPresenciais": 0,
+          "totalPessoasCursosCapacitacaoVirtuais": 0,
+          "totalPessoasCursosProfissionalizantesVirtuais": 0
+        }
+      }
+    },
+    {
+      "id": "22dc",
+      "year": "2025",
+      "month": "Junho",
+      "lastUpdate": "2025-04-26",
+      "lastPersonToUpdate": "Matheus Castrinho :)",
+      "status": "fechado",
+      "url": "https://example.com/report/1",
+      "details": {
+        "encaminhamento": {
+          "id": 1,
+          "encBeneficioPrestacaoContinuada": 0,
+          "encAposentadoria": 0,
+          "encAssistenciaSocial": 0,
+          "encCursosProfissionalizantesForaOrganizacao": 0,
+          "encCursosProfissionalizantesDentroOrganizacao": 0,
+          "encEducacaoNaoFormal": 0,
+          "encEducacaoFormal": 0,
+          "encDocumentos": 0,
+          "encTrabalho": 0,
+          "encGeracaoRenda": 0,
+          "encSaude": 0,
+          "encTratamentoDrogas": 0,
+          "encProgramasTransferenciaRenda": 0,
+          "encPoliticasPublicas": 0
+        },
+        "outrosNumeros": {
+          "id": 1,
+          "alimentacao": 0,
+          "numeroDePessoasPresencial": 0,
+          "cestasBasicasDoadas": 0,
+          "kitsHigieneDoados": 0,
+          "totalParticipantesAtividadeDistancia": 0,
+          "totalParticipantesAtividadePresencial": 0
+        },
+        "acoesRealizadas": {
+          "id": 1,
+          "totalAtividadesGrupoVirtual": 0,
+          "totalAtividadesCulturaisExternas": 0,
+          "totalAtividadesCulturaisVirtuais": 0,
+          "totalPalestrasPresenciais": 0,
+          "totalPalestrasVirtuais": 0,
+          "totalVisitasFamiliaresPresenciais": 0,
+          "totalVisitasFamiliaresVirtuais": 0,
+          "totalVisitasMonitoradasPresenciais": 0,
+          "totalVisitasMonitoradasVirtuais": 0,
+          "totalCursosMinistradosPresenciais": 0,
+          "totalCursosMinistradosVirtuais": 0,
+          "totalPessoasCursosCapacitacaoPresenciais": 0,
+          "totalPessoasCursosCapacitacaoVirtuais": 0,
+          "totalPessoasCursosProfissionalizantesVirtuais": 0
+        }
+      }
     }
   ]
 }

@@ -8,7 +8,7 @@ export default function useSidebar() {
   const navigate = useNavigate();
 
   const parts = location.pathname.split("/");
-  const pageUrl = parts[parts.length - 1];
+  const pageUrl = parts[2];
 
   const styleButtonPage = {
     dashboard: pageUrl === "dashboard" ? "sys-primary" : "sys-light",

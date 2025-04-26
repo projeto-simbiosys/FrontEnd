@@ -86,7 +86,12 @@ export default function ReportsTable({ reports, filters }) {
                         className="!px-1.5 !py-0.5 shadow-none"
                         disabled={report.isClosed}
                         onClick={() =>
-                          navigate(`/admin/reports/edit/${report.id}`)
+                          navigate(`/admin/reports/edit/${report.id}`, {
+                            state: {
+                              reportsTable: true,
+                              report,
+                            },
+                          })
                         }
                       >
                         Revisar
