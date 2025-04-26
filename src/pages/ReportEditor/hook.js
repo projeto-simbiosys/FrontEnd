@@ -37,7 +37,6 @@ export default function useReportEditor(mode) {
         localStorage.getItem("existingMonths") || "[]"
       );
 
-      // Só salva se for diferente
       if (JSON.stringify(existingStorage) !== JSON.stringify(months)) {
         localStorage.setItem("existingMonths", JSON.stringify(months));
         setExistMonths(months);
@@ -50,7 +49,6 @@ export default function useReportEditor(mode) {
       navigate("/admin/reports", { replace: true });
     }
 
-    // Se for modo novo (não é edição) e não tem months ainda, tenta buscar do localStorage
     if (!isEdit && existMonths.length === 0) {
       const storedMonths = JSON.parse(
         localStorage.getItem("existingMonths") || "[]"
@@ -70,7 +68,6 @@ export default function useReportEditor(mode) {
 
     setMonthOptions(months);
 
-    // Só agora, quando existir existMonths correto, setar o mês
     if (!isEdit) {
       const availableMonth = allMonths.find(
         month => !existMonths.includes(month)
