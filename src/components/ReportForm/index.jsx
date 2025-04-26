@@ -7,15 +7,18 @@ import useReportForm from "./hook";
 import { AnimatePresence, motion } from "framer-motion";
 import ReportFormPlaceholder from "../ReportFormPlaceholder";
 import Notification from "../Notification";
+import SaveAndCloseModal from "../SaveAndCloseModal";
 
 export default function ReportForm({ year, month }) {
   const {
     tabs,
     formAnimation,
     reportInfosLoading,
-    updateAndSaveReport,
+    saveReport,
     saveButton,
+    saveAndcloseButton,
     notification,
+    modal,
   } = useReportForm(year, month);
 
   return (
@@ -26,6 +29,14 @@ export default function ReportForm({ year, month }) {
         title={notification.title}
         body={notification.message}
       />
+      <SaveAndCloseModal
+        show={modal.show}
+        month={modal.month}
+        onClose={modal.onClose}
+        onConfirm={modal.onConfirm}
+        loading={saveButton.isLoading || saveButton.isSuccess}
+      />
+
       <div className="flex flex-col gap-3 lg:flex-row border border-sys-main/30 w-full p-2 md:p-6">
         <Tabs
           orientation="horizontal"
@@ -82,16 +93,31 @@ export default function ReportForm({ year, month }) {
       <div className="w-full flex flex-col items-end sm:items-center sm:flex-row sm:justify-end gap-2 mt-2">
         <Button
           variant="sys-secondary"
-          onClick={updateAndSaveReport}
-          disabled={saveButton.isLoading || saveButton.isSuccess}
+          onClick={saveReport}
+          disabled={
+            saveButton.isLoading ||
+            saveButton.isSuccess ||
+            saveAndcloseButton?.isLoading ||
+            saveAndcloseButton?.isSuccess
+          }
         >
-          {saveButton.isLoading ? "Salvando alterações" : "Salvar alterações"}
+          {saveButton.isLoading
+            ? "Salvando alterações..."
+            : "Salvar alterações"}
         </Button>
         <Button
           variant="sys-primary"
-          disabled={saveButton.isLoading || saveButton.isSuccess}
+          onClick={modal.open}
+          disabled={
+            saveButton?.isLoading ||
+            saveButton?.isSuccess ||
+            saveAndcloseButton?.isLoading ||
+            saveAndcloseButton?.isSuccess
+          }
         >
-          Salvar e Fechar
+          {saveAndcloseButton?.isLoading
+            ? "Salvando e fechando..."
+            : "Salvar e Fechar"}
         </Button>
       </div>
     </div>

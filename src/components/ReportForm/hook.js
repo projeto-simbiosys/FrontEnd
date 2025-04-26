@@ -17,17 +17,26 @@ export default function useReportForm(year, month) {
   const [activeTab, setActiveTab] = useState("referrals");
   const [prevTab, setPrevTab] = useState("referrals");
   const [showNotification, setShowNotification] = useState(false);
+  const [showSaveAndCloseModal, setShowSaveAndCloseModal] = useState(false);
   const { id } = useParams();
   const { reset, handleSubmit } = useFormContext();
 
   const navigate = useNavigate();
 
-  const onSubmit = data => {
+  const onSubmit = (data, statusReport) => {
     if (id) {
-      const reportInfosToUpdateAdapted = reportInfosToUpdateAdapter(data);
+      const reportInfosToUpdateAdapted = reportInfosToUpdateAdapter(
+        data,
+        statusReport
+      );
       mutationUpdate.mutate({ id, details: reportInfosToUpdateAdapted });
     } else {
-      const reportInfosToCreateAdapted = reportInfosToCreate(year, month, data);
+      const reportInfosToCreateAdapted = reportInfosToCreate(
+        year,
+        month,
+        data,
+        statusReport
+      );
       mutationCreate.mutate(reportInfosToCreateAdapted);
     }
   };
@@ -117,6 +126,9 @@ export default function useReportForm(year, month) {
     };
   };
 
+  const handleFormSubmit = statusReport =>
+    handleSubmit(data => onSubmit(data, statusReport));
+
   return {
     tabs: {
       activeTab,
@@ -136,10 +148,23 @@ export default function useReportForm(year, month) {
     },
     reportInfosLoading,
     notification: getNotification(id ? "update" : "create"),
-    saveButton: {
-      isLoading: mutationUpdate.isPending || mutationCreate.isPending,
-      isSuccess: mutationUpdate.isSuccess || mutationCreate.isSuccess,
+    modal: {
+      open: () => setShowSaveAndCloseModal(true),
+      show: showSaveAndCloseModal,
+      month,
+      onClose: () => setShowSaveAndCloseModal(false),
+      onConfirm: () => {
+        handleFormSubmit("close")();
+      },
     },
-    updateAndSaveReport: handleSubmit(onSubmit),
+    saveButton: {
+      isLoading: id ? mutationUpdate.isPending : mutationCreate.isPending,
+      isSuccess: id ? mutationUpdate.isSuccess : mutationCreate.isSuccess,
+    },
+    saveAndCloseButton: {
+      isLoading: id ? mutationUpdate.isPending : mutationCreate.isPending,
+      isSuccess: id ? mutationUpdate.isSuccess : mutationCreate.isSuccess,
+    },
+    saveReport: handleFormSubmit("open"),
   };
 }

@@ -21,5 +21,5 @@ export function createReport(data) {
 }
 
 export function updateReport(data) {
-  return axiosInstance.patch(`/reports/${data.id}`, { details: data.details });
+  return axiosInstance.patch(`/reports/${data.id}`, data.details);
 }

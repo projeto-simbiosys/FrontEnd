@@ -1,4 +1,9 @@
-export default function reportInfosToCreate(year, month, reportInfos) {
+export default function reportInfosToCreate(
+  year,
+  month,
+  reportInfos,
+  statusReport
+) {
   const today = new Date();
 
   const dayToday = today.getDate();
@@ -10,7 +15,7 @@ export default function reportInfosToCreate(year, month, reportInfos) {
     month,
     lastUpdate: `${yearToday}-0${monthToday}-${dayToday}`,
     lastPersonToUpdate: "Matheus Castrinho :)",
-    status: "aberto",
+    status: statusReport === "open" ? "aberto" : "fechado",
     url: "https://example.com/report/1",
     details: {
       encaminhamento: {
