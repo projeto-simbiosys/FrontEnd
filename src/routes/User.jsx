@@ -6,6 +6,7 @@ import Register from "../pages/Register";
 import Login from "../pages/Login";
 import { SidebarProvider } from "../context/SidebarContext";
 
+
 export default function UserRoutes() {
   return (
     <SidebarProvider>
