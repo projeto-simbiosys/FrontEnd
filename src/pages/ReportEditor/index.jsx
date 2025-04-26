@@ -56,7 +56,11 @@ export default function ReportEditor({ mode }) {
         <div>
           <label className="flex items-center gap-2 mb-1">
             Mês:
-            <Select disabled={select.disabled} onChange={select.onChange}>
+            <Select
+              disabled={select.disabled}
+              value={select.value}
+              onChange={select.onChange}
+            >
               {select?.options?.map(option => (
                 <option
                   key={option.value}
