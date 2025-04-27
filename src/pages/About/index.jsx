@@ -1,6 +1,8 @@
 import React from "react";
 import Card from "@/components/Card";
 import TeamMember from "@/components/TeamMember";
+import Header from "@/components/Header";
+import Footer from "@/components/Footer";
 import inovacaoImg from "@/assets/inovacao-empresa.png";
 import processoImg from "@/assets/processo-empresa.png";
 import suporteImg from "@/assets/suporte-empresa.png";
@@ -15,6 +17,7 @@ import EmpresaImg from "@/assets/institucional-empresa-sobre-nos.png";
 export default function About() {
   return (
     <div className="flex flex-col min-h-screen overflow-x-hidden">
+      <Header />
       <main className="flex-1">
         <section className="px-6 py-12 md:px-20 bg-white">
           <div className="grid md:grid-cols-2 gap-10 items-center">
@@ -90,6 +93,7 @@ export default function About() {
           </div>
         </section>
       </main>
+      <Footer />
     </div>
   );
 } 
