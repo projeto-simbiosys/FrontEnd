@@ -1,6 +1,5 @@
 import Header from "./components/Header";
 import Footer from "./components/Footer";
-import InstituicaoEmpresa from "./pages/institucional-empresa/institucional-empresa";
 import UserRoutes from "./routes/User";
 import AdminRoutes from "./routes/Admin";
 

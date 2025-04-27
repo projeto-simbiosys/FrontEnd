@@ -72,7 +72,7 @@ export default function Login() {
 
           <p className="hidden gap-1.5 lg:flex">
             Não tem uma conta?
-            <Link to="/register" className="text-sys-main underline">
+            <Link to="/home" className="text-sys-main underline">
               Cadastre-se aqui
             </Link>
           </p>
