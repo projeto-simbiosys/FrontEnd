@@ -6,7 +6,6 @@ export default function Footer() {
   return (
     <footer className="bg-white py-20 border-t border-gray-300">
       <div className="container mx-auto px-6 lg:px-20">
-
         {/* Logo e Slogan */}
         <div className="flex items-center justify-between">
           <img src={LogoImg} alt="Simbiosys Logo" className="h-10" />
@@ -20,11 +19,10 @@ export default function Footer() {
 
         {/* Links e Redes sociais */}
         <div className="flex flex-col lg:flex-row justify-between items-start lg:items-center">
-
           {/* Links de navegação */}
           <ul className="flex flex-col space-y-2 text-blue-900 font-semibold">
             <li>
-              <Link to="/home" className="hover:underline hover:text-blue-700">
+              <Link to="/" className="hover:underline hover:text-blue-700">
                 Home
               </Link>
             </li>
@@ -34,7 +32,10 @@ export default function Footer() {
               </Link>
             </li>
             <li>
-              <Link to="/solution" className="hover:underline hover:text-blue-700">
+              <Link
+                to="/solution"
+                className="hover:underline hover:text-blue-700"
+              >
                 Solução
               </Link>
             </li>
@@ -52,7 +53,6 @@ export default function Footer() {
               <i className="fab fa-linkedin text-2xl"></i>
             </a>
           </div>
-
         </div>
 
         {/* Copyright */}

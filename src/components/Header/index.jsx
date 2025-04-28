@@ -1,6 +1,6 @@
 import React from "react";
-import { Link } from "react-router-dom"; 
-import LogoImg from "/logo-horizontal.png"; 
+import { Link } from "react-router-dom";
+import LogoImg from "/logo-horizontal.png";
 
 export default function Header() {
   return (
@@ -10,17 +10,26 @@ export default function Header() {
       </div>
       <ul className="hidden md:flex space-x-6">
         <li>
-          <Link to="/home" className="text-gray-700 font-semibold hover:text-blue-900 hover:underline">
+          <Link
+            to="/"
+            className="text-gray-700 font-semibold hover:text-blue-900 hover:underline"
+          >
             Home
           </Link>
         </li>
         <li>
-          <Link to="/about" className="text-gray-700 font-semibold hover:text-blue-900 hover:underline">
+          <Link
+            to="/about"
+            className="text-gray-700 font-semibold hover:text-blue-900 hover:underline"
+          >
             Sobre
           </Link>
         </li>
         <li>
-          <Link to="/solution" className="text-gray-700 font-semibold hover:text-blue-900 hover:underline">
+          <Link
+            to="/solution"
+            className="text-gray-700 font-semibold hover:text-blue-900 hover:underline"
+          >
             Solução
           </Link>
         </li>
@@ -39,8 +48,19 @@ export default function Header() {
       </div>
       <div className="flex md:hidden">
         <button className="text-gray-700 focus:outline-none">
-          <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M4 6h16M4 12h16m-7 6h7" />
+          <svg
+            className="w-6 h-6"
+            fill="none"
+            stroke="currentColor"
+            viewBox="0 0 24 24"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <path
+              strokeLinecap="round"
+              strokeLinejoin="round"
+              strokeWidth="2"
+              d="M4 6h16M4 12h16m-7 6h7"
+            />
           </svg>
         </button>
       </div>
