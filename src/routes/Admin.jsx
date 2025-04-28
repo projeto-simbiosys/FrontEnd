@@ -2,13 +2,16 @@ import { Route, Routes } from "react-router";
 import { SidebarProvider } from "../context/SidebarContext";
 import ReportsPage from "../pages/ReportsPage";
 import ReportEditor from "../pages/ReportEditor";
+import { useEffect } from "react";
 
 export default function AdminRoutes() {
   const token = localStorage.getItem("token");
 
-  if (!token) {
-    return null;
-  }
+  useEffect(() => {
+    if (!token) {
+      return null;
+    }
+  }, [token]);
 
   return (
     <SidebarProvider>
