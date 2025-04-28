@@ -11,10 +11,11 @@ import useRegister from "./hook";
 import InputError from "../../components/InputError";
 import Loading from "../../icons/Loading";
 import Notification from "../../components/Notification";
+import { GoogleLogin } from "@react-oauth/google";
 
 export default function Login() {
   useTitlePage("simbiosys | login");
-  const { form } = useRegister();
+  const { form, navigate } = useRegister();
 
   return (
     <div className="flex flex-col items-center justify-center gap-6 h-screen px-4 py-12 md:py-16 lg:p-0 bg-gradient-to-tl from-sys-tertiary to-sys-secondary">
@@ -114,27 +115,38 @@ export default function Login() {
             )}
           </label>
 
-          <div className="flex justify-center mt-4">
-            <Button
-              variant="sys-primary"
-              type="submit"
-              disabled={
-                form.request.status.isLoading || form.request.status.isSuccess
-              }
-            >
-              {form.request.status.isLoading ? (
-                <>
-                  <Loading
-                    width={20}
-                    height={20}
-                    className="stroke-gray-detail-disabled"
-                  />
-                  Entrando...
-                </>
-              ) : (
-                "Entrar"
-              )}
-            </Button>
+          <div className="flex flex-col items-center gap-2 justify-center mt-4">
+            <div>
+              <Button
+                variant="sys-primary"
+                type="submit"
+                disabled={
+                  form.request.status.isLoading || form.request.status.isSuccess
+                }
+              >
+                {form.request.status.isLoading ? (
+                  <>
+                    <Loading
+                      width={20}
+                      height={20}
+                      className="stroke-gray-detail-disabled"
+                    />
+                    Entrando...
+                  </>
+                ) : (
+                  "Entrar"
+                )}
+              </Button>
+            </div>
+            <GoogleLogin
+              onSuccess={credentialRespons => {
+                localStorage.setItem("token", credentialRespons.credential);
+                navigate("/admin/reports");
+              }}
+              onError={() => {
+                console.log("Erro no login");
+              }}
+            />
           </div>
         </form>
 
