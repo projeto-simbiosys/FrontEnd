@@ -1,19 +1,14 @@
-import { Route, Routes, useNavigate } from "react-router";
+import { Route, Routes } from "react-router";
 import { SidebarProvider } from "../context/SidebarContext";
 import ReportsPage from "../pages/ReportsPage";
 import ReportEditor from "../pages/ReportEditor";
-import { useEffect } from "react";
 
 export default function AdminRoutes() {
   const token = localStorage.getItem("token");
 
-  const navigate = useNavigate();
-
-  useEffect(() => {
-    if (!token) {
-      return navigate("/login");
-    }
-  }, [token]);
+  if (!token) {
+    return null;
+  }
 
   return (
     <SidebarProvider>

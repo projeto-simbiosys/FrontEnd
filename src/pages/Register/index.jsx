@@ -27,7 +27,7 @@ export default function Register() {
         />
         <div className="flex flex-col items-center gap-6 w-full lg:px-12 lg:pt-14 lg:pb-52 lg:max-w-xl lg:h-screen lg:justify-between lg:bg-[url(/bg-detail.png)] lg:bg-center lg:bg-cover lg:bg-white">
           <div className="w-full">
-            <Link className="flex items-center gap-2" to="/home">
+            <Link className="flex items-center gap-2" to="/">
               <ArrowRight className="stroke-sys-main rotate-180 h-[25px] w-[25px]" />
               <Typography
                 size="base"

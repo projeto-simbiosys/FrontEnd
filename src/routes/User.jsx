@@ -6,17 +6,15 @@ import Register from "../pages/Register";
 import Login from "../pages/Login";
 import { SidebarProvider } from "../context/SidebarContext";
 
-
 export default function UserRoutes() {
   return (
     <SidebarProvider>
       <Routes>
         <Route path="/" element={<Home />} />
+        <Route path="/about" element={<About />} />
         <Route path="/solution" element={<Solution />} />
         <Route path="/register" element={<Register />} />
         <Route path="/login" element={<Login />} />
-        <Route path="/about" element={<About />} />
-        <Route path="/home" element={<Home />} />
       </Routes>
     </SidebarProvider>
   );
