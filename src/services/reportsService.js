@@ -21,9 +21,9 @@ export function deleteReport(id) {
 }
 
 export function createReport(data) {
-  return axiosInstance.post("/reports", especificApi, data);
+  return axiosInstance.post("/reports", data, especificApi);
 }
 
 export function updateReport(data) {
-  return axiosInstance.patch(`/reports/${data.id}`, especificApi, data.details);
+  return axiosInstance.patch(`/reports/${data.id}`, data.details, especificApi);
 }
