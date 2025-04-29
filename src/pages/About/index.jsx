@@ -41,7 +41,7 @@ export default function About() {
           </div>
         </section>
 
-        <section className="relative py-12 px-6 md:px-20 text-white overflow-hidden" style={{ backgroundColor: '#005C99' }}>
+        <section className="relative py-12 px-6 md:px-20 text-white overflow-hidden bg-blue-900">
         <div className="absolute top-0 right-0 translate-x-1/4 -translate-y-1/4 w-56 h-56 pointer-events-none z-0">
             <svg
               width="100%"

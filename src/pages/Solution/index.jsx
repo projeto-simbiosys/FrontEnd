@@ -159,7 +159,8 @@ export default function Tela3() {
 
       {/* Banner Cards 2 */}
 
-      <section className="px-6 lg:px-20 py-20 bg-blue-900 text-white">
+      <section className="id=TecnologiasUtilizadas px-6 lg:px-20 py-20 bg-blue-900 text-white">
+
         <h2 className="text-3xl md:text-4xl font-bold text-center mb-12">
           Tecnologias usadas
         </h2>
