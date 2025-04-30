@@ -1,9 +1,9 @@
 import useReportEditor from "./hook";
-import Sidebar from "../../components/Sidebar";
-import Heading from "../../components/Heading";
-import Typography from "../../components/Typography";
-import Select from "../../components/Select";
-import ReportForm from "../../components/ReportForm";
+import Sidebar from "@/components/Sidebar";
+import Heading from "@/components/Heading";
+import Typography from "@/components/Typography";
+import Select from "@/components/Select";
+import ReportForm from "@/components/ReportForm";
 import { FormProvider, useForm } from "react-hook-form";
 
 export default function ReportEditor({ mode }) {

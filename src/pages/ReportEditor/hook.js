@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 import { useLocation, useNavigate } from "react-router-dom";
-import useExistingMonthsByYear from "../../hooks/useExistingMonthsByYear";
+import useExistingMonthsByYear from "@/hooks/useExistingMonthsByYear";
 
 export default function useReportEditor(mode) {
   const location = useLocation();

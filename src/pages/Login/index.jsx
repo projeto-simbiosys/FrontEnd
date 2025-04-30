@@ -1,16 +1,15 @@
-import Button from "../../components/Button";
-import Input from "../../components/Input";
-import Select from "../../components/Select";
-import Heading from "../../components/Heading";
-import Typography from "../../components/Typography";
-import useTitlePage from "../../hooks/useTitlePage";
-import ArrowRight from "../../icons/ArrowRight";
+import Button from "@/components/Button";
+import Input from "@/components/Input";
+import Heading from "@/components/Heading";
+import Typography from "@/components/Typography";
+import useTitlePage from "@/hooks/useTitlePage";
+import ArrowRight from "@/icons/ArrowRight";
 import Logo from "/logo-sistema-horizontal.png";
 import { Link } from "react-router-dom";
 import useRegister from "./hook";
-import InputError from "../../components/InputError";
-import Loading from "../../icons/Loading";
-import Notification from "../../components/Notification";
+import InputError from "@/components/InputError";
+import Loading from "@/icons/Loading";
+import Notification from "@/components/Notification";
 import { GoogleLogin } from "@react-oauth/google";
 
 export default function Login() {

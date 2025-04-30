@@ -1,11 +1,11 @@
 import { useForm } from "react-hook-form";
 import { yupResolver } from "@hookform/resolvers/yup";
-import { schemaValidation } from "../../validators/registerSchema";
+import { schemaValidation } from "@/validators/registerSchema";
 import { useMutation } from "@tanstack/react-query";
-import { createUser } from "../../services/api";
+import { createUser } from "@/services/api";
 import { useState } from "react";
 import { useNavigate } from "react-router";
-import registerUserAdapter from "../../adapters/registerUserAdapter";
+import registerUserAdapter from "@/adapters/registerUserAdapter";
 
 export default function useRegister() {
   const navigate = useNavigate();

@@ -2,10 +2,10 @@ import { useForm } from "react-hook-form";
 import { useMutation } from "@tanstack/react-query";
 import { useState } from "react";
 import { useNavigate } from "react-router";
-import { login } from "../../services/authService";
+import { login } from "@/services/authService";
 import { yupResolver } from "@hookform/resolvers/yup";
-import { schemaValidation } from "../../validators/loginSchema";
-import userLoginAdapter from "../../adapters/userLoginAdapter";
+import { schemaValidation } from "@/validators/loginSchema";
+import userLoginAdapter from "@/adapters/userLoginAdapter";
 
 export default function useRegister() {
   const navigate = useNavigate();
