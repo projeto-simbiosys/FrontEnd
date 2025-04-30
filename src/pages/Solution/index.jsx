@@ -1,7 +1,4 @@
 import React from "react";
-import Card from "@/components/Card";
-import { div } from "framer-motion/m";
-import LogoImg from "@/assets/logo horizontal (2).png";
 import CadastroImg from "@/assets/cadastro.png";
 import RelatorioImg from "@/assets/relatorio.png";
 import DashboardImg from "@/assets/dash.png";
@@ -9,74 +6,14 @@ import VisualImg from "@/assets/visual.png";
 import FuncionalImg from "@/assets/funcional.png";
 import EstruturalImg from "@/assets/estutural.png";
 import VetorImg from "@/assets/vetores.png";
-import TrianguloImg from "@/assets/triangulo.png";
-import { Link } from "react-router-dom";
+import Header from "@/components/Header";
+import Footer from "@/components/Footer";
 
 export default function Tela3() {
   return (
     <div>
       {/* Navbar */}
-      <nav className="flex flex-wrap justify-between items-center px-6 py-4 bg-gray-100 shadow-md">
-        <div className="flex items-center">
-          <img src={LogoImg} alt="Simbiosys Logo" className="h-10" />
-        </div>
-        <ul className="hidden md:flex space-x-6">
-          <li>
-            <a
-              href="#home"
-              className="text-gray-700 font-semibold hover:text-blue-900 hover:underline"
-            >
-              <Link to="/">Home</Link>
-            </a>
-          </li>
-          <li>
-            <a
-              href="#about"
-              className="text-gray-700 font-semibold hover:text-blue-900 hover:underline"
-            >
-              <Link to="/about">Sobre</Link>
-            </a>
-          </li>
-          <li>
-            <a
-              href="#solution"
-              className="text-gray-700 font-semibold hover:text-blue-900 hover:underline"
-            >
-              <Link to="/solution">Solução</Link>
-            </a>
-          </li>
-        </ul>
-        <div className="hidden md:flex space-x-4">
-          <button className="px-4 py-2 bg-blue-900 text-white font-semibold rounded hover:bg-blue-700">
-            <Link to="/register" className="text-white">
-              Cadastrar
-            </Link>
-          </button>
-          <button className="px-4 py-2 border border-purple-500 text-purple-500 font-semibold rounded hover:bg-purple-100">
-            <Link to="/login" className="text-purple-500 font-semibold rounded">
-              Entrar
-            </Link>
-          </button>
-        </div>
-        <div className="flex md:hidden">
-          <button className="text-gray-700 focus:outline-none">
-            <svg
-              className="w-6 h-6"
-              fill="none"
-              stroke="currentColor"
-              viewBox="0 0 24 24"
-              xmlns="http://www.w3.org/2000/svg"
-            >
-              <path
-                strokeLinecap="round"
-                strokeLinejoin="round"
-                strokeWidth="2"
-                d="M4 6h16M4 12h16m-7 6h7"
-              ></path>
-            </svg>
-          </button>
-        </div>
-      </nav>
+      <Header />
 
       {/* Banner Cards 1 */}
 
@@ -160,7 +97,6 @@ export default function Tela3() {
       {/* Banner Cards 2 */}
 
       <section className="id=TecnologiasUtilizadas px-6 lg:px-20 py-20 bg-blue-900 text-white">
-
         <h2 className="text-3xl md:text-4xl font-bold text-center mb-12">
           Tecnologias usadas
         </h2>
@@ -210,61 +146,7 @@ export default function Tela3() {
       </section>
 
       {/* Footer */}
-
-      <footer className="bg-white py-20 border-t border-gray-300">
-        <div className="container mx-auto px-6 lg:px-20">
-          <div className="flex items-center justify-between">
-            <img src={LogoImg} alt="Simbiosys Logo" className="h-10" />
-            <h2 className="text-purple-700 font-bold text-lg lg:text-xl">
-              Evolução através da conexão
-            </h2>
-          </div>
-
-          <hr className="my-6 border-gray-300" />
-
-          <div className="flex flex-col lg:flex-row justify-between items-start lg:items-center">
-            <ul className="flex flex-col space-y-2  text-blue-900 hover:text-blue-700 font-semibold">
-              <li>
-                <a href="#home" className="hover:underline">
-                  <Link to="/">Home</Link>
-                </a>
-              </li>
-              <li>
-                <a href="#about" className="hover:underline">
-                  <Link to="/about">Sobre</Link>
-                </a>
-              </li>
-              <li>
-                <a href="#solution" className="hover:underline">
-                  <Link to="/solution">Solução</Link>
-                </a>
-              </li>
-            </ul>
-
-            <div className="flex space-x-4 mt-4 lg:mt-0">
-              <a
-                href="#whatsapp"
-                className="text-green-500 hover:text-green-600"
-              >
-                <i className="fab fa-whatsapp text-2xl"></i>
-              </a>
-              <a
-                href="#instagram"
-                className="text-pink-500 hover:text-pink-600"
-              >
-                <i className="fab fa-instagram text-2xl"></i>
-              </a>
-              <a href="#linkedin" className="text-blue-700 hover:text-blue-800">
-                <i className="fab fa-linkedin text-2xl"></i>
-              </a>
-            </div>
-          </div>
-
-          <div className="mt-6 text-center text-gray-500">
-            <p>&copy; simbiosys 2025</p>
-          </div>
-        </div>
-      </footer>
+      <Footer />
     </div>
   );
 }
