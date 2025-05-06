@@ -89,6 +89,7 @@ export default function ReportsPanel() {
             </>
           )}
           {isOnline &&
+            !tabs.isLoading &&
             tabs.values.map(year => (
               <Button
                 key={year}

@@ -1,16 +1,17 @@
 import { useQuery, useQueryClient } from "@tanstack/react-query";
 import { useEffect, useState } from "react";
-import {
-  getAvailableYears,
-  getReportsByYear,
-} from "../../services/reportsService";
+import { getReportsByYear } from "../../services/reportsService";
 import reportsListAdapter from "../../adapters/reportsListAdapter";
 import availableYearsListAdapter from "../../adapters/availableYearsListAdapter";
 import { useNavigate } from "react-router";
 
 export default function useReportsPanel() {
+  const availableYearsAdapted = availableYearsListAdapter();
+
   const [showPeriodModal, setShowPeriodModal] = useState(false);
-  const [selectedYearTab, setSelectedYearTab] = useState();
+  const [selectedYearTab, setSelectedYearTab] = useState(
+    availableYearsAdapted[0]
+  );
   const [filters, setFilters] = useState({
     open: true,
     closed: true,
@@ -28,23 +29,6 @@ export default function useReportsPanel() {
   };
 
   const queryClient = useQueryClient();
-
-  const {
-    data: reportsYears,
-    isLoading: reportsYearsLoading,
-    isSuccess: reportsYearsSuccess,
-  } = useQuery({
-    queryKey: ["availableYears"],
-    queryFn: getAvailableYears,
-    enabled: navigator.onLine,
-  });
-  const availableYearsAdapted = availableYearsListAdapter(reportsYears?.data);
-
-  useEffect(() => {
-    if (reportsYearsSuccess) {
-      setSelectedYearTab(availableYearsAdapted[0]);
-    }
-  }, [reportsYearsSuccess]);
 
   const {
     data: reportsData,
@@ -70,7 +54,7 @@ export default function useReportsPanel() {
     tabs: {
       values: availableYearsAdapted ? availableYearsAdapted : [],
       active: selectedYearTab,
-      isLoading: reportsYearsLoading,
+      isLoading: reportsDataLoading || reportsDataFetching,
       handleTabChange: setSelectedYearTab,
     },
     reports: {
