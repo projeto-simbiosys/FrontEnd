@@ -5,7 +5,7 @@ const especificApi = {
 };
 
 export function getReportsByYear(year) {
-  return axiosInstance.get(`/reports/?year=${year}`, especificApi);
+  return axiosInstance.get(`/relatorios/ano/${year}`);
 }
 
 export function getAvailableYears() {
@@ -13,7 +13,7 @@ export function getAvailableYears() {
 }
 
 export function getReportDataById(id) {
-  return axiosInstance.get(`/reports/${id}`, especificApi);
+  return axiosInstance.get(`/relatorios/${id}`);
 }
 
 export function deleteReport(id) {
