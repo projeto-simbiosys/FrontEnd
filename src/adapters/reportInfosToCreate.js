@@ -1,3 +1,5 @@
+import getDate from "../utils/getDate";
+
 export default function reportInfosToCreate(
   year,
   month,
@@ -19,12 +21,9 @@ export default function reportInfosToCreate(
     Dezembro: 12,
   };
 
-  const now = new Date();
-  const localDateTime = now.toISOString().slice(0, 19);
-
   return {
     mesAno: `${monthOrder[month]}/${year}`,
-    dataAtualizacao: localDateTime,
+    dataAtualizacao: getDate(),
     aberto: statusReport === "open",
     encaminhamento: {
       encBeneficioPrestacaoContinuada: 0,
