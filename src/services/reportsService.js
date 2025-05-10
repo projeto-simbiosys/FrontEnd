@@ -17,7 +17,7 @@ export function getReportDataById(id) {
 }
 
 export function deleteReport(id) {
-  return axiosInstance.delete(`/reports/${id}`, especificApi);
+  return axiosInstance.delete(`/relatorios/${id}`);
 }
 
 export function createReport(data) {
