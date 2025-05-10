@@ -2,9 +2,7 @@ import capitalizeWords from "../utils/capitalizeWords";
 import { formatDate } from "../utils/formatDate";
 
 export default function reportsListAdapter(reports) {
-  console.log("reports", reports);
-
-  if (!reports) return null;
+  if (!reports) return [];
   const monthsOrdened = [
     "janeiro",
     "fevereiro",
@@ -20,19 +18,38 @@ export default function reportsListAdapter(reports) {
     "dezembro",
   ];
 
+  const months = {
+    "01": "janeiro",
+    "02": "fevereiro",
+    "03": "março",
+    "04": "abril",
+    "05": "maio",
+    "06": "junho",
+    "07": "julho",
+    "08": "agosto",
+    "09": "setembro",
+    10: "outubro",
+    11: "novembro",
+    12: "dezembro",
+  };
+
   const reportsList = reports?.map(report => {
-    const monthFormatted = report.month.toLowerCase();
-    const statusFormatted = capitalizeWords(report.status);
+    const monthYear = report.mesAno.split("/");
+    const monthFormatted = months[monthYear[0]];
+    const statusFormatted = report.aberto ? "Aberto" : "Fechado";
+
+    const nameUser = capitalizeWords(report.usuario.nome);
+    const lastNameUser = capitalizeWords(report.usuario.sobrenome);
 
     return {
       id: report.id,
       month: capitalizeWords(monthFormatted),
-      year: report.year,
-      lastUpdate: formatDate(report.lastUpdate),
-      lastPersonToUpdate: capitalizeWords(report.lastPersonToUpdate),
+      year: monthYear[1],
+      lastUpdate: formatDate(report.dataAtualizacao),
+      lastPersonToUpdate: `${nameUser} ${lastNameUser}`,
       status: statusFormatted,
-      isClosed: statusFormatted === "Fechado",
-      url: report.url,
+      isClosed: !report.aberto,
+      url: "testando.url",
     };
   });
 

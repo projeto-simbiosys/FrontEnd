@@ -5,7 +5,7 @@ const especificApi = {
 };
 
 export function getReportsByYear(year) {
-  return axiosInstance.get(`/relatorios/ano/${year}`);
+  return axiosInstance.get(`/relatorios/ano/${year}/listar`);
 }
 
 export function getAvailableYears() {
