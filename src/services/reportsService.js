@@ -1,15 +1,7 @@
 import { axiosInstance } from "../config/axios";
 
-const especificApi = {
-  baseURL: "http://localhost:3000", // BaseURL diferente só nessa chamada
-};
-
 export function getReportsByYear(year) {
   return axiosInstance.get(`/relatorios/ano/${year}/listar`);
-}
-
-export function getAvailableYears() {
-  return axiosInstance.get("/reportsYears", especificApi);
 }
 
 export function getReportDataById(id) {
@@ -25,5 +17,5 @@ export function createReport(data) {
 }
 
 export function updateReport(data) {
-  return axiosInstance.patch(`/reports/${data.id}`, data.details, especificApi);
+  return axiosInstance.patch(`/relatorios/${data.id}`, data.details);
 }
