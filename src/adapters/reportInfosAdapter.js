@@ -1,7 +1,8 @@
 export default function reportInfosAdapter(reportInfos) {
-  const referrals = reportInfos.details.encaminhamento;
-  const actions = reportInfos.details.acoesRealizadas;
-  const othersNumbers = reportInfos.details.outrosNumeros;
+  console.log(reportInfos);
+  const referrals = reportInfos.encaminhamento;
+  const actions = reportInfos.acoesRealizadas;
+  const othersNumbers = reportInfos.outrosNumeros;
 
   return {
     socialAssistance: referrals.encAssistenciaSocial,

@@ -4,7 +4,9 @@ import Heading from "@/components/Heading";
 import Typography from "@/components/Typography";
 import Select from "@/components/Select";
 import ReportForm from "@/components/ReportForm";
+import ArrowRight from "@/icons/ArrowRight";
 import { FormProvider, useForm } from "react-hook-form";
+import { Link } from "react-router-dom";
 
 export default function ReportEditor({ mode }) {
   const { page, report, select } = useReportEditor(mode);
@@ -40,6 +42,16 @@ export default function ReportEditor({ mode }) {
             {report.lastUpdate}
           </Typography>
         )}
+        <Link className="flex items-center gap-2" to="/admin/reports">
+          <ArrowRight className="stroke-sys-main rotate-180 h-[25px] w-[25px]" />
+          <Typography
+            size="base"
+            weight="semibold"
+            className="text-sys-main underline"
+          >
+            Voltar
+          </Typography>
+        </Link>
         <div>
           <Heading
             level={1}

@@ -1,29 +1,21 @@
 import { axiosInstance } from "../config/axios";
 
-const especificApi = {
-  baseURL: "http://localhost:3000", // BaseURL diferente só nessa chamada
-};
-
 export function getReportsByYear(year) {
-  return axiosInstance.get(`/reports/?year=${year}`, especificApi);
-}
-
-export function getAvailableYears() {
-  return axiosInstance.get("/reportsYears", especificApi);
+  return axiosInstance.get(`/relatorios/ano/${year}/listar`);
 }
 
 export function getReportDataById(id) {
-  return axiosInstance.get(`/reports/${id}`, especificApi);
+  return axiosInstance.get(`/relatorios/${id}`);
 }
 
 export function deleteReport(id) {
-  return axiosInstance.delete(`/reports/${id}`, especificApi);
+  return axiosInstance.delete(`/relatorios/${id}`);
 }
 
 export function createReport(data) {
-  return axiosInstance.post("/reports", data, especificApi);
+  return axiosInstance.post("/relatorios", data);
 }
 
 export function updateReport(data) {
-  return axiosInstance.patch(`/reports/${data.id}`, data.details, especificApi);
+  return axiosInstance.patch(`/relatorios/${data.id}`, data.details);
 }

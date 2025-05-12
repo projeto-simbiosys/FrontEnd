@@ -1,5 +1,11 @@
-export default function availableYearsListAdapter(listYears) {
-  const list = listYears?.map(year => year.year);
+export default function availableYearsListAdapter() {
+  const yearBase = 2025;
+  const currentYear = new Date().getFullYear();
+  const yearDiff = currentYear - yearBase;
 
-  return list?.sort((current, next) => next - current);
+  const years = Array.from({ length: yearDiff + 1 }, (_, i) => ({
+    year: yearBase + i,
+  }));
+
+  return years?.sort((current, next) => next - current).map(item => item.year);
 }

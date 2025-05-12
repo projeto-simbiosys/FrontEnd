@@ -1,4 +1,4 @@
-import { useMutation, useQuery } from "@tanstack/react-query";
+import { useMutation, useQuery, useQueryClient } from "@tanstack/react-query";
 import { useEffect, useState } from "react";
 import { useFormContext } from "react-hook-form";
 import { useParams } from "react-router";
@@ -20,6 +20,8 @@ export default function useReportForm(year, month) {
   const [showSaveAndCloseModal, setShowSaveAndCloseModal] = useState(false);
   const { id } = useParams();
   const { reset, handleSubmit } = useFormContext();
+
+  const queryClient = useQueryClient();
 
   const navigate = useNavigate();
 
@@ -60,6 +62,10 @@ export default function useReportForm(year, month) {
     triggerNotification(3000);
   };
 
+  const handleSettled = () => {
+    queryClient.invalidateQueries(["reportInfos", id], { exact: true });
+  };
+
   const {
     data: reportInfosData,
     isLoading: reportInfosLoading,
@@ -75,6 +81,7 @@ export default function useReportForm(year, month) {
     mutationFn: updateReport,
     onSuccess: handleSuccess,
     onError: handleError,
+    onSettled: handleSettled,
   });
 
   const mutationCreate = useMutation({
@@ -82,6 +89,7 @@ export default function useReportForm(year, month) {
     mutationFn: createReport,
     onSuccess: handleSuccess,
     onError: handleError,
+    onSettled: handleSettled,
   });
 
   useEffect(() => {

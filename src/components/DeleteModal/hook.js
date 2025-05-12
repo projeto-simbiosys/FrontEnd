@@ -43,6 +43,7 @@ export default function useDeleteModal() {
 
   function handleConfirmDelete() {
     setDisableButton(true);
+    console.log(modalData.id);
     mutation.mutate(modalData.id);
   }
 
