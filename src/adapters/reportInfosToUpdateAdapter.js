@@ -1,6 +1,9 @@
 import getDate from "../utils/getDate";
 
 export default function reportInfosToUpdateAdapter(reportInfos, statusReport) {
+  const userId = JSON.parse(localStorage.getItem("user"))[2];
+  console.log(userId);
+
   return {
     aberto: statusReport === "open",
     dataAtualizacao: getDate(),
@@ -48,7 +51,7 @@ export default function reportInfosToUpdateAdapter(reportInfos, statusReport) {
       totalPessoasCursosProfissionalizantesVirtuais: 0,
     },
     usuario: {
-      id: 1,
+      id: userId,
     },
   };
 }

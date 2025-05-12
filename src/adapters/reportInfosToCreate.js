@@ -21,6 +21,8 @@ export default function reportInfosToCreate(
     Dezembro: 12,
   };
 
+  const userId = JSON.parse(localStorage.getItem("user"))[2];
+
   return {
     mesAno: `${monthOrder[month]}/${year}`,
     dataAtualizacao: getDate(),
@@ -69,7 +71,7 @@ export default function reportInfosToCreate(
       totalPessoasCursosProfissionalizantesVirtuais: 0,
     },
     usuario: {
-      id: 1,
+      id: userId,
     },
   };
 }
