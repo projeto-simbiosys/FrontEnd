@@ -16,7 +16,7 @@
   "scripts": {
     "start": " \"npm run dev\"",
     "postinstall": "npm install", 
-    "dev": "vite",
+    "dev": "vite --port 8080",
     "build": "vite build",
     "lint": "eslint .",
     "preview": "vite preview"
