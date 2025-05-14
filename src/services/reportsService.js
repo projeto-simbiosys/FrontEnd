@@ -19,3 +19,13 @@ export function createReport(data) {
 export function updateReport(data) {
   return axiosInstance.patch(`/relatorios/${data.id}`, data.details);
 }
+
+export function generateUrlToDownload(monthYear) {
+  return axiosInstance.get(`/relatorios/exportar/mes?mesAno=${monthYear}`);
+}
+
+export function downloadReport(url) {
+  return axiosInstance.get(url, {
+    responseType: "blob",
+  });
+}

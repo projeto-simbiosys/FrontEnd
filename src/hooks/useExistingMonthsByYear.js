@@ -21,14 +21,15 @@ export default function useExistingMonthsByYear(year) {
 
   const reports = queryClient.getQueryData(["reportsByYear", year]);
 
-  const monthsToSelect = reports?.data?.map(report => {
-    const monthYear = report.mesAno.split("/");
+  if (reports?.data) {
+    const monthsToSelect = reports.data.map(report => {
+      const monthYear = report.mesAno.split("/");
 
-    return {
-      id: report.id,
-      value: capitalizeWords(months[monthYear[0]]),
-    };
-  });
-
-  return monthsToSelect;
+      return {
+        id: report.id,
+        value: capitalizeWords(months[monthYear[0]]),
+      };
+    });
+    return monthsToSelect;
+  }
 }

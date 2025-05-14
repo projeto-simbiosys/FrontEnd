@@ -6,6 +6,7 @@ export default function reportInfosToCreate(
   reportInfos,
   statusReport
 ) {
+  console.log(reportInfos);
   const monthOrder = {
     Janeiro: "01",
     Fevereiro: "02",
@@ -67,7 +68,7 @@ export default function reportInfosToCreate(
       totalPessoasCursosCapacitacaoPresenciais: reportInfos.trainingCourses,
       totalPessoasCursosCapacitacaoVirtuais: 0,
       totalPessoasCursosProfissionalizantesPresenciais:
-        reportInfos.ProfessionalCourses,
+        reportInfos.professionalCourses,
       totalPessoasCursosProfissionalizantesVirtuais: 0,
     },
     usuario: {

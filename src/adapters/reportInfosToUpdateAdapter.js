@@ -47,7 +47,7 @@ export default function reportInfosToUpdateAdapter(reportInfos, statusReport) {
       totalPessoasCursosCapacitacaoPresenciais: reportInfos.trainingCourses,
       totalPessoasCursosCapacitacaoVirtuais: 0,
       totalPessoasCursosProfissionalizantesPresenciais:
-        reportInfos.ProfessionalCourses,
+        reportInfos.professionalCourses,
       totalPessoasCursosProfissionalizantesVirtuais: 0,
     },
     usuario: {
