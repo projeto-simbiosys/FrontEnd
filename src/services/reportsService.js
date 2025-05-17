@@ -29,3 +29,9 @@ export function downloadReport(url) {
     responseType: "blob",
   });
 }
+
+export function generateUrlToDownloadPeriodReport(startMonth, endMonth) {
+  return axiosInstance.get(
+    `/relatorios/exportar/periodo?de=${startMonth}&para=${endMonth}`
+  );
+}
