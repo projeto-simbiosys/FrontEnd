@@ -1,7 +1,7 @@
 # Docs for the Azure Web Apps Deploy action: https://github.com/Azure/webapps-deploy
 # More GitHub Actions for Azure: https://github.com/Azure/actions
 
-name: Build and deploy Node.js app to Azure Web App - SIMBIOSYS-app
+name: Build and deploy Node.js app to Azure Web App - SIMBIOSYS-APP
 
 on:
   push:
@@ -60,15 +60,15 @@ jobs:
       - name: Login to Azure
         uses: azure/login@v2
         with:
-          client-id: ${{ secrets.AZUREAPPSERVICE_CLIENTID_470FA80BB0884AC5A75795965F35DC8B }}
-          tenant-id: ${{ secrets.AZUREAPPSERVICE_TENANTID_4E287BCA037546E79D714480E2D3993C }}
-          subscription-id: ${{ secrets.AZUREAPPSERVICE_SUBSCRIPTIONID_19F1053C4E2F4EAF8DA6CB11C2FD40FD }}
+          client-id: ${{ secrets.AZUREAPPSERVICE_CLIENTID_8FEA4B23E07F4D46A2ED19F6DB6B55F8 }}
+          tenant-id: ${{ secrets.AZUREAPPSERVICE_TENANTID_82080E61CE0E4A6BA53552CD8764F655 }}
+          subscription-id: ${{ secrets.AZUREAPPSERVICE_SUBSCRIPTIONID_071A3F78F5744D83A82A56C185457FAF }}
 
       - name: 'Deploy to Azure Web App'
         id: deploy-to-webapp
         uses: azure/webapps-deploy@v3
         with:
-          app-name: 'SIMBIOSYS-app'
+          app-name: 'SIMBIOSYS-APP'
           slot-name: 'Production'
           package: .
           
