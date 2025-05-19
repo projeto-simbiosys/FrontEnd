@@ -7,15 +7,13 @@
   "homepage": "https://github.com/projeto-simbiosys/FrontEnd#readme",
   "bugs": {
     "url": "https://github.com/projeto-simbiosys/FrontEnd/issues"
-    
   },
   "repository": {
     "type": "git",
     "url": "git+https://github.com/projeto-simbiosys/FrontEnd.git"
   },
   "scripts": {
-    "start": " \"npm run dev\"",
-    "postinstall": "npm install", 
+    "start": "vite preview --port $PORT",
     "dev": "vite",
     "build": "vite build",
     "lint": "eslint .",
@@ -51,3 +49,4 @@
     "vite": "^6.2.6"
   }
 }
+
