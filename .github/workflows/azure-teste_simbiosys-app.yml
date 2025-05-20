@@ -1,7 +1,4 @@
-# Docs for the Azure Web Apps Deploy action: https://github.com/Azure/webapps-deploy
-# More GitHub Actions for Azure: https://github.com/Azure/actions
-
-name: Build and deploy Node.js app to Azure Web App - SIMBIOSYS-app
+name: Build and deploy Vite app to Azure Web App - SIMBIOSYS-app
 
 on:
   push:
@@ -10,65 +7,38 @@ on:
   workflow_dispatch:
 
 jobs:
-  build:
+  build-and-deploy:
     runs-on: ubuntu-latest
     permissions:
-      contents: read #This is required for actions/checkout
+      id-token: write
+      contents: read
 
     steps:
-      - uses: actions/checkout@v4
+      - name: Checkout código
+        uses: actions/checkout@v4
 
-      - name: Set up Node.js version
+      - name: Setup Node.js
         uses: actions/setup-node@v3
         with:
           node-version: '20.x'
 
-      - name: npm install, build, and test
+      - name: Instalar dependências e buildar
         run: |
           npm install
-          npm run build --if-present
-          npm run test --if-present
+          npm run build
 
-      - name: Zip artifact for deployment
-        run: zip release.zip ./* -r
-
-      - name: Upload artifact for deployment job
-        uses: actions/upload-artifact@v4
-        with:
-          name: node-app
-          path: release.zip
-
-  deploy:
-    runs-on: ubuntu-latest
-    needs: build
-    environment:
-      name: 'Production'
-      url: ${{ steps.deploy-to-webapp.outputs.webapp-url }}
-    permissions:
-      id-token: write #This is required for requesting the JWT
-      contents: read #This is required for actions/checkout
-
-    steps:
-      - name: Download artifact from build job
-        uses: actions/download-artifact@v4
-        with:
-          name: node-app
-
-      - name: Unzip artifact for deployment
-        run: unzip release.zip
-      
-      - name: Login to Azure
+      - name: Login na Azure
         uses: azure/login@v2
         with:
           client-id: ${{ secrets.AZUREAPPSERVICE_CLIENTID_5B8FE014B39C4410B0FB29B744ECD9E2 }}
           tenant-id: ${{ secrets.AZUREAPPSERVICE_TENANTID_DA8AEF134E57487091B15FA4945A46E0 }}
           subscription-id: ${{ secrets.AZUREAPPSERVICE_SUBSCRIPTIONID_027BA4DBF57E49B79D70DAC2700F61FF }}
 
-      - name: 'Deploy to Azure Web App'
-        id: deploy-to-webapp
+      - name: Deploy para Azure Web App
         uses: azure/webapps-deploy@v3
         with:
           app-name: 'SIMBIOSYS-app'
           slot-name: 'Production'
-          package: .
+          package: './dist'  # 👈 ESSENCIAL: envia apenas os arquivos do build
+
           
