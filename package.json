@@ -5,10 +5,6 @@
   "type": "module",
   "description": "front-end do projeto desenvolvido na sptech pelo grupo \"simbiosys\"",
   "homepage": "https://github.com/projeto-simbiosys/FrontEnd#readme",
-  "scripts":{
-    "start": " \"npm run dev\"",
-    "postinstall": "npm install" 
-  },
   "bugs": {
     "url": "https://github.com/projeto-simbiosys/FrontEnd/issues"
     
@@ -18,6 +14,8 @@
     "url": "git+https://github.com/projeto-simbiosys/FrontEnd.git"
   },
   "scripts": {
+    "start": " \"npm run dev\"",
+    "postinstall": "npm install",
     "dev": "vite",
     "build": "vite build",
     "lint": "eslint .",
