@@ -5,7 +5,8 @@ import path from "path";
 
 // https://vite.dev/config/
 export default defineConfig({
-  plugins: [react(), tailwindcss()],
+  base: './',         
+  plugins: [react(), tailwindcss(),react()],
   server: {
     watch: {
       ignored: ["**/db.json"], // Ignora alterações no db.json

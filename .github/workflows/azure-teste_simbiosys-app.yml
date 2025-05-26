@@ -1,4 +1,4 @@
-name: Build and deploy Vite app to Azure Web App - SIMBIOSYS-app
+name: Deploy Vite App to Azure Web App - SIMBIOSYS-app
 
 on:
   push:
@@ -9,12 +9,9 @@ on:
 jobs:
   build-and-deploy:
     runs-on: ubuntu-latest
-    permissions:
-      id-token: write
-      contents: read
 
     steps:
-      - name: Checkout código
+      - name: Checkout do código
         uses: actions/checkout@v4
 
       - name: Setup Node.js
@@ -22,7 +19,7 @@ jobs:
         with:
           node-version: '20.x'
 
-      - name: Instalar dependências e buildar
+      - name: Instalar dependências e buildar o projeto
         run: |
           npm install
           npm run build
@@ -33,6 +30,7 @@ jobs:
           app-name: 'SIMBIOSYS-app'
           slot-name: 'Production'
           publish-profile: ${{ secrets.AZUREAPPSERVICE_PUBLISHPROFILE }}
-          package: './dist'  
+          package: ./dist           
+
 
           
