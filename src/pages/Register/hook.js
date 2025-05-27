@@ -68,6 +68,7 @@ export default function useRegister() {
         email: getInputProps("email"),
         password: getInputProps("password"),
         confirmPassword: getInputProps("confirmPassword"),
+        token: getInputProps("token"),
       },
       request: {
         status: {

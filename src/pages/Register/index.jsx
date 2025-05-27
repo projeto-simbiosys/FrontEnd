@@ -180,6 +180,22 @@ export default function Register() {
             )}
           </label>
 
+          <label>
+            <Typography size="sm" weight="semibold" className="lg:text-white">
+              Token de Acesso:
+            </Typography>
+            <Input
+              disabled={form.request.isLoading}
+              hasError={form.inputs.token.hasError}
+              placeholder="Insira o token de acesso..."
+              type="text"
+              {...form.register("token")}
+            />
+            {form.inputs.token.hasError && (
+              <InputError message={form.inputs.token.errorMessage} />
+            )}
+          </label>
+
           <div className="flex justify-center mt-4">
             <Button
               variant="sys-primary"
