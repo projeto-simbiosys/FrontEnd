@@ -24,13 +24,16 @@ jobs:
           npm install
           npm run build
 
+      - name: Copiar fallback SPA para dist/
+        run: cp staticwebapp.config.json dist/
+
       - name: Deploy para Azure Web App
         uses: azure/webapps-deploy@v3
         with:
           app-name: 'SIMBIOSYS-app'
           slot-name: 'Production'
           publish-profile: ${{ secrets.AZUREAPPSERVICE_PUBLISHPROFILE }}
-          package: ./dist           
+          package: ./dist
 
 
           
