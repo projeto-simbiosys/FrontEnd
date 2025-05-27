@@ -72,7 +72,7 @@ export default function useRegister() {
       },
       request: {
         status: {
-          isLoading: mutation.isLoading,
+          isLoading: mutation.isPending,
           isSuccess: mutation.isSuccess,
           type: mutation.status,
           message: mutation.error

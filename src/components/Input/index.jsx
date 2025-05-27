@@ -20,6 +20,7 @@ export default function Input({ hasError = false, ...props }) {
       />
       {input.isPassword && (
         <button
+          type="button"
           disabled={props.disabled}
           onClick={input.tooglePassword}
           className="group"
