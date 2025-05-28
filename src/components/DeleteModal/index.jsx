@@ -1,3 +1,4 @@
+import React from "react";
 import CloseIcon from "../../icons/Close";
 import Button from "../Button";
 import Heading from "../Heading";
