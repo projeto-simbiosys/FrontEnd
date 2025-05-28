@@ -1,3 +1,4 @@
+import React from "react";
 import EyeClosed from "../../icons/EyeClosed";
 import EyeOpen from "../../icons/EyeOpen";
 import useInput from "./hook";

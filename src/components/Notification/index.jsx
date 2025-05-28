@@ -1,3 +1,5 @@
+import React from "react";
+
 export default function Notification({ type, show, title, body }) {
   return (
     <div

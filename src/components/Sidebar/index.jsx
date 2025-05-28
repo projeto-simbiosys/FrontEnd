@@ -1,3 +1,4 @@
+import React from "react";
 import CloseSidebar from "../../icons/CloseSidebar";
 import Logo from "/logo-sistema.png";
 import Tabs from "../Tabs";

@@ -1,3 +1,4 @@
+import React from "react";
 import Dropdown from "../../icons/Dropdown";
 
 export default function Select({ hasError = false, children, ...props }) {
