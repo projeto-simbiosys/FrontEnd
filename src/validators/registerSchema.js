@@ -22,5 +22,6 @@ export const schemaValidation = yup
     confirmPassword: yup
       .string()
       .oneOf([yup.ref("password"), null], "As senhas não conferem"),
+    token: yup.string(),
   })
   .required();

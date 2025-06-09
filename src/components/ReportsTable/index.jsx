@@ -7,17 +7,32 @@ import ReportsEmpty from "../ReportsEmpty";
 import useReportsTable from "./hook";
 import DeleteModal from "../DeleteModal";
 import formatAbbr from "../../utils/formatAbbr";
+import LoadingModal from "../LoadingModal";
+import Notification from "../Notification";
 
 export default function ReportsTable({ reports, filters }) {
-  const { filteredReports, navigate, modal, handleClickDelete } =
-    useReportsTable({
-      reports,
-      filters,
-    });
+  const {
+    filteredReports,
+    navigate,
+    modal,
+    showLoadingModal,
+    handleClickDelete,
+    handleClickDownload,
+  } = useReportsTable({
+    reports,
+    filters,
+  });
 
   return (
     <>
       <DeleteModal show={modal.show} onClose={modal.handleClose} />
+      <LoadingModal show={showLoadingModal} />
+      {/* <Notification
+        show={notification.show}
+        type={notification.type}
+        title={notification.title}
+        body={notification.message}
+      /> */}
 
       {filteredReports.length === 0 ? (
         <motion.div
@@ -99,6 +114,7 @@ export default function ReportsTable({ reports, filters }) {
                       <Button
                         variant="sys-secondary"
                         className="group !px-1.5 !py-0.5 shadow-none"
+                        onClick={() => handleClickDownload(report.monthYear)}
                       >
                         <Download className="h-[24px] w-[25px] stroke-sys-main group-disabled:stroke-gray-detail-disabled" />
                       </Button>

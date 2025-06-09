@@ -5,9 +5,14 @@ import Typography from "../Typography";
 import Select from "../Select";
 import useExistingMonthsByYear from "../../hooks/useExistingMonthsByYear";
 import { AnimatePresence, motion } from "framer-motion";
+import useReportPeriodModal from "./hook";
+import LoadingModal from "../LoadingModal";
 
 export default function ReportPeriodModal({ show, onClose, year }) {
   const existingMonthsByYear = useExistingMonthsByYear(year);
+
+  const { select, showLoadingModal, buttonModal, handleClickGenerateReport } =
+    useReportPeriodModal(year);
 
   return (
     <AnimatePresence>
@@ -45,6 +50,8 @@ export default function ReportPeriodModal({ show, onClose, year }) {
             exit="exit"
             transition={{ duration: 0.1 }}
           >
+            <LoadingModal show={showLoadingModal} />
+
             <div className="w-full py-2 bg-white cursor-default pointer-events-auto relative rounded-xl mx-auto max-w-sm">
               <button
                 tabIndex="-1"
@@ -68,8 +75,8 @@ export default function ReportPeriodModal({ show, onClose, year }) {
                   </Heading>
 
                   <Typography size="normal" weight="regular">
-                    Este relatório será gerado com base nos meses do ano de{" "}
-                    {year}
+                    Este relatório será gerado com base nos meses existentes do
+                    ano de {year}
                   </Typography>
 
                   <div className="mt-4 flex flex-col sm:flex-row gap-3">
@@ -81,7 +88,7 @@ export default function ReportPeriodModal({ show, onClose, year }) {
                       >
                         Mês de início:
                       </Typography>
-                      <Select>
+                      <Select {...select.register("startMonth")}>
                         {existingMonthsByYear.map(month => (
                           <option key={month.id} value={month.value}>
                             {month.value}
@@ -98,13 +105,18 @@ export default function ReportPeriodModal({ show, onClose, year }) {
                       >
                         Mês de término:
                       </Typography>
-                      <Select>
+                      <Select {...select.register("endMonth")}>
                         {existingMonthsByYear.map(month => (
                           <option key={month.id} value={month.value}>
                             {month.value}
                           </option>
                         ))}
                       </Select>
+                      {select.errors.endMonth && (
+                        <Typography size="sm" className="text-red-500">
+                          {select.errors.endMonth.message}
+                        </Typography>
+                      )}
                     </label>
                   </div>
                 </div>
@@ -118,11 +130,21 @@ export default function ReportPeriodModal({ show, onClose, year }) {
 
                 <div className="px-6 py-2">
                   <div className="flex justify-around">
-                    <Button variant="sys-secondary" onClick={onClose}>
+                    <Button
+                      variant="sys-secondary"
+                      onClick={onClose}
+                      disabled={buttonModal.disabled}
+                    >
                       Cancelar
                     </Button>
 
-                    <Button variant="sys-primary">Gerar relatorio</Button>
+                    <Button
+                      variant="sys-primary"
+                      onClick={handleClickGenerateReport}
+                      disabled={buttonModal.disabled}
+                    >
+                      {buttonModal.disabled ? "Gerando..." : "Gerar"}
+                    </Button>
                   </div>
                 </div>
               </div>

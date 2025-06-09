@@ -68,10 +68,11 @@ export default function useRegister() {
         email: getInputProps("email"),
         password: getInputProps("password"),
         confirmPassword: getInputProps("confirmPassword"),
+        token: getInputProps("token"),
       },
       request: {
         status: {
-          isLoading: mutation.isLoading,
+          isLoading: mutation.isPending,
           isSuccess: mutation.isSuccess,
           type: mutation.status,
           message: mutation.error

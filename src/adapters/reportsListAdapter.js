@@ -45,6 +45,7 @@ export default function reportsListAdapter(reports) {
       id: report.id,
       month: capitalizeWords(monthFormatted),
       year: monthYear[1],
+      monthYear: report.mesAno,
       lastUpdate: formatDate(report.dataAtualizacao),
       lastPersonToUpdate: `${nameUser} ${lastNameUser}`,
       status: statusFormatted,
