@@ -14,7 +14,7 @@
   },
   "scripts": {
     "start": " \"npm run dev\"",
-    "postinstall": "npm install",
+    "postinstall": "echo postinstall complete",
     "dev": "vite",
     "build": "vite build",
     "lint": "eslint .",
