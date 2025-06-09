@@ -30,7 +30,7 @@ export default function useRegister() {
       localStorage.setItem("token", data.data.token);
       localStorage.setItem(
         "user",
-        JSON.stringify([data.data.email, data.data.nome])
+        JSON.stringify([data.data.email, data.data.nome, data.data.userId])
       );
 
       triggerNotification(1500);

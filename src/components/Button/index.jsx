@@ -1,3 +1,5 @@
+import React from "react";
+
 export default function Button({ variant, children, className, ...props }) {
   const variantMapping = {
     "inst-primary": "bg-main text-white",
