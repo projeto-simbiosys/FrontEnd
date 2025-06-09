@@ -3,6 +3,7 @@ import { SidebarProvider } from "../context/SidebarContext";
 import ReportsPage from "../pages/ReportsPage";
 import ReportEditor from "../pages/ReportEditor";
 import { useEffect } from "react";
+import Dashboard from "../pages/Dashboard";
 
 export default function AdminRoutes() {
   const token = localStorage.getItem("token");
@@ -16,6 +17,7 @@ export default function AdminRoutes() {
   return (
     <SidebarProvider>
       <Routes>
+        <Route path="/admin/dashboard" element={<Dashboard />} />
         <Route path="/admin/reports" element={<ReportsPage />} />
         <Route
           path="/admin/reports/edit/:id"
