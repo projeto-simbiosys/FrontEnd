@@ -1,13 +1,307 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <link rel="icon" type="image/svg+xml" href="/icone logo.png" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>simbiosys</title>
-  </head>
-  <body>
-    <div id="root"></div>
-    <script type="module" src="/src/main.jsx"></script>
-  </body>
+
+<head>
+  <meta charset="UTF-8" />
+  <link rel="icon" type="image/svg+xml" href="/icone logo.png" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>simbiosys</title>
+</head>
+
+<body>
+  <div id="root"></div>
+  <script type="module" src="/src/main.jsx"></script>
+
+  <!-- Menu de Acessibilidade -->
+  <div id="acessibilidade-menu" class="fechado" aria-label="Menu de Acessibilidade">
+    <button id="acessibilidade-toggle" aria-label="Abrir menu de acessibilidade"></button>
+    <div id="acessibilidade-conteudo">
+      <strong>Ferramentas de acessibilidade</strong>
+      <button onclick="aumentarFonte()">
+        <span style="margin-right:8px;">➕</span>Aumentar texto
+      </button>
+      <button onclick="diminuirFonte()">
+        <span style="margin-right:8px;">➖</span>Diminuir texto
+      </button>
+      <button onclick="alternarContraste()">
+        <span style="margin-right:8px;">🌗</span>Contraste
+      </button>
+      <button onclick="resetarAcessibilidade()">
+        <span style="margin-right:8px;">♻️</span>Resetar
+      </button>
+    </div>
+  </div>
+
+  <style>
+    #acessibilidade-menu {
+      position: fixed;
+      top: 100px;
+      left: 20px;
+      z-index: 9999;
+      cursor: grab;
+      user-select: none;
+    }
+
+    #acessibilidade-menu.dragging {
+      opacity: 0.85;
+      cursor: grabbing;
+    }
+
+    #acessibilidade-toggle {
+      width: 48px;
+      height: 48px;
+      background: #b68cfd;
+      border: none;
+      border-radius: 50px;
+      cursor: pointer;
+      box-shadow: 0 2px 8px rgba(44, 62, 80, 0.10);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: #fff;
+      font-size: 2rem;
+      transition: background 0.2s;
+
+    }
+
+    
+    #acessibilidade-toggle::before {
+      width: 48px;
+      height: 48px;
+      border-radius: 50%;
+      content: "";
+      display: block;
+      width: 28px;
+      height: 28px;
+      background-image: url('https://cdn-icons-png.flaticon.com/512/1512/1512642.png'); 
+      background-size: contain;
+      background-repeat: no-repeat;
+      margin: auto;
+    }
+
+    #acessibilidade-menu.aberto #acessibilidade-toggle::before {
+      
+      content: "";
+      display: block;
+      width: 28px;
+      height: 28px;
+      background-image: url('https://cdn-icons-png.flaticon.com/512/1512/1512642.png'); 
+      background-size: contain;
+      background-repeat: no-repeat;
+      margin: auto;
+    }
+
+    #acessibilidade-conteudo {
+      display: none;
+      margin-top: 10px;
+      background: #fff;
+      border-radius: 10px;
+      box-shadow: 0 2px 8px rgba(44, 62, 80, 0.10);
+      padding: 18px 16px 12px 16px;
+      min-width: 180px;
+      font-family: 'Segoe UI', Arial, sans-serif;
+      animation: fadeIn 0.2s;
+    }
+
+    #acessibilidade-menu.aberto #acessibilidade-conteudo {
+      display: block;
+    }
+
+    #acessibilidade-conteudo strong {
+      display: block;
+      margin-bottom: 10px;
+      font-size: 1.1rem;
+      color: #7c3aed;
+      text-align: center;
+    }
+
+    #acessibilidade-conteudo button {
+      margin: 4px 0;
+      padding: 7px 0;
+      border: none;
+      border-radius: 6px;
+      background: #ede9fe;
+      color: #7c3aed;
+      font-size: 1rem;
+      font-weight: 500;
+      cursor: pointer;
+      width: 100%;
+      transition: background 0.2s, color 0.2s;
+    }
+
+    #acessibilidade-conteudo button:hover,
+    #acessibilidade-conteudo button:focus {
+      background: #7c3aed;
+      color: #fff;
+    }
+
+    
+    body.alto-contraste,
+    body.alto-contraste * {
+      background-color: #000 !important;
+      color: #FFF !important;
+      border-color: #00FFFF !important;
+      box-shadow: none !important;
+    }
+
+    body.alto-contraste #acessibilidade-menu {
+      background: transparent !important;
+    }
+
+    body.alto-contraste #acessibilidade-toggle {
+      background: #00FFFF !important;
+      color: #000 !important;
+    }
+
+    body.alto-contraste #acessibilidade-conteudo {
+      background: #222 !important;
+    }
+
+    body.alto-contraste #acessibilidade-conteudo strong {
+      color: #00FFFF !important;
+    }
+
+    body.alto-contraste #acessibilidade-conteudo button {
+      background: #00FFFF !important;
+      color: #000 !important;
+    }
+
+    body.alto-contraste #acessibilidade-conteudo button:hover,
+    body.alto-contraste #acessibilidade-conteudo button:focus {
+      background: #fff !important;
+      color: #00FFFF !important;
+    }
+
+    @keyframes fadeIn {
+      from {
+        opacity: 0;
+        transform: translateY(-10px);
+      }
+
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+  </style>
+
+  <script>
+    let tamanhoFonte = 100;
+
+    function aumentarFonte() {
+      tamanhoFonte += 10;
+      document.body.style.fontSize = tamanhoFonte + '%';
+    }
+
+    function diminuirFonte() {
+      if (tamanhoFonte > 50) {
+        tamanhoFonte -= 10;
+        document.body.style.fontSize = tamanhoFonte + '%';
+      }
+    }
+
+    function alternarContraste() {
+      document.body.classList.toggle('alto-contraste');
+    }
+
+    function resetarAcessibilidade() {
+      tamanhoFonte = 100;
+      document.body.style.fontSize = '';
+      document.body.classList.remove('alto-contraste');
+    }
+
+    
+    const menu = document.getElementById('acessibilidade-menu');
+    const toggle = document.getElementById('acessibilidade-toggle');
+    menu.classList.add('fechado');
+    toggle.addEventListener('click', function () {
+      menu.classList.toggle('aberto');
+      menu.classList.toggle('fechado');
+      if (menu.classList.contains('aberto')) {
+        toggle.setAttribute('aria-label', 'Fechar menu de acessibilidade');
+      } else {
+        toggle.setAttribute('aria-label', 'Abrir menu de acessibilidade');
+      }
+    });
+
+ 
+    let isDragging = false;
+    let offsetX, offsetY;
+
+    menu.addEventListener('mousedown', function (e) {
+      
+      if (e.target === menu || e.target === toggle) {
+        isDragging = true;
+        menu.classList.add('dragging');
+        offsetX = e.clientX - menu.getBoundingClientRect().left;
+        offsetY = e.clientY - menu.getBoundingClientRect().top;
+        document.body.style.userSelect = 'none';
+      }
+    });
+
+    document.addEventListener('mousemove', function (e) {
+      if (isDragging) {
+        let x = e.clientX - offsetX;
+        let y = e.clientY - offsetY;
+        // Mantém o menu dentro da tela
+        x = Math.max(0, Math.min(window.innerWidth - menu.offsetWidth, x));
+        y = Math.max(0, Math.min(window.innerHeight - menu.offsetHeight, y));
+        menu.style.left = x + 'px';
+        menu.style.top = y + 'px';
+      }
+    });
+
+    document.addEventListener('mouseup', function () {
+      if (isDragging) {
+        isDragging = false;
+        menu.classList.remove('dragging');
+        document.body.style.userSelect = '';
+      }
+    });
+
+    
+    menu.addEventListener('touchstart', function (e) {
+      if (e.target === menu || e.target === toggle) {
+        isDragging = true;
+        menu.classList.add('dragging');
+        const touch = e.touches[0];
+        offsetX = touch.clientX - menu.getBoundingClientRect().left;
+        offsetY = touch.clientY - menu.getBoundingClientRect().top;
+      }
+    });
+
+    document.addEventListener('touchmove', function (e) {
+      if (isDragging) {
+        const touch = e.touches[0];
+        let x = touch.clientX - offsetX;
+        let y = touch.clientY - offsetY;
+        x = Math.max(0, Math.min(window.innerWidth - menu.offsetWidth, x));
+        y = Math.max(0, Math.min(window.innerHeight - menu.offsetHeight, y));
+        menu.style.left = x + 'px';
+        menu.style.top = y + 'px';
+      }
+    });
+
+    document.addEventListener('touchend', function () {
+      if (isDragging) {
+        isDragging = false;
+        menu.classList.remove('dragging');
+      }
+    });
+  </script>
+
+  <!-- VLibras Widget -->
+  <div vw class="enabled">
+    <div vw-access-button class="active"></div>
+    <div vw-plugin-wrapper>
+      <div class="vw-plugin-top-wrapper"></div>
+    </div>
+  </div>
+
+  <script src="https://vlibras.gov.br/app/vlibras-plugin.js"></script>
+  <script>
+    new window.VLibras.Widget('https://vlibras.gov.br/app');
+  </script>
+</body>
+
 </html>

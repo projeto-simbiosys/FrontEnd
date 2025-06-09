@@ -84,7 +84,7 @@ export default function About() {
             Nossa equipe
           </h2>
           <div className="grid md:grid-cols-3 gap-8">
-            <TeamMember name="Marcela Carneiro" role="Líder" img={MarcelaImg}/>
+            <TeamMember name="Marcela Carneiro" role="Líder" img={MarcelaImg} />
             <TeamMember name="Matheus Ferro" role="DBA" img={FerroImg}/>
             <TeamMember name="Cintia Ohara" role="Desenvolvedora" img={CintiaImg}/>
             <TeamMember name="Matheus Castro" role="Desenvolvedor" img={CastroImg}/>

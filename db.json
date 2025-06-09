@@ -63,6 +63,60 @@
           "totalPessoasCursosProfissionalizantesVirtuais": 0
         }
       }
+    },
+    {
+      "id": "6484",
+      "year": "2025",
+      "month": "Janeiro",
+      "lastUpdate": "2025-05-11",
+      "lastPersonToUpdate": "Matheus Castrinho :)",
+      "status": "fechado",
+      "url": "https://example.com/report/1",
+      "details": {
+        "encaminhamento": {
+          "id": 1,
+          "encBeneficioPrestacaoContinuada": 0,
+          "encAposentadoria": 0,
+          "encAssistenciaSocial": 0,
+          "encCursosProfissionalizantesForaOrganizacao": 0,
+          "encCursosProfissionalizantesDentroOrganizacao": 0,
+          "encEducacaoNaoFormal": 0,
+          "encEducacaoFormal": 0,
+          "encDocumentos": 0,
+          "encTrabalho": 0,
+          "encGeracaoRenda": 0,
+          "encSaude": 0,
+          "encTratamentoDrogas": 0,
+          "encProgramasTransferenciaRenda": 0,
+          "encPoliticasPublicas": 0
+        },
+        "outrosNumeros": {
+          "id": 1,
+          "alimentacao": 0,
+          "numeroDePessoasPresencial": 0,
+          "cestasBasicasDoadas": 0,
+          "kitsHigieneDoados": 0,
+          "totalParticipantesAtividadeDistancia": 0,
+          "totalParticipantesAtividadePresencial": 0
+        },
+        "acoesRealizadas": {
+          "id": 1,
+          "totalAtividadesGrupoVirtual": 0,
+          "totalAtividadesCulturaisExternas": 0,
+          "totalAtividadesCulturaisVirtuais": 0,
+          "totalPalestrasPresenciais": 0,
+          "totalPalestrasVirtuais": 0,
+          "totalVisitasFamiliaresPresenciais": 0,
+          "totalVisitasFamiliaresVirtuais": 0,
+          "totalVisitasMonitoradasPresenciais": 0,
+          "totalVisitasMonitoradasVirtuais": 0,
+          "totalCursosMinistradosPresenciais": 0,
+          "totalCursosMinistradosVirtuais": 0,
+          "totalPessoasCursosCapacitacaoPresenciais": 0,
+          "totalPessoasCursosCapacitacaoVirtuais": 0,
+          "totalPessoasCursosProfissionalizantesVirtuais": 0
+        }
+      }
     }
   ]
 }
