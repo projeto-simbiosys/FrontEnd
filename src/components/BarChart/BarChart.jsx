@@ -13,7 +13,7 @@ import { getReportsByMonthYear } from '../../services/dashboardService';
 
 ChartJS.register(CategoryScale, LinearScale, BarElement, Title, Tooltip, Legend);
 
-export default function BarChart() {
+export default function BarChart({ selectedMonth }) {
   const [encaminhamentosAnuais, setEncaminhamentosAnuais] = useState([]);
   const [loading, setLoading] = useState(true);
 
@@ -37,7 +37,7 @@ export default function BarChart() {
 
       for (let i = 1; i <= 12; i++) {
         const mes = String(i).padStart(2, '0');
-        const mesAno = `${mes}-${currentYear}`
+        const mesAno = `${mes}-${currentYear}`;
 
         promises.push(
           getReportsByMonthYear(mesAno)
@@ -89,17 +89,25 @@ export default function BarChart() {
       });
     });
 
+    if (selectedMonth !== 'all') {
+      const monthIdx = Number(selectedMonth) - 1;
+      return datasets.map(dataset => ({
+        ...dataset,
+        data: [dataset.data[monthIdx]],
+      }));
+    }
+
     return datasets;
   };
 
   const data = {
-    labels,
+    labels: selectedMonth === 'all' ? labels : [labels[Number(selectedMonth) - 1]],
     datasets: prepareChartData(),
   };
 
   const options = {
     responsive: true,
-    maintainAspectRatio: false, 
+    maintainAspectRatio: false,
     plugins: {
       legend: { position: 'bottom' },
       title: { display: true, text: 'Atividades Mensais por Categoria' },

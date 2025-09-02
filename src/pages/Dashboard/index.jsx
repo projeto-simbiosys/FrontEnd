@@ -13,11 +13,18 @@ export default function Dashboard() {
   const [relatorio, setRelatorio] = useState(null);
   const [loading, setLoading] = useState(true);
   const [currentChart, setCurrentChart] = useState(0);
-  const charts = [<BarChart />, <LineChart />];
+  const [selectedMonth, setSelectedMonth] = useState('all');
+
+  const charts = [
+    <BarChart selectedMonth={selectedMonth} />,
+    <LineChart />
+  ];
 
   const currentYear = new Date().getFullYear();
   const currentMonth = String(new Date().getMonth() + 1).padStart(2, '0');
   const mesAnoAtual = `${currentMonth}/${currentYear}`;
+
+  const labels = ['Jan', 'Fev', 'Mar', 'Abr', 'Mai', 'Jun', 'Jul', 'Ago', 'Set', 'Out', 'Nov', 'Dez'];
 
   useEffect(() => {
     setLoading(true);
@@ -87,9 +94,42 @@ export default function Dashboard() {
         </section>
 
         <section className="bg-white p-3 rounded-lg relative shadow-sm flex flex-col flex-grow">
-          <Typography level={2} weight="bold" className="text-sys-main mb-3">
-            Atividades Mensais
-          </Typography>
+          <div className="flex justify-between items-center mb-3">
+            <Typography level={2} weight="bold" className="text-sys-main">
+              Atividades Mensais
+            </Typography>
+
+            <div className="flex items-center gap-2">
+            <label
+              htmlFor="month-filter"
+              className="font-medium text-gray-700 text-sm"
+            >
+              Filtrar por mês:
+            </label>
+            <select
+              id="month-filter"
+              value={selectedMonth}
+              onChange={e => setSelectedMonth(e.target.value)}
+              className="rounded-lg border border-gray-300 bg-white px-3 py-2 text-sm font-medium text-gray-700 shadow-sm 
+                        focus:border-blue-500 focus:ring-2 focus:ring-blue-400 transition-all cursor-pointer
+                        hover:border-blue-400 hover:shadow-md"
+            >
+              <option value="all" className="font-semibold text-gray-600">
+                Todos
+              </option>
+              {labels.map((label, idx) => (
+                <option
+                  key={label}
+                  value={idx + 1}
+                  className="font-medium text-gray-700"
+                >
+                  {label}
+                </option>
+              ))}
+            </select>
+          </div>
+
+          </div>
 
           <button onClick={handlePrev} className="absolute left-4 top-1/2 transform -translate-y-1/2 p-2 text-gray-600 hover:text-gray-900 z-10">
             <ChevronLeft size={28} />
