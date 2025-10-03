@@ -7,7 +7,7 @@ const MenuHamburguerIcon = props => (
     viewBox="0 0 24 24"
   >
     <path
-      stroke="#9933FF"
+      stroke="currentColor"
       strokeLinecap="round"
       strokeLinejoin="round"
       strokeWidth="2"

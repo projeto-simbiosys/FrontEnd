@@ -33,6 +33,7 @@
   </div>
 
   <style>
+    /* === MENU DE ACESSIBILIDADE === */
     #acessibilidade-menu {
       position: fixed;
       top: 100px;
@@ -61,31 +62,26 @@
       color: #fff;
       font-size: 2rem;
       transition: background 0.2s;
-
     }
 
-    
     #acessibilidade-toggle::before {
-      width: 48px;
-      height: 48px;
+      width: 28px;
+      height: 28px;
       border-radius: 50%;
       content: "";
       display: block;
-      width: 28px;
-      height: 28px;
-      background-image: url('https://cdn-icons-png.flaticon.com/512/1512/1512642.png'); 
+      background-image: url('https://cdn-icons-png.flaticon.com/512/1512/1512642.png');
       background-size: contain;
       background-repeat: no-repeat;
       margin: auto;
     }
 
     #acessibilidade-menu.aberto #acessibilidade-toggle::before {
-      
       content: "";
       display: block;
       width: 28px;
       height: 28px;
-      background-image: url('https://cdn-icons-png.flaticon.com/512/1512/1512642.png'); 
+      background-image: url('https://cdn-icons-png.flaticon.com/512/1512/1512642.png');
       background-size: contain;
       background-repeat: no-repeat;
       margin: auto;
@@ -135,41 +131,167 @@
       color: #fff;
     }
 
-    
+    /* === MODO ALTO CONTRASTE === */
+    /* Ativa contraste para todos os componentes globalmente (sem exclusões).
+       Ajusta imagens e SVGs também para garantir legibilidade uniforme. */
     body.alto-contraste,
     body.alto-contraste * {
-      background-color: #000 !important;
-      color: #FFF !important;
-      border-color: #00FFFF !important;
+      background-color: #0f1724 !important; /* dark slate */
+      color: #f8fafc !important; /* off-white */
+      border-color: #ffca77 !important; /* soft amber accent */
       box-shadow: none !important;
     }
 
+  
+    body.alto-contraste img {
+      filter: grayscale(100%) contrast(1.05) brightness(0.9) !important;
+      background-color: transparent !important;
+    }
+
+    /* SVGs: force stroke/fill to follow current text color para consistência */
+    body.alto-contraste svg {
+      stroke: currentColor !important;
+      fill: currentColor !important;
+      color: inherit !important;
+    }
+
+    /* Override elements inside inline SVGs that have hard-coded fill/stroke attributes */
+    body.alto-contraste svg [fill]:not([fill="none"]) {
+      fill: currentColor !important;
+    }
+
+    body.alto-contraste svg [stroke]:not([stroke="none"]) {
+      stroke: currentColor !important;
+    }
+
+    /* Override inline style attributes like style="fill:#..." or style="stroke:#..." */
+    body.alto-contraste svg [style*="fill"] {
+      fill: currentColor !important;
+    }
+
+    body.alto-contraste svg [style*="stroke"] {
+      stroke: currentColor !important;
+    }
+
+    /* Replace gradient stop colors so gradients also adapt to currentColor */
+    body.alto-contraste svg stop {
+      stop-color: currentColor !important;
+      stop-opacity: 1 !important;
+    }
+
+    /* Ensure all SVG children inherit color where possible */
+    body.alto-contraste svg * {
+      color: inherit !important;
+    }
+
+    
+    body.alto-contraste img[src$=".svg"],
+    body.alto-contraste object[type="image/svg+xml"],
+    body.alto-contraste embed[type="image/svg+xml"] {
+      filter: grayscale(100%) contrast(1.15) brightness(0.95) !important;
+      -webkit-filter: grayscale(100%) contrast(1.15) brightness(0.95) !important;
+      background-color: transparent !important;
+    }
+
+    /* Menu de acessibilidade e painel: manter contraste consistente */
     body.alto-contraste #acessibilidade-menu {
       background: transparent !important;
     }
 
     body.alto-contraste #acessibilidade-toggle {
-      background: #00FFFF !important;
-      color: #000 !important;
+      background: #ffca77 !important; /* amber */
+      color: #0f1724 !important;
+      outline-offset: 2px;
     }
 
     body.alto-contraste #acessibilidade-conteudo {
-      background: #222 !important;
+      background: #111827 !important; /* dark panel */
+      border: 1px solid #ffca77 !important;
     }
 
     body.alto-contraste #acessibilidade-conteudo strong {
-      color: #00FFFF !important;
+      color: #ffca77 !important;
     }
 
     body.alto-contraste #acessibilidade-conteudo button {
-      background: #00FFFF !important;
-      color: #000 !important;
+      background: #ffca77 !important;
+      color: #0f1724 !important;
+      border: 1px solid #0f1724 !important;
     }
 
     body.alto-contraste #acessibilidade-conteudo button:hover,
     body.alto-contraste #acessibilidade-conteudo button:focus {
-      background: #fff !important;
-      color: #00FFFF !important;
+      background: #ffffff !important;
+      color: #ffca77 !important;
+      outline: 3px solid #ffca77 !important;
+    }
+
+    /* Melhorar visibilidade de foco para navegação por teclado */
+    body.alto-contraste a:focus,
+    body.alto-contraste button:focus,
+    body.alto-contraste input:focus,
+    body.alto-contraste select:focus,
+    body.alto-contraste textarea:focus {
+      outline: 3px solid #ffca77 !important;
+      outline-offset: 2px !important;
+      background-color: #111827 !important;
+      color: #f8fafc !important;
+    }
+
+    /* === CARDS E BOXES === */
+    body.alto-contraste .card,
+    body.alto-contraste .box,
+    body.alto-contraste .indicador {
+      background: #0b1220 !important; /* slightly lighter than pure black */
+      border: 2px solid #ffca77 !important; /* match soft amber accent */
+      color: #f8fafc !important;
+    }
+
+    body.alto-contraste .recharts-cartesian-axis-tick text,
+    body.alto-contraste .recharts-legend-item-text {
+      fill: #f8fafc !important;
+      font-weight: bold;
+    }
+
+
+    body.alto-contraste .recharts-bar-rectangle.ptr path,
+    body.alto-contraste .recharts-line.ptr path,
+    body.alto-contraste .recharts-area.ptr path,
+    body.alto-contraste .recharts-pie-sector.ptr path {
+      fill: #ffca77 !important; /* use amber for charts */
+      stroke: #ffca77 !important;
+    }
+
+    /* Cursos */
+    body.alto-contraste .recharts-bar-rectangle.cursos path,
+    body.alto-contraste .recharts-line.cursos path,
+    body.alto-contraste .recharts-area.cursos path,
+    body.alto-contraste .recharts-pie-sector.cursos path {
+      fill: #FFD700 !important;
+      stroke: #FFD700 !important;
+    }
+
+    /* Documentos */
+    body.alto-contraste .recharts-bar-rectangle.documentos path,
+    body.alto-contraste .recharts-line.documentos path,
+    body.alto-contraste .recharts-area.documentos path,
+    body.alto-contraste .recharts-pie-sector.documentos path {
+      fill: #FF00FF !important;
+      stroke: #FF00FF !important;
+    }
+
+    /* Relatórios */
+    body.alto-contraste .recharts-bar-rectangle.relatorios path,
+    body.alto-contraste .recharts-line.relatorios path,
+    body.alto-contraste .recharts-area.relatorios path,
+    body.alto-contraste .recharts-pie-sector.relatorios path {
+      fill: #00FF00 !important;
+      stroke: #00FF00 !important;
+    }
+
+    /* Ajuste bordas de setores */
+    body.alto-contraste .recharts-pie-sector path {
+      stroke-width: 2px !important;
     }
 
     @keyframes fadeIn {
@@ -210,7 +332,6 @@
       document.body.classList.remove('alto-contraste');
     }
 
-    
     const menu = document.getElementById('acessibilidade-menu');
     const toggle = document.getElementById('acessibilidade-toggle');
     menu.classList.add('fechado');
@@ -224,12 +345,11 @@
       }
     });
 
- 
+    // Arrastar o menu
     let isDragging = false;
     let offsetX, offsetY;
 
     menu.addEventListener('mousedown', function (e) {
-      
       if (e.target === menu || e.target === toggle) {
         isDragging = true;
         menu.classList.add('dragging');
@@ -243,7 +363,6 @@
       if (isDragging) {
         let x = e.clientX - offsetX;
         let y = e.clientY - offsetY;
-        // Mantém o menu dentro da tela
         x = Math.max(0, Math.min(window.innerWidth - menu.offsetWidth, x));
         y = Math.max(0, Math.min(window.innerHeight - menu.offsetHeight, y));
         menu.style.left = x + 'px';
@@ -259,7 +378,6 @@
       }
     });
 
-    
     menu.addEventListener('touchstart', function (e) {
       if (e.target === menu || e.target === toggle) {
         isDragging = true;

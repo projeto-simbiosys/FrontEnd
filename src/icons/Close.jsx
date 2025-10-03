@@ -9,7 +9,7 @@ const CloseIcon = props => (
     <g id="Menu / Close_MD">
       <path
         id="Vector"
-        stroke="#9933FF"
+        stroke="currentColor"
         strokeLinecap="round"
         strokeLinejoin="round"
         strokeWidth="2"

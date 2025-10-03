@@ -16,7 +16,7 @@ const Warning = ({ ...props }) => (
     </g>
     <defs>
       <clipPath id="clip0_258_2625">
-        <path fill="#fff" d="M0 0h25v25H0z"></path>
+        <path fill="currentColor" d="M0 0h25v25H0z"></path>
       </clipPath>
     </defs>
   </svg>
