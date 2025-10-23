@@ -17,6 +17,7 @@ export default function Footer() {
         {/* Linha divisória */}
         <hr className="my-6 border-gray-300" />
 
+
         {/* Links e Redes sociais */}
         <div className="flex flex-col lg:flex-row justify-between items-start lg:items-center">
           {/* Links de navegação */}
