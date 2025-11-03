@@ -49,20 +49,18 @@ export default function ResetPassword() {
     try {
       const res = await resetPassword(email, password);
 
-      const data = await res.data;
+      // const data = await res.data;
       if (!res.ok) {
-        const msg = data?.error || data?.message || "Erro ao redefinir senha.";
-        setError(msg);
-      } else {
         setSuccess(
           "Senha atualizada com sucesso! Você já pode entrar com a nova senha."
         );
         setPassword("");
         setConfirm("");
-
         setInterval(() => {
           window.location.href = "/login";
-        }, 3000);
+        }, 2000);
+      } else {
+        console.log(res);
       }
     } catch (err) {
       setError(err.message || "Erro de rede.");
