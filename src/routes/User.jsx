@@ -7,6 +7,7 @@ import Login from "../pages/Login";
 import ForgotPassword from "../pages/ForgotPassword/index.jsx";
 import { SidebarProvider } from "../context/SidebarContext";
 import { ScrollToTop } from "../components/ScrollToTop.jsx";
+import ResetPassword from "../pages/ResetPassword/index.jsx";
 
 export default function UserRoutes() {
   return (
@@ -19,6 +20,7 @@ export default function UserRoutes() {
         <Route path="/register" element={<Register />} />
         <Route path="/login" element={<Login />} />
         <Route path="/forgot-password" element={<ForgotPassword />} />
+        <Route path="/reset/:email" element={<ResetPassword />} />
       </Routes>
     </SidebarProvider>
   );
