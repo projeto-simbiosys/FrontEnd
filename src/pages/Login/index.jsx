@@ -114,6 +114,13 @@ export default function Login() {
             )}
           </label>
 
+          <Link
+            to="/forgot-password"
+            className="self-end text-sys-main underline text-sm font-bold"
+          >
+            Esqueci minha senha
+          </Link>
+
           <div className="flex flex-col items-center gap-2 justify-center mt-4">
             <div>
               <Button
