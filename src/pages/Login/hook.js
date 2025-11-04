@@ -62,7 +62,6 @@ export default function useRegister() {
   }
 
   return {
-    navigate,
     form: {
       register,
       handleSubmit,
