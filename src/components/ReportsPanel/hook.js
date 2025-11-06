@@ -1,6 +1,6 @@
-import { useQuery, useQueryClient } from "@tanstack/react-query";
+import { useQuery } from "@tanstack/react-query";
 import { useEffect, useState } from "react";
-import { getReportsByYear } from "../../services/reportsService";
+import { getAllReports, getReportsByYear } from "../../services/reportsService";
 import reportsListAdapter from "../../adapters/reportsListAdapter";
 import availableYearsListAdapter from "../../adapters/availableYearsListAdapter";
 import { useNavigate } from "react-router";
@@ -16,6 +16,7 @@ export default function useReportsPanel() {
     open: true,
     closed: true,
   });
+  const [page, setPage] = useState(0);
 
   const navigate = useNavigate();
 
@@ -28,7 +29,7 @@ export default function useReportsPanel() {
     }));
   };
 
-  const queryClient = useQueryClient();
+  const isAllYears = selectedYearTab === "todos";
 
   const {
     data: reportsData,
@@ -36,19 +37,22 @@ export default function useReportsPanel() {
     isLoading: reportsDataLoading,
     isFetching: reportsDataFetching,
     isSuccess: reportsDataSuccess,
+    refetch: refetchReports,
   } = useQuery({
-    queryKey: ["reportsByYear", selectedYearTab],
-    queryFn: () => getReportsByYear(selectedYearTab),
+    queryKey: ["reportsByYear", isAllYears ? "todos" : selectedYearTab],
+    queryFn: () =>
+      isAllYears ? getAllReports(page) : getReportsByYear(selectedYearTab),
     enabled: selectedYearTab !== undefined,
   });
 
   const reportsListAdapted = reportsListAdapter(reportsData?.data);
+  console.log(reportsListAdapted);
 
   useEffect(() => {
-    queryClient.refetchQueries({
-      queryKey: ["reportsByYear", selectedYearTab],
-    });
-  }, [selectedYearTab]);
+    if (selectedYearTab !== undefined) {
+      refetchReports();
+    }
+  }, [selectedYearTab, refetchReports, page]);
 
   return {
     tabs: {
@@ -57,13 +61,19 @@ export default function useReportsPanel() {
       isLoading: reportsDataLoading || reportsDataFetching,
       handleTabChange: setSelectedYearTab,
     },
+    pagination: {
+      ActualPage: page + 1,
+      onChange: page => setPage(page),
+      totalPages: reportsListAdapted.totalPages,
+    },
     reports: {
+      showAll: isAllYears,
       data: reportsListAdapted ? reportsListAdapted : [],
       error: reportsDataError,
       isLoading: reportsDataLoading || reportsDataFetching,
       isSuccess: reportsDataSuccess,
       isEmpty: reportsListAdapted?.length === 0,
-      countClosed: reportsListAdapted?.filter(report => report.isClosed)
+      countClosed: reportsListAdapted?.list?.filter(report => report.isClosed)
         ?.length,
     },
     filter: {

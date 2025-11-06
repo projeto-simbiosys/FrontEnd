@@ -9,10 +9,18 @@ import { AnimatePresence, motion } from "framer-motion";
 import ReportsError from "../ReportsError";
 import Warning from "../../icons/Warning";
 import ReportPeriodModal from "../ReportPeriodModal";
+import Pagination from "../Pagination";
 
 export default function ReportsPanel() {
-  const { tabs, reports, filter, reportPeriodModal, isOnline, navigate } =
-    useReportsPanel();
+  const {
+    tabs,
+    pagination,
+    reports,
+    filter,
+    reportPeriodModal,
+    isOnline,
+    navigate,
+  } = useReportsPanel();
 
   return (
     <div className="flex flex-col items-end gap-2">
@@ -49,7 +57,9 @@ export default function ReportsPanel() {
         <Button
           variant="sys-primary"
           className="self-end sm:ml-auto"
-          disabled={!isOnline || reports.data.length === 12}
+          disabled={
+            !isOnline || reports.data?.list?.length === 12 || reports.showAll
+          }
           onClick={() =>
             navigate("/admin/reports/new", {
               state: {
@@ -88,20 +98,24 @@ export default function ReportsPanel() {
               </Button>
             </>
           )}
-          {isOnline &&
-            !tabs.isLoading &&
-            tabs.values.map(year => (
-              <Button
-                key={year}
-                variant={tabs.active === year ? "sys-primary" : "sys-light"}
-                className={`!py-1 !px-2.5 ${
-                  tabs.active !== year ? "!text-sys-secondary" : ""
-                }`}
-                onClick={() => tabs.handleTabChange(year)}
-              >
-                {year}
-              </Button>
-            ))}
+          <div className="h-full flex flex-row md:flex-col">
+            {isOnline && !tabs.isLoading && (
+              <>
+                {tabs.values.map(year => (
+                  <Button
+                    key={year}
+                    variant={tabs.active === year ? "sys-primary" : "sys-light"}
+                    className={`!py-1 !px-2.5 ${
+                      tabs.active !== year ? "!text-sys-secondary" : ""
+                    }`}
+                    onClick={() => tabs.handleTabChange(year)}
+                  >
+                    {year}
+                  </Button>
+                ))}
+              </>
+            )}
+          </div>
         </Tabs>
 
         <div className="border border-solid border-divider/30"></div>
@@ -137,56 +151,68 @@ export default function ReportsPanel() {
       </div>
 
       <div className="w-full flex flex-col justify-between sm:flex-row">
-        <div className="flex gap-4 sm:gap-8">
-          <Typography size="normal" weight="regular">
-            Meses:{" "}
-            {reports.isLoading || tabs.isLoading ? (
-              <span className="text-transparent inline-block bg-gray-disabled rounded animate-pulse">
-                000
-              </span>
-            ) : (
-              <>
-                <AnimatePresence mode="wait">
-                  <motion.span
-                    key={reports.data.length}
-                    initial={{ opacity: 0, y: -4 }}
-                    animate={{ opacity: 1, y: 0 }}
-                    exit={{ opacity: 0, y: 4 }}
-                    transition={{ duration: 0.2 }}
-                    className="inline-block"
-                  >
-                    {reports.data.length}
-                  </motion.span>
-                </AnimatePresence>
-                /12
-              </>
-            )}
-          </Typography>
+        {!reports.showAll && (
+          <div className="flex gap-4 sm:gap-8">
+            <Typography size="normal" weight="regular">
+              Meses:{" "}
+              {reports.isLoading || tabs.isLoading ? (
+                <span className="text-transparent inline-block bg-gray-disabled rounded animate-pulse">
+                  000
+                </span>
+              ) : (
+                <>
+                  <AnimatePresence mode="wait">
+                    <motion.span
+                      key={reports.data.list.length}
+                      initial={{ opacity: 0, y: -4 }}
+                      animate={{ opacity: 1, y: 0 }}
+                      exit={{ opacity: 0, y: 4 }}
+                      transition={{ duration: 0.2 }}
+                      className="inline-block"
+                    >
+                      {reports.data.list.length}
+                    </motion.span>
+                  </AnimatePresence>
+                  /12
+                </>
+              )}
+            </Typography>
 
-          <Typography size="normal" weight="regular">
-            Fechados:{" "}
-            {reports.isLoading || tabs.isLoading ? (
-              <span className="text-transparent inline-block bg-gray-disabled rounded animate-pulse">
-                000
-              </span>
-            ) : (
-              <>
-                <AnimatePresence mode="wait">
-                  <motion.span
-                    key={`${reports.countClosed}/${reports.data.length}`}
-                    initial={{ opacity: 0, y: -4 }}
-                    animate={{ opacity: 1, y: 0 }}
-                    exit={{ opacity: 0, y: 4 }}
-                    transition={{ duration: 0.2 }}
-                    className="inline-block"
-                  >
-                    {reports.countClosed}/{reports.data.length}
-                  </motion.span>
-                </AnimatePresence>
-              </>
-            )}
-          </Typography>
-        </div>
+            <Typography size="normal" weight="regular">
+              Fechados:{" "}
+              {reports.isLoading || tabs.isLoading ? (
+                <span className="text-transparent inline-block bg-gray-disabled rounded animate-pulse">
+                  000
+                </span>
+              ) : (
+                <>
+                  <AnimatePresence mode="wait">
+                    <motion.span
+                      key={`${reports.countClosed}/${reports.data.length}`}
+                      initial={{ opacity: 0, y: -4 }}
+                      animate={{ opacity: 1, y: 0 }}
+                      exit={{ opacity: 0, y: 4 }}
+                      transition={{ duration: 0.2 }}
+                      className="inline-block"
+                    >
+                      {reports.countClosed}/{reports.data.list.length}
+                    </motion.span>
+                  </AnimatePresence>
+                </>
+              )}
+            </Typography>
+          </div>
+        )}
+
+        {!reports.isLoading && reports.showAll && (
+          <div className="flex items-center">
+            <Pagination
+              paginaAtual={pagination.ActualPage}
+              totalPaginas={pagination.totalPages}
+              onChange={pagination.onChange}
+            />
+          </div>
+        )}
 
         <ReportPeriodModal
           show={reportPeriodModal.show}

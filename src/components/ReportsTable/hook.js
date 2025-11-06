@@ -47,7 +47,7 @@ export default function useReportsTable({ reports, filters }) {
     "Dezembro",
   ];
 
-  const filteredReports = reports
+  const filteredReports = reports.list
     .filter(report => {
       if (filters.open && filters.closed) return true;
       if (filters.open && report.status === "Aberto") return true;

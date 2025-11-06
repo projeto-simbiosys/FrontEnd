@@ -21,8 +21,8 @@ export default function useExistingMonthsByYear(year) {
 
   const reports = queryClient.getQueryData(["reportsByYear", year]);
 
-  if (reports?.data) {
-    const monthsToSelect = reports.data.map(report => {
+  if (reports?.data?.content) {
+    const monthsToSelect = reports.data.content.map(report => {
       const monthYear = report.mesAno.split("/");
 
       return {

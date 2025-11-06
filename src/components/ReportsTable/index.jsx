@@ -84,7 +84,9 @@ export default function ReportsTable({ reports, filters }) {
                     className="bg-white border-b border-b-gray-disabled/50"
                   >
                     <td className="py-2 whitespace-nowrap pl-1 pr-6 text-sm font-bold text-gray-900">
-                      {formatAbbr(report.month)}
+                      {`${formatAbbr(report.month)}/${
+                        reports.totalPages ? report.year.substring(2) : ""
+                      }`}
                     </td>
                     <td className="text-sm text-gray-900 font-base py-2 whitespace-nowrap pl-1 pr-6">
                       {report.lastUpdate}

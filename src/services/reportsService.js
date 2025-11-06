@@ -35,3 +35,12 @@ export function generateUrlToDownloadPeriodReport(startMonth, endMonth) {
     `/relatorios/exportar/periodo?de=${startMonth}&para=${endMonth}`
   );
 }
+
+export function getAllReports(page, size) {
+  return axiosInstance.get("/relatorios/listar", {
+    params: {
+      page,
+      size,
+    },
+  });
+}

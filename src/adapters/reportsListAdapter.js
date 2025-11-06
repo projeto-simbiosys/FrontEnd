@@ -2,6 +2,7 @@ import capitalizeWords from "../utils/capitalizeWords";
 import { formatDate } from "../utils/formatDate";
 
 export default function reportsListAdapter(reports) {
+  console.log(reports);
   if (!reports) return [];
   const monthsOrdened = [
     "janeiro",
@@ -33,7 +34,7 @@ export default function reportsListAdapter(reports) {
     12: "dezembro",
   };
 
-  const reportsList = reports?.map(report => {
+  const reportsList = reports?.content?.map(report => {
     const monthYear = report.mesAno.split("/");
     const monthFormatted = months[monthYear[0]];
     const statusFormatted = report.aberto ? "Aberto" : "Fechado";
@@ -54,8 +55,10 @@ export default function reportsListAdapter(reports) {
     };
   });
 
-  return reportsList?.sort(
+  const list = reportsList?.sort(
     (current, next) =>
       monthsOrdened.indexOf(current?.month) - monthsOrdened.indexOf(next?.month)
   );
+
+  return { list, totalPages: reports?.totalPages };
 }

@@ -14,22 +14,22 @@ export default function Sidebar() {
 
   return (
     <>
-     <div className="h-screen flex flex-col py-12 px-2 left-0 bg-gradient-to-b from-blue-200 to-blue-500 rounded shadow-md">
-  <div className="w-full flex justify-center items-center gap-5">
-    {sidebar.toogleButton.open && (
-      <img
-        src={Logo}
-        className="h-[25px] transition-all duration-200 translate-x-0 opacity-100 ml-4"
-        alt="logo da empresa"
-      />
-    )}
-    <Button
-      className={`cursor-pointer transition duration-250 ease-in-out !px-2.5 sm:!px-5 shadow-none ${sidebar.toogleButton.style}`}
-      onClick={sidebar.toogleButton.handleToogle}
-    >
-      <CloseSidebar height={25} width={25} />
-    </Button>
-  </div>
+      <div className="h-screen flex flex-col py-12 px-2 left-0 bg-gradient-to-b from-blue-200 to-blue-500 rounded shadow-md">
+        <div className="w-full flex justify-center items-center gap-5">
+          {sidebar.toogleButton.open && (
+            <img
+              src={Logo}
+              className="h-[25px] transition-all duration-200 translate-x-0 opacity-100 ml-4"
+              alt="logo da empresa"
+            />
+          )}
+          <Button
+            className={`cursor-pointer transition duration-250 ease-in-out !px-2.5 sm:!px-5 shadow-none ${sidebar.toogleButton.style}`}
+            onClick={sidebar.toogleButton.handleToogle}
+          >
+            <CloseSidebar height={25} width={25} />
+          </Button>
+        </div>
 
         <div className="border border-solid border-divider/30 my-8"></div>
 
@@ -100,7 +100,6 @@ export default function Sidebar() {
           )}
         </Button>
       </div>
-      <div className="w-[61px] sm:w-[81px] shrink-0 h-screen"></div>
     </>
   );
 }

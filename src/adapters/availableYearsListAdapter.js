@@ -3,9 +3,10 @@ export default function availableYearsListAdapter() {
   const currentYear = new Date().getFullYear();
   const yearDiff = currentYear - yearBase;
 
-  const years = Array.from({ length: yearDiff + 1 }, (_, i) => ({
-    year: yearBase + i,
-  }));
+  const years = Array.from(
+    { length: yearDiff + 1 },
+    (_, i) => yearBase + i
+  ).sort((a, b) => b - a);
 
-  return years?.sort((current, next) => next - current).map(item => item.year);
+  return ["todos", ...years];
 }
