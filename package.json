@@ -14,7 +14,6 @@
   },
   "scripts": {
     "start": " \"npm run dev\"",
-    "postinstall": "npm install",
     "dev": "vite",
     "build": "vite build",
     "lint": "eslint .",
