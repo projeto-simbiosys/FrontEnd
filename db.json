@@ -1,16 +1,13 @@
 {
-  "users": [
+  "reportsYears": [
     {
-      "id": "6792",
-      "name": "rodrigo",
-      "email": "rodrigo@email.com",
-      "password": "123123123@"
+      "year": "2025",
+      "id": "4081"
     },
     {
-      "id": "6572",
-      "name": "matheus",
-      "email": "matheus@gmail.com",
-      "password": "123123@@"
+      "year": "2024",
+      "id": "02c0"
     }
-  ]
+  ],
+  "reports": []
 }
