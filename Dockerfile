@@ -12,7 +12,7 @@ RUN npm run build
 
 # Etapa 2 — Servir os arquivos com Nginx
 FROM nginx:alpine
-COPY --from=builder ./dist /usr/share/nginx/html
+COPY --from=builder /app/dist /usr/share/nginx/html
 
 COPY ./default.conf /etc/nginx/conf.d/
 
