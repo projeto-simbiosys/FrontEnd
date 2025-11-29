@@ -163,14 +163,14 @@ export default function ReportsPanel() {
                 <>
                   <AnimatePresence mode="wait">
                     <motion.span
-                      key={reports.data.list.length}
+                      key={reports.data.length}
                       initial={{ opacity: 0, y: -4 }}
                       animate={{ opacity: 1, y: 0 }}
                       exit={{ opacity: 0, y: 4 }}
                       transition={{ duration: 0.2 }}
                       className="inline-block"
                     >
-                      {reports.data.list.length}
+                      {reports.data.length}
                     </motion.span>
                   </AnimatePresence>
                   /12
@@ -195,7 +195,7 @@ export default function ReportsPanel() {
                       transition={{ duration: 0.2 }}
                       className="inline-block"
                     >
-                      {reports.countClosed}/{reports.data.list.length}
+                      {reports.countClosed || 0}/{reports.data.length}
                     </motion.span>
                   </AnimatePresence>
                 </>

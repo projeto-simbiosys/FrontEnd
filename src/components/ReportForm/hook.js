@@ -60,6 +60,9 @@ export default function useReportForm(year, month) {
 
   const handleError = () => {
     triggerNotification(3000);
+    setTimeout(() => {
+      navigate("/admin/reports");
+    }, 3000);
   };
 
   const handleSettled = () => {
@@ -168,10 +171,12 @@ export default function useReportForm(year, month) {
     saveButton: {
       isLoading: id ? mutationUpdate.isPending : mutationCreate.isPending,
       isSuccess: id ? mutationUpdate.isSuccess : mutationCreate.isSuccess,
+      isError: id ? mutationUpdate.isError : mutationCreate.isError,
     },
     saveAndCloseButton: {
       isLoading: id ? mutationUpdate.isPending : mutationCreate.isPending,
       isSuccess: id ? mutationUpdate.isSuccess : mutationCreate.isSuccess,
+      isError: id ? mutationUpdate.isError : mutationCreate.isError,
     },
     saveReport: handleFormSubmit("open"),
   };
