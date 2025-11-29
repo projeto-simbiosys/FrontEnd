@@ -2,6 +2,14 @@
 FROM node:18 AS builder
 WORKDIR /app
 
+# Declara os build args
+ARG VITE_URL_API
+ARG VITE_SUPABASE
+
+# Disponibiliza os args como variáveis
+ENV VITE_URL_API=$VITE_URL_API
+ENV VITE_SUPABASE=$VITE_SUPABASE
+
 # Copia o package.json e instala dependências
 COPY package*.json ./
 RUN npm ci
