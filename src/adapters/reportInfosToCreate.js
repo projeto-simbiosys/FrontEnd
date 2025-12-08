@@ -6,7 +6,6 @@ export default function reportInfosToCreate(
   reportInfos,
   statusReport
 ) {
-  console.log(reportInfos);
   const monthOrder = {
     Janeiro: "01",
     Fevereiro: "02",

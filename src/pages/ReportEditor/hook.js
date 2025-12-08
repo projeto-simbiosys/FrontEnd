@@ -45,10 +45,6 @@ export default function useReportEditor(mode) {
   }, [existingMonthsByYear]);
 
   useEffect(() => {
-    // if (mode === "edit" && !location.state?.reportsTable) {
-    //   navigate("/admin/reports", { replace: true });
-    // }
-
     if (!isEdit && existMonths.length === 0) {
       const storedMonths = JSON.parse(
         localStorage.getItem("existingMonths") || "[]"

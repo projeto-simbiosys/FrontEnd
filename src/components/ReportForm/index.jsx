@@ -96,8 +96,10 @@ export default function ReportForm({ year, month }) {
           onClick={saveReport}
           disabled={
             saveButton.isLoading ||
+            saveButton?.isError ||
             saveButton.isSuccess ||
             saveAndcloseButton?.isLoading ||
+            saveAndcloseButton?.isError ||
             saveAndcloseButton?.isSuccess
           }
         >
@@ -110,8 +112,10 @@ export default function ReportForm({ year, month }) {
           onClick={modal.open}
           disabled={
             saveButton?.isLoading ||
+            saveButton?.isError ||
             saveButton?.isSuccess ||
             saveAndcloseButton?.isLoading ||
+            saveAndcloseButton?.isError ||
             saveAndcloseButton?.isSuccess
           }
         >
